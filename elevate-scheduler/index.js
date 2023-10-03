@@ -9,8 +9,8 @@ const getDependencies = () => {
 
 const getPackageMeta = () => {
 	return {
-		basePackageName: 'notification',
-		packageName: 'elevate-notification',
+		basePackageName: 'scheduler',
+		packageName: 'elevate-scheduler',
 	}
 }
 
@@ -25,7 +25,7 @@ const createPackage = (options) => {
 }
 
 router.get('/', (req, res) => {
-	res.send('Hello, world! From notification package')
+	res.send('Hello, world! From scheduler package')
 })
 
 module.exports = {

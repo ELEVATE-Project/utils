@@ -1,6 +1,44 @@
-module.exports = [
-	{ route: '/v1/get-user-photo', config: [{ type: 'GET' }] },
-	{ route: '/v1/get-user-profile', config: [{ type: 'POST' }] },
-	{ route: '/v1/get-sharelink', config: [{ type: 'PUT' }, { type: 'PATCH' }] },
-	{ route: '/v1/get-user-details', config: [{ type: 'DELETE' }] },
-];
+module.exports = {
+	routes: [
+		{
+			sourceRoute: '/scheduler/jobs/list',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scheduler/jobs/list',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/create',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scheduler/jobs/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/remove',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scheduler/jobs/remove',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/purge',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scheduler/jobs/purge',
+				type: 'POST',
+			},
+		},
+	],
+}
