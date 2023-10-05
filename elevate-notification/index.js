@@ -2,8 +2,8 @@ const packageRouter = require('./router')
 
 const getPackageMeta = () => {
 	return {
-		basePackageName: 'mentoring',
-		packageName: 'elevate-mentoring',
+		basePackageName: 'notification',
+		packageName: 'elevate-notification',
 	}
 }
 
