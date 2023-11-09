@@ -6,6 +6,10 @@ const createUser = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body)
 }
+const reActivateAccount = async (req, res, response) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body)
+}
 const updateUser = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
 
@@ -22,6 +26,7 @@ const entityTypeRead = async (req, res, responses) => {
 
 const userController = {
 	createUser,
+	reActivateAccount,
 	updateUser,
 	entityTypeRead,
 }

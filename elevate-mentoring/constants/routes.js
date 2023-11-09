@@ -853,6 +853,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/interface/v1/account/reActivate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: true,
+			targetRoute: {
+				path: '/mentoring/v1/profile/reActivate',
+				type: 'POST',
+				functionName: 'reActivate',
+			},
+		},
+		{
 			sourceRoute: '/interface/v1/entity-type/read',
 			type: 'POST',
 			inSequence: false,

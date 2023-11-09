@@ -23,6 +23,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/interface/v1/account/reActivate',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/account/reActivate',
+				type: 'POST',
+				functionName: 'reActivateAccount',
+			},
+		},
+		{
 			sourceRoute: '/interface/user-signup',
 			type: 'POST',
 			inSequence: true,
