@@ -34,6 +34,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/account/reActivateOtp',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/reActivateOtp',
+				type: 'POST',
+				functionName: 'reActivateAccount',
+			},
+		},
+		{
 			sourceRoute: '/interface/user-signup',
 			type: 'POST',
 			inSequence: true,
