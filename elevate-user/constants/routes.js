@@ -41,7 +41,6 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/account/reActivateOtp',
 				type: 'POST',
-				functionName: 'reActivateAccount',
 			},
 		},
 		{
