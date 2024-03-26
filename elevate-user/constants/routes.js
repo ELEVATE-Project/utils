@@ -749,6 +749,28 @@ module.exports = {
 				type: 'POST',
 			},
 		},
+		{
+			sourceRoute: '/user/v1/organization/addRelatedOrg/:org_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/addRelatedOrg/:org_id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/removeRelatedOrg/:org_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/removeRelatedOrg/:org_id',
+				type: 'POST',
+			},
+		},
 	],
 }
 

@@ -247,6 +247,81 @@ module.exports = class GcpFileHelper {
 	}
 
 	/**
+      * Get downloadable url of uploaded object
+      * @method
+      * @name getSignedDownloadableUrl
+      * @param  {destFilePath} destFilePath     - Stored file path - location from bucket - ex - users/profile.png
+      * @param  {string} bucketName             - google cloud storage bucket in which action is peformed over file
+      * @param  {string} gcpProjectId           - google cloud storage project id
+      * @param  {string} gcpJsonFilePath        - google cloud storage json configuration file absolute path for connectivity
+      * @param  {string} expiry                 - downloadable url expiration time - In ms from current time - type number | string | Date
+      * @returns {Promise<string>}              - Downloadable url
+      * @see gcpProjectId                       - Get from gcp console
+      * @see gcpJsonFilePath -                  - Download file from manage storage api key section
+    */
+    static async getSignedDownloadableUrl({ destFilePath, bucketName, gcpProjectId, gcpJsonFilePath, expiry }) {
+        // Ensure all parameters are provided
+        if (!destFilePath) {
+            const error = new Error('destFilePath is not passed in parameter')
+            error.code = 500
+            throw error
+        }
+
+        if (typeof destFilePath !== 'string') {
+            const error = new Error('expected destFilePath as string')
+            error.code = 500
+            throw error
+        }
+
+        if (!bucketName) {
+            const error = new Error('bucketName is not passed in parameter')
+            error.code = 500
+            throw error
+        }
+
+        if (!gcpProjectId) {
+            const error = new Error('gcpProjectId is not passed in parameter')
+            error.code = 500
+            throw error
+        }
+
+        if (!gcpJsonFilePath) {
+            const error = new Error('gcpJsonFilePath is not passed in parameter')
+            error.code = 500
+            throw error
+        }
+
+        if (typeof gcpJsonFilePath !== 'string') {
+            const error = new Error('expected gcpJsonFilePath as string')
+            error.code = 500
+            throw error
+        }
+		// Set default expiry time to 15 minutes (if expiry is not provided)
+		const defaultExpiry = 15 * 60 * 1000 // 15 minutes in milliseconds
+		const expires = expiry || (Date.now() + defaultExpiry)
+    
+        // Instantiate the cloud storage client
+        const storage = new Storage({
+            projectId: gcpProjectId,
+            keyFilename: gcpJsonFilePath
+        })
+        
+        try {
+            // Generate a signed URL for downloading the file
+            const options = {
+                version: 'v4',
+                action: 'read',
+                expires: expires,
+            }
+            const [signedUrl] = await storage.bucket(bucketName).file(destFilePath).getSignedUrl(options)
+            
+            return signedUrl; // Return the signed URL for downloading the file
+        } catch (error) {
+            throw error
+        }
+    }
+
+	/**
 	 * Delete a folder and its contents from a GCP bucket.
 	 * @param {string} bucketName - Google Cloud Storage bucket name.
 	 * @param {string} folderPath - Name of the folder to delete.
