@@ -886,17 +886,6 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/interface/v1/account/login',
-			type: 'POST',
-			inSequence: true,
-			orchestrated: true,
-			targetRoute: {
-				path: '/mentoring/v1/role-permission-mapping/list',
-				type: 'POST',
-				functionName: 'rolePermissions',
-			},
-		},
-		{
 			sourceRoute: '/mentoring/v1/role-permission-mapping/list',
 			type: 'POST',
 			priority: 'MUST_HAVE',
