@@ -8,6 +8,12 @@ const createProfile = async (req, res, responses) => {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
 }
+const reActivate = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
+		'X-auth-token': `bearer ${responses.user.result.access_token}`,
+	})
+}
 const updateUser = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
 
@@ -32,6 +38,7 @@ const rolePermissions = async (req, res, responses) => {
 
 mentoringController = {
 	createProfile,
+	reActivate,
 	updateUser,
 	entityTypeRead,
 	rolePermissions,
