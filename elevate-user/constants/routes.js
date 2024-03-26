@@ -771,6 +771,17 @@ module.exports = {
 				type: 'POST',
 			},
 		},
+		{
+			sourceRoute: '/user/v1/account/changePassword',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/changePassword',
+				type: 'POST',
+			},
+		}
 	],
 }
 
