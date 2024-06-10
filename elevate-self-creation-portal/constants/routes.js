@@ -356,5 +356,25 @@ module.exports = {
 				type: 'GET'
 			},
 		},
+		{
+			sourceRoute: '/scp/v1/comment/list',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/comment/list',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/comment/update',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/comment/update',
+				type: 'POST'
+			},
+		},
 	],
 }
