@@ -903,7 +903,7 @@ module.exports = {
 			orchestrated: true,
 			targetRoute: {
 				paths: [
-					{ path: '/mentoring/v1/external/create', type: 'POST' },
+					{ path: '/mentoring/v1/users/create', type: 'POST' },
 					{ path: '/mentoring/v1/profile/read', type: 'GET' },
 				],
 				type: 'POST',

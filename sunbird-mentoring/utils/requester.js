@@ -27,6 +27,33 @@ const passThroughRequester = async (req, res) => {
 			port: parsedUrl.port,
 			path: parsedUrl.pathname + sourceUrl.search,
 		}
+		console.log({
+            sourceBaseUrl,
+            sourceUrl: {
+                href: sourceUrl.href,
+                origin: sourceUrl.origin,
+                pathname: sourceUrl.pathname,
+            },
+            route: {
+                sourceRoute: route.sourceRoute,
+                type: route.type,
+            },
+            params,
+            targetRoute,
+            parsedUrl: {
+                href: parsedUrl.href,
+                origin: parsedUrl.origin,
+                pathname: parsedUrl.pathname,
+            },
+            options: {
+                method: options.method,
+                headers: {
+                    'content-type': options.headers['content-type'],
+                    internal_access_token: options.headers.internal_access_token,
+                },
+            }
+        });
+        
 		const proxyReq = (parsedUrl.protocol === 'https:' ? https : http).request(options, (proxyRes) => {
 			res.writeHead(proxyRes.statusCode, proxyRes.headers)
 			proxyRes.pipe(res, { end: true })

@@ -141,9 +141,9 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/api/user/private/v1/read/:id',
+				path: '/private/user/v1/read/:id',
 				type: 'GET',
-                functionName: 'readUserById'
+				functionName: 'readUserById',
 			},
 		},
 		{
@@ -152,9 +152,9 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/api/user/private/v1/read/:id',
+				path: '/private/user/v1/read/:id',
 				type: 'GET',
-                functionName: 'readUserWithToken'
+				functionName: 'readUserWithToken',
 			},
 		},
 		{
