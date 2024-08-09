@@ -709,6 +709,50 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/elevate-user/v1/permissions/create',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/elevate-user/v1/permissions/update/:id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/elevate-user/v1/permissions/list',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/elevate-user/v1/permissions/delete/:id',
+			type: 'DELETE',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/modules/create',
 			type: 'POST',
 			priority: 'MUST_HAVE',
