@@ -179,6 +179,15 @@ module.exports = {
 				path: '/project/v1/userProjects/certificates',
 				type: 'GET'
 			},
+		},		{
+			sourceRoute: '/project/v1/configurations/read',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/project/v1/configurations/read',
+				type: 'GET'
+			},
 		},
 		{
 			sourceRoute: '/project/v1/userProjects/tasksStatus',
