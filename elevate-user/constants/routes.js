@@ -759,6 +759,39 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/elevate-user/v1/role-permission-mapping/create/:id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/role-permission-mapping/create/:id',
+				type: 'POST',
+			},
+		},	
+		{
+			sourceRoute: '/elevate-user/v1/role-permission-mapping/list',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/role-permission-mapping/list',
+				type: 'GET',
+			},
+		},	
+		{
+			sourceRoute: '/elevate-user/v1/role-permission-mapping/delete/:id',
+			type: 'DELETE',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/delete/:id',
+				type: 'DELETE',
+			},
+		},	
+		{
 			sourceRoute: '/user/v1/role-permission-mapping/create/:role_id',
 			type: 'POST',
 			priority: 'MUST_HAVE',
