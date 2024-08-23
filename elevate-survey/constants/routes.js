@@ -670,6 +670,16 @@ module.exports = {
 				type: 'GET'
 			},
 		},
+		{
+			sourceRoute: '/samiksha/v1/questions/bulkCreate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/samiksha/v1/questions/bulkCreate',
+				type: 'POST'
+			},
+		},
 	],
 }
 
