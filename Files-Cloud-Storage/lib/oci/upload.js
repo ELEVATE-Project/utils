@@ -238,10 +238,12 @@ module.exports = class OCIFileHelper {
 	 * @param {string} destFilePath - Stored file path - i.e location from bucket - ex - users/profile.png
 	 * @param {string} bucketName - oci storage bucket in which action is peformed over file
 	 * @param  {string} bucketRegion - oci region where bucket will be located, ex - ap-south-1
+	 * @param  {string} accessKeyId - oci access key id
+	 * @param  {string} secretAccessKey - oci secret access key
 	 * @returns {Promise<string>} Get downloadable url link
 	 */
 
-	static async getDownloadableUrl({ destFilePath, bucketName, endpoint }) {
+	static async getDownloadableUrl({ destFilePath, bucketName, endpoint, expires = '',  accessKeyId = '', secretAccessKey = '', bucketRegion = '' }) {
 		if (!destFilePath) {
 			const error = new Error('destFilePath is not passed in parameter')
 			error.code = 500
@@ -265,13 +267,47 @@ module.exports = class OCIFileHelper {
 			error.code = 500
 			throw error
 		}
-
+		
 		try {
-			let downloadableUrl = `${endpoint}/${bucketName}/${destFilePath}`
+			/* Instantiate S3 class with credentials and region */
+			
+			const s3Config = {
+				signatureVersion: 'v4',
+				s3ForcePathStyle: true,
+				endpoint: endpoint,
+			}
+
+			// Add accessKeyId, secretAccessKey, and region if provided
+			if (accessKeyId && secretAccessKey && bucketRegion) {
+				s3Config.accessKeyId = accessKeyId;
+				s3Config.secretAccessKey = secretAccessKey;
+				s3Config.region = bucketRegion;
+			}
+
+			const s3 = new S3(s3Config);
+			
+			const expiry = expires ? parseInt(expires) : 1800;// Default expiry: 5min (in seconds)
+			/* Get the signed URL with the specified expiry */
+			const params = {
+				Bucket: bucketName,
+				Key: destFilePath,
+				Expires: expiry
+			}
+	
+			const downloadableUrl = await s3.getSignedUrlPromise('getObject', params)
+	
 			return { downloadableUrl, filePath: destFilePath }
 		} catch (error) {
-			throw error
+			throw error;
 		}
+
+		// Keeping it here. in 3.0 we have to enable this logic and move above logic to new function
+		// try {
+		// 	let downloadableUrl = `${endpoint}/${bucketName}/${destFilePath}`
+		// 	return { downloadableUrl, filePath: destFilePath }
+		// } catch (error) {
+		// 	throw error
+		// }
 	}
 	/**
 	 * Remove a folder and its contents from an OCI bucket

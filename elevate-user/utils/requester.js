@@ -63,22 +63,27 @@ const post = (baseUrl, route, requestBody, headers) => {
 			})
 	} catch (err) {
 		console.log(err)
+		throw err
 	}
 }
+
 const patch = async (baseUrl, route, requestBody, headers) => {
 	try {
 		const url = baseUrl + route
-
-		const options = {
-			method: 'PATCH',
-			headers: headers,
-			body: JSON.stringify(requestBody), // Assuming requestBody is an object
-		}
-
-		const response = await fetch(url, options)
-
-		const data = await response.json()
-		return data
+		return axios
+			.patch(url, requestBody, {
+				headers: {
+					'X-auth-token': headers['x-auth-token'],
+					'content-type': 'application/json',
+				},
+			})
+			.then((response) => response.data)
+			.catch((error) => {
+				if (error.response) {
+					return error.response
+				}
+				return error
+			})
 	} catch (error) {
 		console.error(error)
 		throw error // Re-throw the error to be caught by the caller

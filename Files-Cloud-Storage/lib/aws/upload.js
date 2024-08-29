@@ -201,9 +201,10 @@ module.exports = class AwsS3FileHelper {
 	 * @param {string} destFilePath - Stored file path - i.e location from bucket - ex - users/profile.png
 	 * @param {string} bucketName - aws s3 storage bucket in which action is peformed over file
 	 * @param  {string} bucketRegion - aws region where bucket will be located, ex - ap-south-1
+	 * @param  {Number} expires - link expiration in seconds
 	 * @returns {Promise<string>} Get downloadable url link
 	 */
-	static async getDownloadableUrl(destFilePath, bucketName, bucketRegion) {
+	static async getDownloadableUrl(destFilePath, bucketName, bucketRegion, expires = '') {
 		if (!destFilePath) {
 			const error = new Error('destFilePath is not passed in parameter')
 			error.code = 500
@@ -227,13 +228,35 @@ module.exports = class AwsS3FileHelper {
 			error.code = 500
 			throw error
 		}
-
 		try {
-			const downloadableUrl = `https://${bucketName}.s3.${bucketRegion}.amazonaws.com/${destFilePath}`
-			return downloadableUrl
+			/* Instantiate S3 class with credentials and region */
+			const s3 = new S3({
+				region: bucketRegion,
+			})
+	
+			// Determine expiry
+			const expiry = expires ? parseInt(expires) : 1800;// Default expiry: 5 min (in seconds)
+
+			/* Get the signed URL with the specified expiry */
+			const params = {
+				Bucket: bucketName,
+				Key: destFilePath,
+				Expires: expiry, 
+			}
+
+			const signedUrl = await s3.getSignedUrlPromise('getObject', params)
+	
+			return signedUrl
 		} catch (error) {
 			throw error
 		}
+		// keeping this here to enable in 3.0
+		// try {
+		// 	const downloadableUrl = `https://${bucketName}.s3.${bucketRegion}.amazonaws.com/${destFilePath}`
+		// 	return downloadableUrl
+		// } catch (error) {
+		// 	throw error
+		// }
 	}
 
 	/**
