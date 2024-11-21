@@ -1,37 +1,28 @@
-const convertIdsToString = (obj) => {
-  // Check if the input is an array of integers
-  if (Array.isArray(obj) && obj.every(item => typeof item === 'number')) {
-    return obj.map(item => item.toString())
-  }
+const convertIdsToString = (json) => {
+	// if its not an object or is null, return it as is
+	if (typeof json !== 'object' || json === null) {
+		return json
+	}
 
-  // If not an array or not all elements are numbers, proceed with the existing logic
-  if (typeof obj !== 'object' || obj === null) {
-    return obj
-  }
+	// if its an array, recursively transform each element
+	if (Array.isArray(json)) {
+		return json.map((item) => convertIdsToString(item))
+	}
 
-  if (Array.isArray(obj)) {
-    return obj.map(convertIdsToString)
-  }
-
-  const relevantKeys = ['id', 'organization_id', 'related_orgs']
-  const hasRelevantKeys = relevantKeys.some(key => key in obj)
-
-  if (!hasRelevantKeys) {
-    return obj
-  }
-
-  return Object.keys(obj).reduce((result, key) => {
-    if (relevantKeys.includes(key)) {
-      if (key === 'related_orgs' && Array.isArray(obj[key])) {
-        result[key] = obj[key].map(item => typeof item === 'number' ? item.toString() : item)
-      } else {
-        result[key] = typeof obj[key] === 'number' ? obj[key].toString() : obj[key]
-      }
-    } else {
-      result[key] = convertIdsToString(obj[key])
-    }
-    return result
-  }, {})
-};
+	// if its an object, recursively transform each property
+	const transformed = {}
+	for (const key in json) {
+		if (Object.prototype.hasOwnProperty.call(json, key)) {
+			if (key === 'id' || key === 'organization_id' || key === 'related_orgs') {
+				// convert id, organization_id, or related_orgs to string if they are integers
+				transformed[key] = typeof json[key] === 'number' ? json[key].toString() : json[key]
+			} else {
+				// recursively transform nested objects or arrays
+				transformed[key] = convertIdsToString(json[key])
+			}
+		}
+	}
+	return transformed
+}
 
 exports.convertIdsToString = convertIdsToString

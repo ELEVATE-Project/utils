@@ -90,12 +90,13 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 	}
 }
 
-const get = (baseUrl, route, headers, requestBody = {}) => {
+const get = (baseUrl, route, headers, requestBody = {}, queryParams = {}) => {
 	const url = baseUrl + route
 	const options = {
 		headers,
-		data: requestBody 
-	};
+		data: requestBody,
+		params: queryParams,
+	}
 
 	return axios
 		.post(url, requestBody, options) // Use POST to send body data
@@ -113,7 +114,7 @@ const requesters = {
 	passThroughRequester,
 	post,
 	patch,
-	get
+	get,
 }
 
 module.exports = requesters
