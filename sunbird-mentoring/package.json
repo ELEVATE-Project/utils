@@ -1,6 +1,6 @@
 {
 	"name": "sunbird-mentoring",
-	"version": "1.1.60",
+	"version": "1.1.61",
 	"description": "Npm package for KB-Mentoring service integration with Interface service. ",
 	"main": "index.js",
 	"scripts": {
