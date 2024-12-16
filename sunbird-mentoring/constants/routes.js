@@ -1522,6 +1522,28 @@ module.exports = {
 				path: '/mentoring/v1/availability/users',
 				type: 'GET',
 			},
-		}
+		},
+		{
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/mentoring/v1/profile/read',
+				type: 'GET',
+				functionName: 'mentoringProfile',
+			},
+		},
 	],
 }
