@@ -147,7 +147,11 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 		if (token && token.toLowerCase().startsWith('bearer ')) token = token.slice(7)
 
 		const tokenClaims = jwt.decode(token)
-		const userId = tokenClaims.sub.split(':').pop()
+		let userId = tokenClaims.sub.split(':').pop()
+
+		if(req.params.id){
+			 userId = req.params.id
+		}
 
 		const userResponse = await requesters.get(req.baseUrl,targetRoute1.path, req.headers, {
 			id: userId,
@@ -263,6 +267,48 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+const mentorDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	let parameterisedRoute = selectedConfig.targetRoute.path;
+
+	if(req.params.id){
+		parameterisedRoute = parameterisedRoute+'/'+req.params.id;
+	}
+	let	headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+
+		console.log("parameterisedRoute ---------------",parameterisedRoute);
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+const userDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = selectedConfig.targetRoute.path;
+	let headers
+	if (req.params.id) {
+		headers = {
+		  'internal_access_token': req.headers['internal_access_token'],
+		  'Content-Type': 'application/json',
+		}
+	  } else {
+	    headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+	}
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
 
 const userController = {
 	createUser,
@@ -273,7 +319,9 @@ const userController = {
 	readUserById,
 	readUserWithToken,
 	accountList,
-	listOrganisation
+	listOrganisation,
+	mentorDetails,
+	userDetails
 }
 
 module.exports = userController
