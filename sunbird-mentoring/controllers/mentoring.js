@@ -220,7 +220,12 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 		if (token && token.toLowerCase().startsWith('bearer ')) token = token.slice(7)
 
 		const tokenClaims = jwt.decode(token)
-		const userId = tokenClaims.sub.split(':').pop()
+		
+		let userId = tokenClaims.sub.split(':').pop()
+		if(req.params.id){
+			 userId = req.params.id
+		}
+
 
 		const userResponse = await requesters.get(req.baseUrl,targetRoute1.path, req.headers, {
 			id: userId,
@@ -347,6 +352,9 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+
+
+
 
 mentoringController = {
 	createProfile,
