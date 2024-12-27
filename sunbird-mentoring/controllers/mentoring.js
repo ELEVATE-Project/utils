@@ -3,6 +3,11 @@ const routeConfigs = require('../constants/routes.js')
 const requestParser = require('../utils/requestParser')
 
 const createProfile = async (req, res, responses, selectedConfig) => {
+	
+	await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
+		'X-auth-token': `bearer ${responses.user.result.access_token}`,
+	})
+	
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
@@ -15,15 +20,25 @@ const createProfile = async (req, res, responses, selectedConfig) => {
 // 		'X-auth-token': req.headers['x-auth-token'],
 // 	})
 
-const rolePermissions = async (req, res, responses, selectedConfig) =>
+const rolePermissions = async (req, res, responses, selectedConfig) =>{
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
 	await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
+}
+
 
 const profileRead = async (req, res, selectedConfig) => {
 	try {
 		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1].path
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
 		const userCreateResponse = await requesters.post(req.baseUrl, targetRoute1, {}, req.headers)
 	
@@ -55,18 +70,32 @@ const profileRead = async (req, res, selectedConfig) => {
 }
 
 const createUser = async (req, res, responses, selectedConfig) => {
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'device-info': req.headers['device-info'],
 	})
 }
 
 const entityTypeRead = async (req, res, responses, selectedConfig) => {
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': req.headers['x-auth-token'],
 	})
 }
 
 const loginUser = async (req, res, responses, selectedConfig) => {
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'captcha-token': req.headers['captcha-token'],
 		'device-info': req.headers['device-info'],
@@ -80,6 +109,10 @@ const readOrganization = async (req, res, selectedConfig) => {
 		},
 	}
 	try {
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+
 		const response = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {
 			'device-info': req.headers['device-info'],
 		})
@@ -156,6 +189,9 @@ const readUserById = async (req, res, selectedConfig) => {
 		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
 
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 		const userResponse = await requesters.get(req.baseUrl, targetRoute1, req.headers, {
 			id: userId,
 		})
@@ -225,6 +261,9 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 		if(req.params.id){
 			 userId = req.params.id
 		}
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
 
 		const userResponse = await requesters.get(req.baseUrl,targetRoute1.path, req.headers, {
@@ -288,10 +327,19 @@ const accountList = async (req, res, selectedConfig) => {
 	try {
 		const userIds = req.body.userIds
 		if(process.env.DEBUG_MODE == "true"){
+			console.log("------------selectedConfig --------",selectedConfig);
+			console.log("------------req.baseUrl --------",req.baseUrl);
 			console.log("------- ================ -------",req.body);
 		}
 		// if (Array.isArray(userIds)) throw Error('req.body.userIds is not an array.')
 		body.request.filters.userId = userIds
+
+		
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		
+
 		const userSearchResponse = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {})
 		return res.json(processUserSearchResponse(userSearchResponse.result.response.content))
 	} catch (error) {
@@ -318,6 +366,10 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		},
 	}
 	try {
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
 		const response = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {
 			'device-info': req.headers['device-info'],

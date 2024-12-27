@@ -868,6 +868,7 @@ module.exports = {
 			inSequence: false,
 			orchestrated: true,
 			targetRoute: {
+				service: "mentoring",
 				path: '/mentoring/v1/profile/create',
 				type: 'POST',
 				functionName: 'createProfile',
@@ -879,6 +880,7 @@ module.exports = {
 			inSequence: false,
 			orchestrated: true,
 			targetRoute: {
+				service: "mentoring",
 				path: '/mentoring/v1/profile/update/',
 				type: 'POST',
 				functionName: 'updateUser',
@@ -889,10 +891,23 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service: "mentoring",
 			targetRoute: {
 				path: '/mentoring/v1/entity-type/read',
 				type: 'POST',
 				functionName: 'entityTypeRead',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/account/login',
+			type: 'POST',
+			inSequence: true,
+			service: "user",
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/account/login',
+				type: 'POST',
+				functionName: 'loginUser',
 			},
 		},
 		{
@@ -1556,5 +1571,1107 @@ module.exports = {
 				type: 'PATCH',
 			},
 		},
+		{
+			sourceRoute: '/interface/v1/account/create',
+			type: 'POST',
+			inSequence: true,
+			service: "user",
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/account/create',
+				type: 'POST',
+				functionName: 'createUser',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/account/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: true,
+			targetRoute: {
+				service: "user",
+				path: '/user/v1/user/update',
+				type: 'POST',
+				functionName: 'updateUser',
+			},
+		},
+		{
+			sourceRoute: '/interface/user-signup',
+			type: 'POST',
+			inSequence: true,
+			service: "user",
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/account/create',
+				type: 'POST',
+				functionName: 'createUser',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/entity-type/read',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/entity-type/read',
+				type: 'POST',
+				functionName: 'entityTypeRead',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/login',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/login',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/acceptTermsAndCondition',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/acceptTermsAndCondition',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/resetPassword',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/resetPassword',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/generateToken',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/generateToken',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/generateOtp',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/generateOtp',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/logout',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/logout',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/list',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/list',
+				type: 'GET',
+				functionName: 'accountsList'
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/registrationOtp',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/registrationOtp',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read/:id',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read/:id',
+				type: 'GET',
+				functionName: 'readUser',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+				functionName: 'readUser',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/setLanguagePreference',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/setLanguagePreference',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/share',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/share',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/share/:id',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/share/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user-role/list',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user-role/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user-role/default',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user-role/default',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user-role/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user-role/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user-role/update/:id',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user-role/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user-role/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user-role/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/form/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/form/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/form/read',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/form/read',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/form/read/:id',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/form/read/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/form/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/form/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/cloud-services/file/getSignedUrl',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/cloud-services/file/getSignedUrl',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/cloud-services/file/getDownloadableUrl',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/cloud-services/file/getDownloadableUrl',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/deleteUser',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/deleteUser',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/deleteUser/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/deleteUser/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/login',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/login',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/update/:id',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/update/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/list',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/update/:id',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/update/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/read',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/read',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/delete',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity-type/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity-type/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/update/:id',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/read',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/read',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/entity/list',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/list',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/inheritEntityType',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/inheritEntityType',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/read',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/organization/read',
+				type: 'GET',
+				functionName: 'readOrganization',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/addOrgAdmin',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/admin/addOrgAdmin',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/bulkUserCreate',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/bulkUserCreate',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/getBulkInvitesFilesList',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/getBulkInvitesFilesList',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/getRequestDetails/:id',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/getRequestDetails/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/deactivateUser',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/deactivateUser',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/getRequests',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/getRequests',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/updateRequestStatus',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/org-admin/updateRequestStatus',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/requestOrgRole',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/organization/requestOrgRole',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/deactivateOrg/:id',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/admin/deactivateOrg/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/create',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/update/:id',
+			type: 'PATCH',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/update/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/read/:id',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/read',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/cloud-services/file/getSampleCSV',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/cloud-services/file/getSampleCSV',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/template',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/template',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/template/:id',
+			type: 'GET',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/template/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/template',
+			type: 'PATCH',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/notification/template',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/search',
+			type: 'POST',
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/account/search',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/permissions/create',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/permissions/update/:id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/permissions/list',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/permissions/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/permissions/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/modules/create',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/modules/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/modules/update/:id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/modules/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/modules/list',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/modules/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/modules/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/modules/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/role-permission-mapping/delete/:role_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/role-permission-mapping/delete/:role_id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/role-permission-mapping/create/:role_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/role-permission-mapping/create/:role_id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/role-permission-mapping/list',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/role-permission-mapping/list',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/addRelatedOrg/:org_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/addRelatedOrg/:org_id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/removeRelatedOrg/:org_id',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/removeRelatedOrg/:org_id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/changePassword',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/changePassword',
+				type: 'POST',
+			}
+		},
+		{
+			sourceRoute: '/user/v1/account/validatingEmailIds',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/validatingEmailIds',
+				type: 'POST',
+				functionName: 'validateEmails'
+			}
+		},
+		{
+			sourceRoute: '/user/v1/account/sessions',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/sessions',
+				type: 'GET',
+			}
+		},
+		{
+			sourceRoute: '/user/v1/account/validateUserSession',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/validateUserSession',
+				type: 'POST',
+			}
+		},
+		{
+			sourceRoute: '/interface/v2/account/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v2/account/create',
+				type: 'POST'
+			},
+		},
+
+		{
+			sourceRoute: '/user/v1/account/create',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/create',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/updateUser/:id',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/org-admin/updateUser/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/updateUser',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/org-admin/updateUser',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read/:id',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/searchByEmailIds',
+			type: 'POST',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/searchByEmailIds',
+				type: 'POST',
+			}
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerViewRebuild',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerViewRebuild',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerPeriodicViewRefresh',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerPeriodicViewRefresh',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerPeriodicViewRefreshInternal',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerPeriodicViewRefreshInternal',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerViewRebuildInternal',
+			type: 'GET',
+			inSequence: false,
+			service: "user",
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerViewRebuildInternal',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/create',
+			type: 'POST',
+			service: "scheduler",
+			targetRoute: {
+				path: '/scheduler/jobs/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/updateDelay',
+			type: 'POST',
+			service: "scheduler",
+			targetRoute: {
+				path: '/scheduler/jobs/updateDelay',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/remove',
+			type: 'POST',
+			service: "scheduler",
+			targetRoute: {
+				path: '/scheduler/jobs/remove',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/list',
+			type: 'GET',
+			service: "scheduler",
+			targetRoute: {
+				path: '/scheduler/jobs/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scheduler/jobs/purge',
+			type: 'POST',
+			service: "scheduler",
+			targetRoute: {
+				path: '/scheduler/jobs/purge',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/notification/v1/email/send',
+			type: 'POST',
+			service: "notification",
+			targetRoute: {
+				path: '/notification/v1/email/send',
+				type: 'POST',
+			},
+		}
 	],
 }

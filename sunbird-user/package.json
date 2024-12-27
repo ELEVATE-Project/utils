@@ -1,6 +1,6 @@
 {
 	"name": "sunbird-user",
-	"version": "1.6.3",
+	"version": "1.6.4",
 	"description": "Npm package for Elevate-User service integration with Interface service. ",
 	"main": "index.js",
 	"scripts": {
