@@ -119,6 +119,8 @@ const readUser = async (req, res, selectedConfig) => {
 			'Content-Type': 'application/json',
 		}
 
+		console.log("userIds-----------",userIds);
+
 		const requestBody = { userIds } // Pass the request body
 		const accountsListResponse = await requesters.get(req.baseUrl, parameterisedRoute, headers, requestBody)
 
@@ -151,7 +153,92 @@ const validateEmails = async (req, res , selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+const mentorDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
+	  let headers
+  
+	  if (req.params.id) {
+		headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+	  }
 
+	  console.log("response ============ headers  ",headers);
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
+const mentoringProfile = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = selectedConfig.targetRoute.path;
+	  let headers
+  
+		headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+
+		console.error("------------------mentoringProfile  ----------")
+	  
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	 console.error("------------------response in mentoring profile  ----------",response)
+	  return response
+
+}
+const getUserDetailsFromExternal = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	let parameterisedRoute = selectedConfig.targetRoute.path;
+
+	if(req.params.id){
+		parameterisedRoute = parameterisedRoute+'/'+req.params.id;
+	}
+	let	headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+
+		console.log("parameterisedRoute ---------------",parameterisedRoute);
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
+const userDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = selectedConfig.targetRoute.path;
+
+	console.error("============== cllaing user details")
+	let headers
+	if (req.params.id) {
+		headers = {
+		  'internal_access_token': req.headers['internal_access_token'],
+		  'Content-Type': 'application/json',
+		}
+	  } else {
+	    headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+	}
+	console.log("parameterisedRoute API  =========",parameterisedRoute);
+	console.error(" ----------- parameterisedRoute API  =========",parameterisedRoute);
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	 console.log(req.baseUrl,"parameterisedRoute API  =========",response);
+	  return response
+
+}
 
 mentoringController = {
 	createProfile,
@@ -165,7 +252,11 @@ mentoringController = {
 	readOrganization,
 	readUser,
 	accountsList,
-	validateEmails
+	validateEmails,
+	mentorDetails,
+	mentoringProfile,
+	userDetails,
+	getUserDetailsFromExternal
 }
 
 module.exports = mentoringController

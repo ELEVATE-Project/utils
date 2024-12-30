@@ -867,6 +867,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service: "mentoring",
 			targetRoute: {
 				service: 'mentoring',
 				path: '/mentoring/v1/profile/create',
@@ -879,6 +880,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service: "mentoring",
 			targetRoute: {
 				service: 'mentoring',
 				path: '/mentoring/v1/profile/update/',
@@ -915,6 +917,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
+			service: "mentoring",
 			targetRoute: {
 				path: '/mentoring/v1/role-permission-mapping/list',
 				type: 'POST',
@@ -2751,6 +2754,55 @@ module.exports = {
 			targetRoute: {
 				path: '/mentoring/v1/profile/details/:id',
 				type: 'GET',
+			},
+		},
+		{
+
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			service: "mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/profile/read',
+				type: 'GET',
+				functionName: 'mentoringProfile',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+			    functionName: 'getUserDetailsFromExternal',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+				functionName: 'userDetails',
 			},
 		},
 	],
