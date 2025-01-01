@@ -49,6 +49,7 @@ const passThroughRequester = async (req, res) => {
 		})
 		req.pipe(proxyReq, { end: true })
 	} catch (err) {
+		console.log()
 		handleInterfaceError(res, err)
 	}
 }
@@ -96,7 +97,8 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 const get = (baseUrl, route, headers, requestBody = {}) => {
 	const url = baseUrl + route
 	const options = {
-		headers
+		headers,
+		data: requestBody 
 	};
 
 	return axios

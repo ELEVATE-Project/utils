@@ -1691,13 +1691,13 @@ module.exports = {
 		},
 		{
 			sourceRoute: '/user/v1/account/list',
-			type: 'GET',
+			type: 'POST',
 			inSequence: false,
 			service: 'user',
 			orchestrated: false,
 			targetRoute: {
 				path: '/user/v1/account/list',
-				type: 'GET',
+				type: 'POST',
 				functionName: 'accountsList',
 			},
 		},
@@ -2805,5 +2805,57 @@ module.exports = {
 				functionName: 'userDetails',
 			},
 		},
+		{
+
+			sourceRoute: '/interface/v1/profile/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+
+			sourceRoute: '/interface/v1/profile/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+
+			sourceRoute: '/interface/v1/profile/get/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/profile/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+
+			sourceRoute: '/interface/v1/profile/get/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			service: "user",
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'POST',
+				functionName: 'getUserDetailsFromExternal',
+			},
+		}
 	],
 }

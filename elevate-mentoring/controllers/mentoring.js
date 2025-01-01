@@ -5,14 +5,14 @@ const {convertIdsToString} = require('../utils/integerToStringConverter')
 
 
 const createProfile = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	req.body.skipValidation = true
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
 }
 const updateUser = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 
 	//const filteredRequestBody = requestParser.transformUpdateUserBody(req.body)
 	console.log(req.baseUrl, selectedConfig.targetRoute.path, req.headers, req.body, 'mentoring request')
@@ -20,14 +20,14 @@ const updateUser = async (req, res, responses) => {
 }
 
 const entityTypeRead = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': req.headers['x-auth-token'],
 	})
 }
 
 const rolePermissions = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	console.log("selected config",selectedConfig);
 
@@ -41,7 +41,7 @@ const rolePermissions = async (req, res, responses) => {
 }
 
 const createUser = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) =>  req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body,{
 		'device-info': req.headers['device-info'],
 	})
@@ -49,7 +49,7 @@ const createUser = async (req, res, responses) => {
 
 
 const loginUser = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	
 	let data = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body,{
@@ -93,8 +93,6 @@ const readUser = async (req, res, selectedConfig) => {
     
 	  let response = await requesters.get(req.baseUrl, parameterisedRoute, headers)
 
-	  console.log("===================",response);
-	  
 	  // Extract only the relevant data
 	  response.result = convertIdsToString(response.result)
 	  return res.json(response)
@@ -118,8 +116,6 @@ const readUser = async (req, res, selectedConfig) => {
 			'internal_access_token': req.headers['internal_access_token'],
 			'Content-Type': 'application/json',
 		}
-
-		console.log("userIds-----------",userIds);
 
 		const requestBody = { userIds } // Pass the request body
 		const accountsListResponse = await requesters.get(req.baseUrl, parameterisedRoute, headers, requestBody)
@@ -154,7 +150,7 @@ const validateEmails = async (req, res , selectedConfig) => {
 	}
 }
 const mentorDetails = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
 	  let headers
@@ -174,7 +170,7 @@ const mentorDetails = async (req, res, responses) => {
 }
 
 const mentoringProfile = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	const parameterisedRoute = selectedConfig.targetRoute.path;
 	  let headers
@@ -192,7 +188,7 @@ const mentoringProfile = async (req, res, responses) => {
 
 }
 const getUserDetailsFromExternal = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	let parameterisedRoute = selectedConfig.targetRoute.path;
 
@@ -213,7 +209,7 @@ const getUserDetailsFromExternal = async (req, res, responses) => {
 }
 
 const userDetails = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
 	const parameterisedRoute = selectedConfig.targetRoute.path;
 
