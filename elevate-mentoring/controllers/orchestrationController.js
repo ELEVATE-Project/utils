@@ -15,7 +15,6 @@ const orchestrationHandler = async (req, res, responses) => {
 	if(selectedRouteConfig && selectedRouteConfig.service){
 		req['baseUrl'] = process.env[`${selectedRouteConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 	}
-	// console.error("-------- base url after ",req['baseUrl']);
 	return await mentoringController[selectedRouteConfig.targetRoute.functionName](req, res, responses)
 }
 
