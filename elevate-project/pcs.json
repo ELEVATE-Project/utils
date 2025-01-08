@@ -1,1924 +1,1746 @@
 {
-    "routes": [
-        {
-            "sourceRoute": "/project/v1/userProjects/sync",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/sync",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/sync/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/sync/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/addStory/:id",
-            "type": "PUT",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/addStory/:id",
-                "type": "PUT"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/addStory",
-            "type": "PUT",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/addStory",
-                "type": "PUT"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/details",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/details",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/details/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/details/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/verifyCertificate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/verifyCertificate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/certificateCallback",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/certificateCallback",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/certificateCallbackError",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/certificateCallbackError",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/verifyCertificate/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/verifyCertificate/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/certificateReIssue",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/certificateReIssue",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/certificateReIssue/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/certificateReIssue/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateBaseTemplates/createOrUpdate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateBaseTemplates/createOrUpdate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateBaseTemplates/createOrUpdate/:id",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateBaseTemplates/createOrUpdate/:id",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateTemplates/createOrUpdate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateTemplates/createOrUpdate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateTemplates/createOrUpdate/:id",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateTemplates/createOrUpdate/:id",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateTemplates/uploadTemplate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateTemplates/uploadTemplate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateTemplates/uploadTemplate/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateTemplates/uploadTemplate/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/certificateTemplates/createSvg",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/certificateTemplates/createSvg",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/certificates",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/certificates",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/configurations/read",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/configurations/read",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/tasksStatus",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/tasksStatus",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/tasksStatus/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/tasksStatus/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/add",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/add",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/userAssigned",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/userAssigned",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/share",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/share",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/share/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/share/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/importedProjects",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/importedProjects",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/importedProjects/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/importedProjects/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/profile/read",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/profile/read",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/list",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/list",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/cloud-services/files/download",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/cloud-services/files/download",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/cloud-services/files/preSignedUrls",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/cloud-services/files/preSignedUrls",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/cloud-services/files/getDownloadableUrl",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/cloud-services/files/getDownloadableUrl",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/dataPipeline/userProject",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/dataPipeline/userProject",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/dataPipeline/userProject/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/dataPipeline/userProject/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/bulkCreate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/bulkCreate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/bulkUpdate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/bulkUpdate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/importProjectTemplate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/importProjectTemplate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/importProjectTemplate/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/importProjectTemplate/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/listByIds",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/listByIds",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/details",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/details",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/details/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/details/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templates/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templates/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/bulkCreate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/bulkCreate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/bulkCreate/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/bulkCreate/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/bulkUpdate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/bulkUpdate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/bulkUpdate/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/bulkUpdate/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/project/templateTasks/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/project/templateTasks/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/projects",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/projects",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/projects/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/projects/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/library/categories/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/library/categories/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/details",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/details",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/details/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/details/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/addRolesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/addRolesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/addRolesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/addRolesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/removeRolesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/removeRolesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/removeRolesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/removeRolesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/addEntitiesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/addEntitiesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/addEntitiesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/addEntitiesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/removeEntitiesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/removeEntitiesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/removeEntitiesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/removeEntitiesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/join",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/join",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/join/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/join/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/programs/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/programs/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/list",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/list",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/forUserRoleAndLocation",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/forUserRoleAndLocation",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/detailsBasedOnRoleAndLocation",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/detailsBasedOnRoleAndLocation",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/detailsBasedOnRoleAndLocation/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/detailsBasedOnRoleAndLocation/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/addRolesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/addRolesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/addRolesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/addRolesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/addEntitiesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/addEntitiesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/addEntitiesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/addEntitiesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/removeRolesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/removeRolesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/removeRolesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/removeRolesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/targetedSolutions",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/targetedSolutions",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/fetchLink",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/fetchLink",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/fetchLink/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/fetchLink/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/verifyLink",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/verifyLink",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/verifyLink/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/verifyLink/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/verifySolution/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/verifySolution/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/getDetails",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/getDetails",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/getDetails/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/getDetails/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/removeEntitiesInScope",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/removeEntitiesInScope",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/removeEntitiesInScope/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/removeEntitiesInScope/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/importFromLibrary",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/importFromLibrary",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/importFromLibrary/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/importFromLibrary/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/userProjects/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/userProjects/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/forms/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/forms/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/forms/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/forms/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/forms/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/forms/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/forms/read",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/forms/read",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/forms/read/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/forms/read/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/admin/dbFind",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/admin/dbFind",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/admin/dbFind/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/admin/dbFind/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/getProgramsByEntity/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/getProgramsByEntity/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/getProgramsByEntity",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/getProgramsByEntity",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/entity/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/entity/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/entity",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/entity",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/detailView",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/detailView",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/reports/detailView/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/reports/detailView/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/admin/createIndex",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/admin/createIndex",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/admin/createIndex/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/admin/createIndex/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/details",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/details",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/solutions/details/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/solutions/details/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/users/solutions",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/users/solutions",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/users/solutions/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/users/solutions/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/users/programs",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/users/programs",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/projectAttributes/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/projectAttributes/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/projectAttributes/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/projectAttributes/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/projectAttributes/find",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/projectAttributes/find",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/wishlist/add/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/wishlist/add/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/wishlist/add",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/wishlist/add",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/wishlist/remove/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/wishlist/remove/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/wishlist/remove",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/wishlist/remove",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/wishlist/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/wishlist/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/template/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/template/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/project/v1/scp/publishTemplateAndTasks",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/project/v1/scp/publishTemplateAndTasks",
-                "type": "POST"
-            }
-        },
+	"routes": [
+		{
+			"sourceRoute": "/project/v1/userProjects/details",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/details/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/addStory/:id",
+			"type": "PUT",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/addStory",
+			"type": "PUT",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/certificates",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/configurations/read",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/verifyCertificate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/verifyCertificate/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/certificateReIssue",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/certificateCallback",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/certificateCallbackError",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/certificateReIssue/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateBaseTemplates/createOrUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateBaseTemplates/createOrUpdate/:id",
+			"type": "PATCH",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateTemplates/createOrUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateTemplates/createOrUpdate/:id",
+			"type": "PATCH",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateTemplates/uploadTemplate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateTemplates/uploadTemplate/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/certificateTemplates/createSvg",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/sync",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/sync/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/tasksStatus",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/tasksStatus/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/add",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/userAssigned",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/share",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/share/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/importedProjects",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/importedProjects/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/list",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/cloud-services/files/download",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/cloud-services/files/preSignedUrls",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/cloud-services/files/getDownloadableUrl",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/dataPipeline/userProject",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/dataPipeline/userProject/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/bulkCreate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/bulkUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/importProjectTemplate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/importProjectTemplate/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/listByIds",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/details",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/details/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templates/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/bulkCreate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/bulkCreate/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/bulkUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/bulkUpdate/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/project/templateTasks/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/projects",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/projects/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/library/categories/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/details",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/details/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/addRolesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/addRolesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeRolesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeRolesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/addEntitiesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/addEntitiesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeEntitiesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeEntitiesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/join",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/programs/join/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/list",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/forUserRoleAndLocation",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/detailsBasedOnRoleAndLocation",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/detailsBasedOnRoleAndLocation/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/addRolesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/addRolesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/addEntitiesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/addEntitiesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/removeRolesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/removeRolesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/targetedSolutions",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/fetchLink",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/fetchLink/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/verifyLink",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/verifyLink/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/verifySolution",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/verifySolution/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/getDetails",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/getDetails/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/removeEntitiesInScope",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/removeEntitiesInScope/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/importFromLibrary",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/importFromLibrary/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/userProjects/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/forms/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/forms/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/forms/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/forms/read",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/forms/read/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/admin/dbFind",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/admin/dbFind/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/entity",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/getProgramsByEntity/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/entity/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/getProgramsByEntity",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/detailView",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/reports/detailView/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/admin/createIndex",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/admin/createIndex/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/details",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/profile/read",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/details/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/users/solutions",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/users/solutions/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/users/programs",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/projectAttributes/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/projectAttributes/find",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/projectAttributes/update",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/wishlist/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/wishlist/remove",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/wishlist/remove/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/wishlist/add/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/wishlist/add",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/template/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/v1/scp/publishTemplateAndTasks",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			]
+		},
         {
             "sourceRoute": "/user/v1/account/login",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/login",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
-            "sourceRoute": "/user/v1/account/acceptTermsAndCondition",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/acceptTermsAndCondition",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/resetPassword",
+            "sourceRoute": "/user/v1/account/create",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/resetPassword",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/generateToken",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/generateToken",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/generateOtp",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/generateOtp",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/logout",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/logout",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/list",
-                "type": "GET",
-                "functionName": "accountsList"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/registrationOtp",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/registrationOtp",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/read/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/read/:id",
-                "type": "GET",
-                "functionName": "readUser"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/read",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/read",
-                "type": "GET",
-                "functionName": "readUser"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/update",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/update",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/setLanguagePreference",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/setLanguagePreference",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/share",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/share",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/share/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/share/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user-role/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user-role/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user-role/default",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user-role/default",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user-role/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user-role/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user-role/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user-role/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user-role/delete/:id",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user-role/delete/:id",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/form/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/form/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/form/read",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/form/read",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/form/read/:id",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/form/read/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/form/update",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/form/update",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/cloud-services/file/getSignedUrl",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/cloud-services/file/getSignedUrl",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/cloud-services/file/getDownloadableUrl",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/cloud-services/file/getDownloadableUrl",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/deleteUser",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/deleteUser",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/deleteUser/:id",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/deleteUser/:id",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/login",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/login",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/update",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/update",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/update/:id",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/update/:id",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/list",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/list",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/update",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/update",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/update/:id",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/update/:id",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/read",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/read",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/delete",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/delete",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity-type/delete/:id",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity-type/delete/:id",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/update",
-            "type": "PATCH",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/update",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/delete/:id",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/delete/:id",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/read",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/read",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/entity/list",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/entity/list",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/inheritEntityType",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/inheritEntityType",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/read",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/organization/read",
-                "type": "GET",
-                "functionName": "readOrganization"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/addOrgAdmin",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/admin/addOrgAdmin",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/bulkUserCreate",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/bulkUserCreate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/getBulkInvitesFilesList",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/getBulkInvitesFilesList",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/getRequestDetails/:id",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/getRequestDetails/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/deactivateUser",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/deactivateUser",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/getRequests",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/getRequests",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/org-admin/updateRequestStatus",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/org-admin/updateRequestStatus",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/organization/requestOrgRole",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/organization/requestOrgRole",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/deactivateOrg/:id",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/admin/deactivateOrg/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/create",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/notification/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/update/:id",
-            "type": "PATCH",
-            "targetRoute": {
-                "path": "/user/v1/notification/update/:id",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/read/:id",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/notification/read/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/read",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/notification/read",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/cloud-services/file/getSampleCSV",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/cloud-services/file/getSampleCSV",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/template",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/notification/template",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/template/:id",
-            "type": "GET",
-            "targetRoute": {
-                "path": "/user/v1/notification/template/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/notification/template",
-            "type": "PATCH",
-            "targetRoute": {
-                "path": "/user/v1/notification/template",
-                "type": "PATCH"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/search",
-            "type": "POST",
-            "targetRoute": {
-                "path": "/user/v1/account/search",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/permissions/create",
@@ -1926,21 +1748,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/permissions/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/permissions/update/:id",
-            "type": "POST",
-            "priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/permissions/update/:id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/permissions/list",
@@ -1948,20 +1761,38 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/permissions/list",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/permissions/update/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/permissions/delete/:id",
             "type": "DELETE",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/permissions/delete/:id",
-                "type": "DELETE"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/modules/create",
@@ -1969,10 +1800,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/modules/create",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/modules/update/:id",
@@ -1980,10 +1813,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/modules/update/:id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/modules/list",
@@ -1991,31 +1826,25 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/modules/list",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/modules/delete/:id",
             "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/modules/delete/:id",
-                "type": "DELETE"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/role-permission-mapping/delete/:role_id",
-            "type": "POST",
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/role-permission-mapping/delete/:role_id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/role-permission-mapping/create/:role_id",
@@ -2023,10 +1852,25 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/role-permission-mapping/create/:role_id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/role-permission-mapping/delete/:role_id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/role-permission-mapping/list",
@@ -2034,9 +1878,896 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/role-permission-mapping/list",
-                "type": "POST"
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/acceptTermsAndCondition",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/resetPassword",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/generateToken",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/generateOtp",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "public-low"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/account/logout",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/list",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "requiresCustomHandling": true,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/account/registrationOtp",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "public-low"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user/read",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "requiresCustomHandling": true,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user/read/:id",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "requiresCustomHandling": true,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user/update",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/user/share",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user/share/:id",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user-role/list",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/user-role/default",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/user-role/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/user-role/update/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/user-role/delete/:id",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/form/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/form/read",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/form/read/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/form/update",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/form/update/:id",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/cloud-services/file/getSignedUrl",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/cloud-services/file/getDownloadableUrl",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/admin/deleteUser",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/admin/deleteUser/:id",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/admin/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/admin/login",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/update",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/update/:id",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/list",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/update",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/update/:id",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/read",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/delete",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity-type/delete/:id",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/update",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/update/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/delete",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/delete/:id",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/read",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/entity/read/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/inheritEntityType",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/read",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "requiresCustomHandling": true,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
+            }
+        },
+        {
+            "sourceRoute": "/user/v1/admin/addOrgAdmin",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/bulkUserCreate",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/getBulkInvitesFilesList",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/getRequestDetails/:id",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/deactivateUser",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/getRequests",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/org-admin/updateRequestStatus",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/organization/requestOrgRole",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/admin/deactivateOrg/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/create",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/update/:id",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/read/:id",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/read",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/cloud-services/file/getSampleCSV",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/template",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/template/:id",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/notification/template",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/user/v1/account/search",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
             }
         },
         {
@@ -2045,10 +2776,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/addRelatedOrg/:org_id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/organization/removeRelatedOrg/:org_id",
@@ -2056,10 +2789,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/organization/removeRelatedOrg/:org_id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/account/changePassword",
@@ -2067,21 +2802,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/changePassword",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/validatingEmailIds",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/validatingEmailIds",
-                "type": "POST",
-                "functionName": "validateEmails"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/account/sessions",
@@ -2089,10 +2815,12 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/sessions",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/account/validateUserSession",
@@ -2100,498 +2828,603 @@
             "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/validateUserSession",
-                "type": "POST"
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ],
+            "rateLimit": {
+                "type": "internal"
             }
         },
         {
-            "sourceRoute": "/user/v1/account/create",
+            "sourceRoute": "/user/v1/account/validatingEmailIds",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/create",
-                "type": "POST"
-            }
+            "requiresCustomHandling": true,
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
-            "sourceRoute": "/user/v1/org-admin/updateUser/:id",
+            "sourceRoute": "/user/v1/account/update",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/org-admin/updateUser/:id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
-            "sourceRoute": "/user/v1/org-admin/updateUser",
-            "type": "POST",
+            "sourceRoute": "/user/v1/user/setLanguagePreference",
+            "type": "PATCH",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/org-admin/updateUser",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/read",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/read",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/user/read/:id",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/user/read/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/account/searchByEmailIds",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/account/searchByEmailIds",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/triggerViewRebuild",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/triggerViewRebuild",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/user/v1/admin/triggerPeriodicViewRefresh",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/triggerPeriodicViewRefresh",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
-            "sourceRoute": "/user/v1/admin/triggerPeriodicViewRefreshInternal",
+            "sourceRoute": "/user/v1/admin/triggerViewRebuild",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/triggerPeriodicViewRefreshInternal",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/user/v1/admin/triggerViewRebuildInternal",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/user/v1/admin/triggerViewRebuildInternal",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "user",
+                    "packageName": "elevate-user"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/bulkCreate",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/bulkCreate",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/bulkUpdate",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/bulkUpdate",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/find",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/find",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/list",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/list",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/create",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/create",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/update",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/update",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entityTypes/update/:id",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entityTypes/update/:id",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/bulkCreate",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/bulkCreate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/entityListBasedOnEntityType",
-            "type": "GET",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/entityListBasedOnEntityType",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/mappingUpload",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/mappingUpload",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/bulkUpdate",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/bulkUpdate",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/add",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/add",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/update",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/update",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/userRoleExtension/create",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/userRoleExtension/create",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/userRoleExtension/update/:id",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/userRoleExtension/update/:id",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/userRoleExtension/find",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/userRoleExtension/find",
-                "type": "POST"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/userRoleExtension/delete/:id",
-            "type": "DELETE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/userRoleExtension/delete/:id",
-                "type": "DELETE"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/targetedRoles/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/targetedRoles/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/entityListBasedOnEntityType",
+            "type": "GET",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/bulkUpdate",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/add",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/update",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/update/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/list",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/list",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/list/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/list/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/find",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/find",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/details",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/details",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/details/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/details/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/listByEntityType",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/listByEntityType",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/listByEntityType/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/listByEntityType/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/subEntityList",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/subEntityList",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/subEntityList/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/subEntityList/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/listByIds",
             "type": "POST",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/listByIds",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation/:id",
-                "type": "GET"
-            }
-        },
-        {
-            "sourceRoute": "/entity-management/v1/entities/listByLocationIds",
-            "type": "POST",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/listByLocationIds",
-                "type": "POST"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/relatedEntities",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/relatedEntities",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/entity-management/v1/entities/relatedEntities/:id",
             "type": "GET",
+            "priority": "MUST_HAVE",
             "inSequence": false,
             "orchestrated": false,
-            "targetRoute": {
-                "path": "/entity-management/v1/entities/relatedEntities/:id",
-                "type": "GET"
-            }
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
-            "sourceRoute": "/notification/v1/email/send",
+            "sourceRoute": "/entity-management/v1/userRoleExtension/create",
             "type": "POST",
-            "targetRoute": {
-                "path": "/notification/v1/email/send",
-                "type": "POST"
-            }
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/userRoleExtension/update/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/userRoleExtension/find",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/userRoleExtension/delete/:id",
+            "type": "DELETE",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/mappingUpload",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
+        },
+        {
+            "sourceRoute": "/entity-management/v1/entities/listByLocationIds",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "entity",
+                    "packageName": "elevate-entity-management"
+                }
+            ]
         },
         {
             "sourceRoute": "/scheduler/jobs/create",
             "type": "POST",
-            "targetRoute": {
-                "path": "/scheduler/jobs/create",
-                "type": "POST"
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "scheduler",
+                    "packageName": "elevate-scheduler"
+                }
+            ],
+            "rateLimit": {
+                "type": "none"
             }
         },
         {
             "sourceRoute": "/scheduler/jobs/updateDelay",
             "type": "POST",
-            "targetRoute": {
-                "path": "/scheduler/jobs/updateDelay",
-                "type": "POST"
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "scheduler",
+                    "packageName": "elevate-scheduler"
+                }
+            ],
+            "rateLimit": {
+                "type": "none"
             }
         },
         {
             "sourceRoute": "/scheduler/jobs/remove",
             "type": "POST",
-            "targetRoute": {
-                "path": "/scheduler/jobs/remove",
-                "type": "POST"
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "scheduler",
+                    "packageName": "elevate-scheduler"
+                }
+            ],
+            "rateLimit": {
+                "type": "none"
             }
         },
         {
             "sourceRoute": "/scheduler/jobs/list",
             "type": "GET",
-            "targetRoute": {
-                "path": "/scheduler/jobs/list",
-                "type": "GET"
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "scheduler",
+                    "packageName": "elevate-scheduler"
+                }
+            ],
+            "rateLimit": {
+                "type": "none"
             }
         },
         {
             "sourceRoute": "/scheduler/jobs/purge",
             "type": "POST",
-            "targetRoute": {
-                "path": "/scheduler/jobs/purge",
-                "type": "POST"
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "scheduler",
+                    "packageName": "elevate-scheduler"
+                }
+            ],
+            "rateLimit": {
+                "type": "none"
             }
         }
-    ]
+	]
 }
