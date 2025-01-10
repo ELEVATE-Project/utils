@@ -2143,6 +2143,20 @@ module.exports = {
 		},
 		{
 			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			service:"mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'GET',
+				functionName:'mentorDetails'
+
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/mentors/details/:id',
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
@@ -2156,7 +2170,7 @@ module.exports = {
 						type: 'GET',
 					},
 				],
-				functionName: 'readUserById',
+				functionName: 'readUserOrchastration',
 			},
 		},
 		{

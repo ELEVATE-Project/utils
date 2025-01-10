@@ -404,6 +404,92 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+const mentorDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
+	  let headers
+  
+	  if (req.params.id) {
+		headers = {
+		  'Content-Type': 'application/json',
+		//   'X-auth-token': req.headers['x-authenticated-user-token'],
+		  'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+		}
+	  }
+
+	  console.log("response ============ headers  ",headers);
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
+
+const readUserOrchastration = async (req, res, response) => {
+
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	
+	const userId = req.params.id
+	try {
+		console.log('read by readUserOrchastration');
+		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
+		const targetRoute2 = selectedConfig.targetRoute.paths[1]
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		const userResponse = await requesters.get(req.baseUrl, targetRoute1, req.headers, {
+			id: userId,
+		})
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log("READ API response status:",userResponse.params.status);
+			console.log(" user read API resp ==  ",JSON.stringify(userResponse));
+			console.log(" API Response",JSON.stringify(userResponse));
+		}
+		if (userResponse.params.status == 'FAILED') {
+
+			if(process.env.DEBUG_MODE == "true"){
+				console.log("userResponse.params.status ",userResponse.params.status);	
+				console.log("userResponse.params.status ",JSON.stringify(userResponse));
+			}	
+			return res.send(userResponse) 
+		}
+		const enrollmentResponse = await requesters.get(targetRoute2.baseUrl, targetRoute2.path, req.headers, {
+			id: userId,
+		})
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('CALLING COMPETENCY ')
+		}
+
+		let competencyIds = []
+		if(enrollmentResponse.result && enrollmentResponse.result.courses){
+			competencyIds = getCompetencyIds(enrollmentResponse.result.courses || [])
+
+		}
+		 
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('competencyIds ==',competencyIds)
+			console.log("userResponse profile response ",userResponse);
+		}
+		const responseData = processUserResponse(userResponse)
+		responseData.result.competency = competencyIds
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('RESPONSE DATA: ', JSON.stringify(responseData, null, 3))
+		}
+		// responseData.responseCode = 'OK'
+		return (responseData)
+	} catch (error) {
+		if(process.env.DEBUG_MODE == "true"){
+			console.error('Error fetching user details:', error)
+		}
+		return ({ error: 'Internal Server Error' })
+	}
+}
+
 
 
 
@@ -421,7 +507,9 @@ mentoringController = {
 	readUserById,
 	readUserWithToken,
 	accountList,
-	listOrganisation
+	listOrganisation,
+	mentorDetails,
+	readUserOrchastration
 }
 
 module.exports = mentoringController

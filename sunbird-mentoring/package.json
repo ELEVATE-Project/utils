@@ -1,6 +1,6 @@
 {
 	"name": "sunbird-mentoring",
-	"version": "3.1.17",
+	"version": "3.1.24",
 	"description": "Npm package for sunbird-mentoring service integration with Interface service. ",
 	"main": "index.js",
 	"scripts": {
