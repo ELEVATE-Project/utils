@@ -186,8 +186,13 @@ const readUserById = async (req, res, selectedConfig) => {
 	const userId = req.params.id
 	try {
 		console.log('read by userid');
-		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
+		let targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
+
+
+		 targetRoute1 = req.params.id ? targetRoute1.replace('/:id', `/${req.params.id}`) : targetRoute1;
+	  
+		 console.log("-------------- targetRoute1 -------",targetRoute1);
 
 		if(selectedConfig.service){
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
@@ -228,6 +233,8 @@ const readUserById = async (req, res, selectedConfig) => {
 			console.log("userResponse profile response ",userResponse);
 		}
 		const responseData = processUserResponse(userResponse)
+
+		console.log("responseDataresponseDataresponseDataresponseData responseData -------",responseData);
 		responseData.result.competency = competencyIds
 
 		if(process.env.DEBUG_MODE == "true"){
@@ -247,7 +254,7 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 	try {
 
 		if(process.env.DEBUG_MODE == "true"){
-			console.log("================== readUserWithToken =======")
+			console.log("================== readUserWithToken  =======")
 		}
 		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
@@ -265,7 +272,10 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 		}
 
+		console.log("----- req - header",req.headers['x-auth-token']);
 
+		console.log("req.baseUrl of" ,targetRoute1.path)
+		console.log("targetRoute1.pathtargetRoute1.pathtargetRoute1.path =========   " ,targetRoute1.path)
 		const userResponse = await requesters.get(req.baseUrl,targetRoute1.path, req.headers, {
 			id: userId,
 		})
@@ -432,9 +442,13 @@ const readUserOrchastration = async (req, res, response) => {
 	
 	const userId = req.params.id
 	try {
-		console.log('read by readUserOrchastration');
-		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
+		// console.log('read by readUserOrchastration');
+		let targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
+
+
+		targetRoute1 = req.params.id ? targetRoute1.replace('/:id', `/${req.params.id}`) : targetRoute1;
+	  
 
 		if(selectedConfig.service){
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
