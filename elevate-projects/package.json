@@ -1,12 +1,9 @@
 {
-  "name": "elevate-project",
-  "version": "1.1.24",
+  "name": "elevate-projects",
+  "version": "1.0.9",
   "description": "Npm package for Elevate-Project service integration with Interface service",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Priyanka Pradeep",
+  "author": "Prajwal C S",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",

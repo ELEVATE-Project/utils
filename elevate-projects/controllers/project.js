@@ -24,7 +24,7 @@ const common = require('../constants/common')
  */
 
 const fetchProjectTemplates = async (req, res, responses) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 
 	let response = { result: { data: [], count: 0 } }
 	let proceedToCallProjectService = false
@@ -89,34 +89,8 @@ const fetchProjectTemplates = async (req, res, responses) => {
 	return response
 }
 
-const projectsList = async (req, res) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
-	let targetedRoutePath = selectedConfig.targetRoute.path
-	// Add the query params to the request call
-	Object.keys(req.query).map((key) => {
-		if(targetedRoutePath.includes('?')){
-			targetedRoutePath = targetedRoutePath + `&${key}=${req.query[key]}`
-		}else{
-			targetedRoutePath = targetedRoutePath + `?${key}=${req.query[key]}`
-		}
-	})
-	// Set status=completed in query based on req.body
-	if("filter" in req.body && req.body.filter == "submittedCount"){
-		if(targetedRoutePath.includes('?')){
-			targetedRoutePath = targetedRoutePath + `&status=completed`
-		}else{
-			targetedRoutePath = targetedRoutePath + `?status=completed`
-		}
-		delete req.body["filter"]
-	}
-	return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
-		'X-auth-token': req.headers['x-auth-token'],
-	})
-}
-
 const projectController = {
-	fetchProjectTemplates,
-	projectsList
+	fetchProjectTemplates
 }
 
 module.exports = projectController
