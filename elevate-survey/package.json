@@ -1,12 +1,12 @@
 {
-	"name": "elevate-survey",
-	"version": "1.0.37",
-	"description": "Npm package for Elevate-survey service integration with Interface service",
+	"name": "elevate-survey-observation",
+	"version": "1.0.0",
+	"description": "Npm package for elevate-survey-observation service integration with Interface service",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "Saish Borkar",
+	"author": "Shishaloakm",
 	"license": "ISC",
 	"dependencies": {
 		"axios": "^1.4.0",
