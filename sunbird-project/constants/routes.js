@@ -1495,66 +1495,6 @@ module.exports = {
         type: "POST"
         },
         service: "scheduler"
-    },
-    {
-        sourceRoute: '/user/v1/user/read',
-        type: 'GET',
-        inSequence: false,
-        orchestrated: true,
-        targetRoute: {
-            path: '/api/user/v2/read',
-            type: 'GET',
-            functionName: "attachToken"
-        },
-        service: "user"
-    },
-    {
-        sourceRoute: '/user/v1/user/read/:id',
-        type: 'GET',
-        inSequence: false,
-        orchestrated: true,
-        targetRoute: {
-            path: '/api/user/v2/read/:id',
-            type: 'GET',
-            functionName: "attachToken"
-        },
-        service: "user"
-    },
-    {
-        sourceRoute: "/entity-management/v1/entities/find",
-        type: "POST",
-        inSequence: false,
-        orchestrated: false,
-        targetRoute: {
-            path: "/api/data/v1/location/search",
-            type: "POST",
-            functionName: "createLocationReqBody"
-        },
-        service: "entity",
-    },
-    {
-        sourceRoute: "/entity-management/v1/entityTypes/find",
-        type: "POST",
-        inSequence: false,
-        orchestrated: false,
-        targetRoute: {
-            path: "/api/data/v1/location/search",
-            type: "POST",
-            functionName: "createLocationReqBody"
-        },
-        service: "entity",
-    },
-    {
-        sourceRoute: "/entity-management/v1/userRoleExtension/find",
-        type: "POST",
-        inSequence: false,
-        orchestrated: false,
-        targetRoute: {
-            path: "/api/data/v1/location/search",
-            type: "POST",
-            functionName: "createLocationReqBody"
-        },
-        service: "entity",
     }
     ]
 }

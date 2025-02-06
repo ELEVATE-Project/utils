@@ -10,7 +10,7 @@ const getDependencies = () => {
 const getPackageMeta = () => {
 	return {
 		basePackageName: 'project',
-		packageName: 'sunbird-project',
+		packageName: 'elevate-project',
 	}
 }
 
