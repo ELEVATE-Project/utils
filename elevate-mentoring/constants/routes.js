@@ -2893,6 +2893,14 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/mentoring/v1/reports/filterList',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/reports/filterList	',
+				type: 'GET',
+			},
+		},
+		{
 			sourceRoute: '/mentoring/v1/report-type/create',
 			type: 'POST',
 			targetRoute: {
