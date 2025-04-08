@@ -2725,6 +2725,14 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/mentoring/v1/profile/externalIdMapping',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/profile/externalIdMapping',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/mentoring/v1/profile/getCommunicationToken',
 			type: 'GET',
 			targetRoute: {
