@@ -40,25 +40,40 @@ const profileRead = async (req, res, selectedConfig) => {
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 		}
 
-		const userCreateResponse = await requesters.post(req.baseUrl, targetRoute1, {}, req.headers)
-	
+		const mentoringResponse = await requesters.get(req.baseUrl, targetRoute2, {
+			'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+		})
 		if(process.env.DEBUG_MODE == "true"){
-			
-			console.log("userCreateResponse api respo",userCreateResponse);
-			console.log("profileRead create json",JSON.stringify(userCreateResponse));
+					
+			console.log("mentoringResponse api respo",mentoringResponse);
+			console.log("mentoringResponse  read json",JSON.stringify(mentoringResponse));
 		}
-		if (userCreateResponse.responseCode == 'OK') {
-			const mentoringResponse = await requesters.get(req.baseUrl, targetRoute2, {
-				'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
-			})
+		if(mentoringResponse && mentoringResponse.result['id']){
+
+			mentoringResponse.result['id'] = mentoringResponse.result?.user_id;
 			res.json(mentoringResponse)
+
 		} else {
 
-			if(process.env.DEBUG_MODE == "true"){
-				console.log("profileRead error create",JSON.stringify(userCreateResponse));
-			}
-			res.json(userCreateResponse)
-		
+				const userCreateResponse = await requesters.post(req.baseUrl, targetRoute1, {}, req.headers)
+				if(process.env.DEBUG_MODE == "true"){
+					
+					console.log("userCreateResponse api respo",userCreateResponse);
+					console.log("profileRead create json",JSON.stringify(userCreateResponse));
+				}
+				if (userCreateResponse.responseCode == 'OK') {
+					let profleResponse = await requesters.get(req.baseUrl, targetRoute2, {
+						'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+					})
+					profleResponse.result['id'] = userCreateResponse.result?.user_id;
+					res.json(profleResponse)
+				} else {
+
+					if(process.env.DEBUG_MODE == "true"){
+						console.log("profileRead error create",JSON.stringify(userCreateResponse));
+					}
+					res.json(userCreateResponse)
+				}
 		}
 	} catch (error) {
 
