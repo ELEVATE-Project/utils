@@ -3083,6 +3083,54 @@ module.exports = {
 				path: '/mentoring/v1/requestSessions/reject',
 				type: 'POST',
 			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/list',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/getDetails',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/getDetails',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/userAvailability',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/userAvailability',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/accept',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/accept',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/requestSessions/reject',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/requestSessions/reject',
+				type: 'POST',
+			},
 		}
 	],
 }
