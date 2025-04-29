@@ -5,17 +5,17 @@ const kafkaManager = async (kafkaPackage, environmentVariables) => {
 		const { ElevateKafka } = kafkaPackage
 
 		const kafka = new ElevateKafka(
-			environmentVariables.KB_MENTORING_NOTIFICATION_KAFKA_BROKERS,
-			environmentVariables.KB_MENTORING_NOTIFICATION_KAFKA_BROKERS,
+			environmentVariables.SUNBIRD_MENTORING_NOTIFICATION_KAFKA_BROKERS,
+			environmentVariables.SUNBIRD_MENTORING_NOTIFICATION_KAFKA_BROKERS,
 			{
 				packageName: 'kb-mentoring-notification',
 			}
 		)
 
-		const topics = [environmentVariables.KB_MENTORING_NOTIFICATION_KAFKA_TOPIC]
-		const consumer = await kafka.createConsumer(environmentVariables.KB_MENTORING_NOTIFICATION_KAFKA_GROUP_ID, topics)
+		const topics = [environmentVariables.SUNBIRD_MENTORING_NOTIFICATION_KAFKA_TOPIC]
+		const consumer = await kafka.createConsumer(environmentVariables.SUNBIRD_MENTORING_NOTIFICATION_KAFKA_GROUP_ID, topics)
 		await kafka.runConsumer(consumer, async (topic, message) => {
-			if (topic == environmentVariables.KB_MENTORING_NOTIFICATION_KAFKA_TOPIC) {
+			if (topic == environmentVariables.SUNBIRD_MENTORING_NOTIFICATION_KAFKA_TOPIC) {
 				
 				if(process.env.DEBUG_MODE == "true"){
 					console.log("-------------------- message",message.value);

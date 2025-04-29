@@ -3,6 +3,11 @@ const routeConfigs = require('../constants/routes.js')
 const requestParser = require('../utils/requestParser')
 
 const createProfile = async (req, res, responses, selectedConfig) => {
+	
+	await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
+		'X-auth-token': `bearer ${responses.user.result.access_token}`,
+	})
+	
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
@@ -15,35 +20,60 @@ const createProfile = async (req, res, responses, selectedConfig) => {
 // 		'X-auth-token': req.headers['x-auth-token'],
 // 	})
 
-const rolePermissions = async (req, res, responses, selectedConfig) =>
+const rolePermissions = async (req, res, responses, selectedConfig) =>{
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
 	await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': `bearer ${responses.user.result.access_token}`,
 	})
+}
+
 
 const profileRead = async (req, res, selectedConfig) => {
 	try {
 		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1].path
 
-		const userCreateResponse = await requesters.post(req.baseUrl, targetRoute1, {}, req.headers)
-	
-		if(process.env.DEBUG_MODE == "true"){
-			
-			console.log("userCreateResponse api respo",userCreateResponse);
-			console.log("profileRead create json",JSON.stringify(userCreateResponse));
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 		}
-		if (userCreateResponse.responseCode == 'OK') {
-			const mentoringResponse = await requesters.get(req.baseUrl, targetRoute2, {
-				'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
-			})
+
+		const mentoringResponse = await requesters.get(req.baseUrl, targetRoute2, {
+			'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+		})
+		if(process.env.DEBUG_MODE == "true"){
+					
+			console.log("mentoringResponse api respo",mentoringResponse);
+			console.log("mentoringResponse  read json",JSON.stringify(mentoringResponse));
+		}
+		if(mentoringResponse && mentoringResponse.result['id']){
+
+			mentoringResponse.result['id'] = mentoringResponse.result?.user_id;
 			res.json(mentoringResponse)
+
 		} else {
 
-			if(process.env.DEBUG_MODE == "true"){
-				console.log("profileRead error create",JSON.stringify(userCreateResponse));
-			}
-			res.json(userCreateResponse)
-		
+				const userCreateResponse = await requesters.post(req.baseUrl, targetRoute1, {}, req.headers)
+				if(process.env.DEBUG_MODE == "true"){
+					
+					console.log("userCreateResponse api respo",userCreateResponse);
+					console.log("profileRead create json",JSON.stringify(userCreateResponse));
+				}
+				if (userCreateResponse.responseCode == 'OK') {
+					let profleResponse = await requesters.get(req.baseUrl, targetRoute2, {
+						'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+					})
+					profleResponse.result['id'] = userCreateResponse.result?.user_id;
+					res.json(profleResponse)
+				} else {
+
+					if(process.env.DEBUG_MODE == "true"){
+						console.log("profileRead error create",JSON.stringify(userCreateResponse));
+					}
+					res.json(userCreateResponse)
+				}
 		}
 	} catch (error) {
 
@@ -55,18 +85,32 @@ const profileRead = async (req, res, selectedConfig) => {
 }
 
 const createUser = async (req, res, responses, selectedConfig) => {
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'device-info': req.headers['device-info'],
 	})
 }
 
 const entityTypeRead = async (req, res, responses, selectedConfig) => {
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'X-auth-token': req.headers['x-auth-token'],
 	})
 }
 
 const loginUser = async (req, res, responses, selectedConfig) => {
+
+	if(selectedConfig.service){
+		req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+	}
+
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'captcha-token': req.headers['captcha-token'],
 		'device-info': req.headers['device-info'],
@@ -80,6 +124,10 @@ const readOrganization = async (req, res, selectedConfig) => {
 		},
 	}
 	try {
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+
 		const response = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {
 			'device-info': req.headers['device-info'],
 		})
@@ -153,9 +201,17 @@ const readUserById = async (req, res, selectedConfig) => {
 	const userId = req.params.id
 	try {
 		console.log('read by userid');
-		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
+		let targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
 
+
+		 targetRoute1 = req.params.id ? targetRoute1.replace('/:id', `/${req.params.id}`) : targetRoute1;
+	  
+		 console.log("-------------- targetRoute1 -------",targetRoute1);
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 		const userResponse = await requesters.get(req.baseUrl, targetRoute1, req.headers, {
 			id: userId,
 		})
@@ -192,6 +248,8 @@ const readUserById = async (req, res, selectedConfig) => {
 			console.log("userResponse profile response ",userResponse);
 		}
 		const responseData = processUserResponse(userResponse)
+
+		console.log("responseDataresponseDataresponseDataresponseData responseData -------",responseData);
 		responseData.result.competency = competencyIds
 
 		if(process.env.DEBUG_MODE == "true"){
@@ -211,7 +269,7 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 	try {
 
 		if(process.env.DEBUG_MODE == "true"){
-			console.log("================== readUserWithToken =======")
+			console.log("================== readUserWithToken  =======")
 		}
 		const targetRoute1 = selectedConfig.targetRoute.paths[0].path
 		const targetRoute2 = selectedConfig.targetRoute.paths[1]
@@ -220,8 +278,19 @@ const readUserWithToken = async (req, res, selectedConfig) => {
 		if (token && token.toLowerCase().startsWith('bearer ')) token = token.slice(7)
 
 		const tokenClaims = jwt.decode(token)
-		const userId = tokenClaims.sub.split(':').pop()
+		
+		let userId = tokenClaims.sub.split(':').pop()
+		if(req.params.id){
+			 userId = req.params.id
+		}
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
+		console.log("----- req - header",req.headers['x-auth-token']);
+
+		console.log("req.baseUrl of" ,targetRoute1.path)
+		console.log("targetRoute1.pathtargetRoute1.pathtargetRoute1.path =========   " ,targetRoute1.path)
 		const userResponse = await requesters.get(req.baseUrl,targetRoute1.path, req.headers, {
 			id: userId,
 		})
@@ -283,10 +352,19 @@ const accountList = async (req, res, selectedConfig) => {
 	try {
 		const userIds = req.body.userIds
 		if(process.env.DEBUG_MODE == "true"){
+			console.log("------------selectedConfig --------",selectedConfig);
+			console.log("------------req.baseUrl --------",req.baseUrl);
 			console.log("------- ================ -------",req.body);
 		}
 		// if (Array.isArray(userIds)) throw Error('req.body.userIds is not an array.')
 		body.request.filters.userId = userIds
+
+		
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		
+
 		const userSearchResponse = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {})
 		return res.json(processUserSearchResponse(userSearchResponse.result.response.content))
 	} catch (error) {
@@ -313,6 +391,10 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		},
 	}
 	try {
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
 		const response = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {
 			'device-info': req.headers['device-info'],
@@ -347,6 +429,99 @@ const listOrganisation = async (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+const mentorDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
+	  let headers
+  
+	  if (req.params.id) {
+		headers = {
+		  'Content-Type': 'application/json',
+		//   'X-auth-token': req.headers['x-authenticated-user-token'],
+		  'x-authenticated-user-token': req.headers['x-authenticated-user-token'],
+		}
+	  }
+
+	  console.log("response ============ headers  ",headers);
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
+
+const readUserOrchastration = async (req, res, response) => {
+
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	
+	const userId = req.params.id
+	try {
+		// console.log('read by readUserOrchastration');
+		let targetRoute1 = selectedConfig.targetRoute.paths[0].path
+		const targetRoute2 = selectedConfig.targetRoute.paths[1]
+
+
+		targetRoute1 = req.params.id ? targetRoute1.replace('/:id', `/${req.params.id}`) : targetRoute1;
+	  
+
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		const userResponse = await requesters.get(req.baseUrl, targetRoute1, req.headers, {
+			id: userId,
+		})
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log("READ API response status:",userResponse.params.status);
+			console.log(" user read API resp ==  ",JSON.stringify(userResponse));
+			console.log(" API Response",JSON.stringify(userResponse));
+		}
+		if (userResponse.params.status == 'FAILED') {
+
+			if(process.env.DEBUG_MODE == "true"){
+				console.log("userResponse.params.status ",userResponse.params.status);	
+				console.log("userResponse.params.status ",JSON.stringify(userResponse));
+			}	
+			return res.send(userResponse) 
+		}
+		const enrollmentResponse = await requesters.get(targetRoute2.baseUrl, targetRoute2.path, req.headers, {
+			id: userId,
+		})
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('CALLING COMPETENCY ')
+		}
+
+		let competencyIds = []
+		if(enrollmentResponse.result && enrollmentResponse.result.courses){
+			competencyIds = getCompetencyIds(enrollmentResponse.result.courses || [])
+
+		}
+		 
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('competencyIds ==',competencyIds)
+			console.log("userResponse profile response ",userResponse);
+		}
+		const responseData = processUserResponse(userResponse)
+		responseData.result.competency = competencyIds
+
+		if(process.env.DEBUG_MODE == "true"){
+			console.log('RESPONSE DATA: ', JSON.stringify(responseData, null, 3))
+		}
+		// responseData.responseCode = 'OK'
+		return (responseData)
+	} catch (error) {
+		if(process.env.DEBUG_MODE == "true"){
+			console.error('Error fetching user details:', error)
+		}
+		return ({ error: 'Internal Server Error' })
+	}
+}
+
+
+
+
 
 mentoringController = {
 	createProfile,
@@ -361,7 +536,9 @@ mentoringController = {
 	readUserById,
 	readUserWithToken,
 	accountList,
-	listOrganisation
+	listOrganisation,
+	mentorDetails,
+	readUserOrchastration
 }
 
 module.exports = mentoringController

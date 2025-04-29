@@ -18,6 +18,10 @@ const passThroughRequester = async (req, res) => {
 
 		const sourceUrl = new URL(req.originalUrl, sourceBaseUrl)
 		const route = routesConfig.routes.find((route) => route.sourceRoute === req.sourceRoute)
+	
+		if(route.service){
+			req['baseUrl'] = process.env[`${route.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 		const params = matchPathsAndExtractParams(route.sourceRoute, req.originalUrl)
 		const targetRoute = pathParamSetter(route.targetRoute.path, params)
 		const parsedUrl = new URL(targetRoute, req.baseUrl)
@@ -46,6 +50,7 @@ const passThroughRequester = async (req, res) => {
 		})
 		req.pipe(proxyReq, { end: true })
 	} catch (err) {
+		console.log()
 		handleInterfaceError(res, err)
 	}
 }
@@ -93,7 +98,8 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 const get = (baseUrl, route, headers, requestBody = {}) => {
 	const url = baseUrl + route
 	const options = {
-		headers
+		headers,
+		data: requestBody 
 	};
 
 	return axios
@@ -107,7 +113,6 @@ const get = (baseUrl, route, headers, requestBody = {}) => {
 			return error
 		})
 }
-
 const requesters = {
 	passThroughRequester,
 	post,

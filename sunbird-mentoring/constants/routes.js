@@ -867,6 +867,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service:"mentoring",
 			targetRoute: {
 				path: '/mentoring/v1/profile/create',
 				type: 'POST',
@@ -878,6 +879,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service:"mentoring",
 			targetRoute: {
 				path: '/mentoring/v1/entity-type/read',
 				type: 'POST',
@@ -889,6 +891,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
+			service:"mentoring",
 			targetRoute: {
 				path: '/mentoring/v1/role-permission-mapping/list',
 				type: 'POST',
@@ -900,6 +903,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
+			service:"mentoring",
 			targetRoute: {
 				paths: [
 					{ path: '/mentoring/v1/users/create', type: 'POST' },
@@ -1509,6 +1513,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
+			service:"user",
 			targetRoute: {
 				path: '/user/v1/account/create',
 				type: 'POST',
@@ -1520,6 +1525,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: true,
+			service:"user",
 			targetRoute: {
 				path: '/user/v1/entity-type/read',
 				type: 'POST',
@@ -1531,6 +1537,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: true,
 			orchestrated: true,
+			service:"user",
 			targetRoute: {
 				path: '/user/v1/account/login',
 				type: 'POST',
@@ -1542,6 +1549,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/login',
 				type: 'POST',
@@ -1552,6 +1560,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/acceptTermsAndCondition',
 				type: 'PATCH',
@@ -1562,6 +1571,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/resetPassword',
 				type: 'POST',
@@ -1572,6 +1582,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/generateToken',
 				type: 'POST',
@@ -1582,6 +1593,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/logout',
 				type: 'POST',
@@ -1592,6 +1604,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/private/user/v1/search',
 				type: 'POST',
@@ -1603,6 +1616,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				paths: [
 					{ path: '/private/user/v1/read/:id', type: 'GET' },
@@ -1620,6 +1634,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 			paths: [
 				{
@@ -1640,6 +1655,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user/update',
 				type: 'PATCH',
@@ -1650,6 +1666,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user/share',
 				type: 'GET',
@@ -1660,6 +1677,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user/share/:id',
 				type: 'GET',
@@ -1670,6 +1688,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user-role/list',
 				type: 'GET',
@@ -1680,6 +1699,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user-role/default',
 				type: 'GET',
@@ -1690,6 +1710,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user-role/create',
 				type: 'POST',
@@ -1700,6 +1721,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user-role/update/:id',
 				type: 'POST',
@@ -1710,6 +1732,7 @@ module.exports = {
 			type: 'DELETE',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/user-role/delete/:id',
 				type: 'DELETE',
@@ -1720,6 +1743,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/form/create',
 				type: 'POST',
@@ -1730,6 +1754,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/form/read',
 				type: 'POST',
@@ -1738,6 +1763,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/form/read/:id',
 			type: 'POST',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/form/read/:id',
 				type: 'POST',
@@ -1748,6 +1774,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/form/update',
 				type: 'PATCH',
@@ -1758,6 +1785,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/cloud-services/file/getSignedUrl',
 				type: 'GET',
@@ -1766,6 +1794,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/cloud-services/file/getDownloadableUrl',
 			type: 'GET',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/cloud-services/file/getDownloadableUrl',
 				type: 'GET',
@@ -1776,6 +1805,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/organization/create',
 				type: 'POST',
@@ -1786,6 +1816,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/organization/update',
 				type: 'PATCH',
@@ -1795,6 +1826,7 @@ module.exports = {
 			sourceRoute: '/user/v1/organization/update/:id',
 			type: 'PATCH',
 			inSequence: false,
+			service: "user",
 			orchestrated: false,
 			targetRoute: {
 				path: '/user/v1/organization/update/:id',
@@ -1806,6 +1838,7 @@ module.exports = {
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/v1/org/search',
 				type: 'GET',
@@ -1817,6 +1850,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/create',
 				type: 'POST',
@@ -1827,6 +1861,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/update',
 				type: 'PATCH',
@@ -1837,6 +1872,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/update/:id',
 				type: 'PATCH',
@@ -1847,6 +1883,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/read',
 				type: 'POST',
@@ -1857,6 +1894,7 @@ module.exports = {
 			type: 'DELETE',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/delete',
 				type: 'DELETE',
@@ -1867,6 +1905,7 @@ module.exports = {
 			type: 'DELETE',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity-type/delete/:id',
 				type: 'DELETE',
@@ -1877,6 +1916,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity/create',
 				type: 'POST',
@@ -1887,6 +1927,7 @@ module.exports = {
 			type: 'PATCH',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity/update',
 				type: 'PATCH',
@@ -1897,6 +1938,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity/update/:id',
 				type: 'POST',
@@ -1907,6 +1949,7 @@ module.exports = {
 			type: 'DELETE',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity/delete/:id',
 				type: 'DELETE',
@@ -1917,6 +1960,7 @@ module.exports = {
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/entity/read',
 				type: 'POST',
@@ -1925,6 +1969,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/org-admin/inheritEntityType',
 			type: 'POST',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/org-admin/inheritEntityType',
 				type: 'POST',
@@ -1933,6 +1978,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/organization/read',
 			type: 'GET',
+			service: "user",
 			targetRoute: {
 				path: '/v1/org/read',
 				type: 'POST',
@@ -1942,6 +1988,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/admin/addOrgAdmin',
 			type: 'POST',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/admin/addOrgAdmin',
 				type: 'POST',
@@ -1950,6 +1997,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/org-admin/bulkUserCreate',
 			type: 'POST',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/org-admin/bulkUserCreate',
 				type: 'POST',
@@ -1958,6 +2006,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/org-admin/getBulkInvitesFilesList',
 			type: 'GET',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/org-admin/getBulkInvitesFilesList',
 				type: 'GET',
@@ -1966,6 +2015,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/notification/read',
 			type: 'GET',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/notification/read',
 				type: 'GET',
@@ -1974,6 +2024,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/account/search',
 			type: 'POST',
+			service: "user",
 			targetRoute: {
 				path: '/user/v1/account/search',
 				type: 'POST',
@@ -1982,6 +2033,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/permissions/list',
 			type: 'GET',
+			service: "user",
 			priority: 'MUST_HAVE',
 			inSequence: false,
 			orchestrated: false,
@@ -1993,6 +2045,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/account/validatingEmailIds',
 			type: 'POST',
+			service: "user",
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
@@ -2002,6 +2055,7 @@ module.exports = {
 		{
 			sourceRoute: '/user/v1/account/sessions',
 			type: 'GET',
+			service: "user",
 			priority: 'MUST_HAVE',
 			inSequence: false,
 			orchestrated: false,
@@ -2014,6 +2068,7 @@ module.exports = {
 			sourceRoute: '/user/v1/account/validateUserSession',
 			type: 'POST',
 			priority: 'MUST_HAVE',
+			service: "user",
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
@@ -2044,6 +2099,7 @@ module.exports = {
         {
 			sourceRoute: '/scheduler/jobs/create',
 			type: 'POST',
+			service: "scheduler",
 			targetRoute: {
 				path: '/scheduler/jobs/create',
 				type: 'POST',
@@ -2052,6 +2108,7 @@ module.exports = {
 		{
 			sourceRoute: '/scheduler/jobs/updateDelay',
 			type: 'POST',
+			service: "scheduler",
 			targetRoute: {
 				path: '/scheduler/jobs/updateDelay',
 				type: 'POST',
@@ -2060,6 +2117,7 @@ module.exports = {
 		{
 			sourceRoute: '/scheduler/jobs/remove',
 			type: 'POST',
+			service: "scheduler",
 			targetRoute: {
 				path: '/scheduler/jobs/remove',
 				type: 'POST',
@@ -2068,6 +2126,7 @@ module.exports = {
 		{
 			sourceRoute: '/scheduler/jobs/list',
 			type: 'GET',
+			service: "scheduler",
 			targetRoute: {
 				path: '/scheduler/jobs/list',
 				type: 'GET',
@@ -2076,9 +2135,223 @@ module.exports = {
 		{
 			sourceRoute: '/scheduler/jobs/purge',
 			type: 'POST',
+			service: "scheduler",
 			targetRoute: {
 				path: '/scheduler/jobs/purge',
 				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			service:"mentoring",
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'GET',
+				functionName:'mentorDetails'
+
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			service:"user",
+			targetRoute: {
+				paths: [
+					{
+						service: "user",
+						path: '/private/user/v1/read/:id',
+						type: 'GET'
+					},
+					{
+						service: "user",
+						baseUrl: 'http://lms-service:9000',
+						path: '/private/v3/user/courses/list/:id',
+						type: 'GET'
+					}
+					],
+					functionName: 'readUserWithToken'
+				},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/reportData',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/reports/reportData	',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/reports/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/reports/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/update',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/reports/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/delete',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/reports/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-type/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-type/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-type/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/report-type/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-type/update',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-type/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-type/delete',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/report-type/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-mapping/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-mapping/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-mapping/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/report-mapping/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-mapping/update',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-mapping/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-mapping/delete',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/report-mapping/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-queries/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-queries/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-queries/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/report-queries/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-queries/update',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/report-queries/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/report-queries/delete',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/report-queries/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/role-extension/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/role-extension/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/role-extension/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/role-extension/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/role-extension/update',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/role-extension/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/role-extensions/delete',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/role-extension/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/filterList',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/reports/filterList	',
+				type: 'GET',
 			},
 		}
 	],
