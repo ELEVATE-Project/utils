@@ -3088,7 +3088,7 @@ module.exports = {
 			sourceRoute: '/mentoring/v1/requestSessions/create',
 			type: 'POST',
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/',
+				path: '/mentoring/v1/requestSessions/create',
 				type: 'POST',
 			},
 		},
