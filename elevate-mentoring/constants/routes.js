@@ -3083,6 +3083,22 @@ module.exports = {
 				path: '/mentoring/v1/requestSessions/reject',
 				type: 'POST',
 			},
+		},
+		{
+			"sourceRoute": "/mentoring/v1/org-admin/themeDetails",
+			"type": "GET",
+			targetRoute: {
+				path: '/mentoring/v1/org-admin/themeDetails',
+				type: 'GET'
+			}			
+		},
+		{
+			"sourceRoute": "/mentoring/v1/org-admin/updateTheme",
+			"type": "POST",
+			targetRoute: {
+				path: '/mentoring/v1/org-admin/updateTheme',
+				type: 'POST'
+			}
 		}
 	],
 }
