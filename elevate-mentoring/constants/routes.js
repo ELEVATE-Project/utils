@@ -31,6 +31,16 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/mentoring/v1/entity/list',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/entity/list',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/mentoring/v1/entity/update',
 			type: 'PUT',
 			inSequence: false,
@@ -1242,14 +1252,36 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/mentoring/v1/org-admin/bulkSessionCreate',
+			sourceRoute: '/mentoring/v1/sessions/bulkSessionCreate',
 			type: 'POST',
 			priority: 'MUST_HAVE',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/mentoring/v1/org-admin/bulkSessionCreate',
+				path: '/mentoring/v1/sessions/bulkSessionCreate',
 				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/org-admin/uploadSampleCSV',
+			type: 'POST',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/org-admin/uploadSampleCSV',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/sessions/getSampleCSV',
+			type: 'GET',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/sessions/getSampleCSV',
+				type: 'GET',
 			},
 		},
 		{
@@ -1444,5 +1476,190 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/mentoring/v1/default-rule/create',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/default-rule/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/default-rule/read',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/default-rule/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/default-rule/read/:id',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/default-rule/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/default-rule/update/:id',
+			type: 'PATCH',
+			targetRoute: {
+				path: '/mentoring/v1/default-rule/update/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/default-rule/delete/:id',
+			type: 'DELETE',
+			targetRoute: {
+				path: '/mentoring/v1/default-rule/delete/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/notification/template',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/notification/template',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/notification/template',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/notification/template',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/notification/template/:id',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/notification/template/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/notification/template',
+			type: 'PATCH',
+			targetRoute: {
+				path: '/mentoring/v1/notification/template',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/notification/template/:id',
+			type: 'PATCH',
+			targetRoute: {
+				path: '/mentoring/v1/notification/template/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/mentoring/v1/mentors/details/:id',
+				type: 'POST',
+				functionName: 'mentorDetails',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/mentoring/v1/profile/read',
+				type: 'GET',
+				functionName: 'mentoringProfile',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/filterList',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/reports/filterList	',
+        type: 'GET',
+      }
+        
+      },
+      {
+			sourceRoute: '/mentoring/v1/connections/initiate',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/connections/initiate',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/connections/pending',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/connections/pending',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/connections/accept',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/connections/accept',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/connections/reject',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/connections/reject',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/connections/getInfo',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/connections/getInfo',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/connections/list',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/connections/list',
+
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/reports/reportData',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/reports/reportData	',
+				type: 'GET',
+			},
+		},
+    {
+			sourceRoute: '/mentoring/v1/profile/getCommunicationToken',
+			type: 'GET',
+			targetRoute: {
+				path: '/mentoring/v1/profile/getCommunicationToken',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/profile/logout',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/profile/logout',
+				type: 'POST',
+			},
+		}
 	],
 }

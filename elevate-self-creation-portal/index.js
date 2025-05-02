@@ -9,8 +9,8 @@ const getDependencies = () => {
 
 const getPackageMeta = () => {
 	return {
-		basePackageName: 'entity-management',
-		packageName: 'elevate-entity-management',
+		basePackageName: 'self-creation-portal',
+		packageName: 'elevate-self-creation-portal',
 	}
 }
 
@@ -25,7 +25,7 @@ const createPackage = (options) => {
 }
 
 router.get('/', (req, res) => {
-	res.send('Hello, world! From entity-management')
+	res.send('Hello, world! From self-creation-portal')
 })
 
 module.exports = {

@@ -1,0 +1,85 @@
+---
+- hosts: elevate
+  vars:
+    project_path: /opt/backend/deployment
+    npm_registry: "https://registry.npmjs.org/"
+  tasks:
+    - name: Slurp hosts file
+      slurp:
+        src: "{{ project_path }}/.token"
+      register: slurpfile
+
+    - name: Create release folder
+      set_fact:
+        release_path: "{{ project_path }}/releases/{{ lookup('pipe','date +%Y%m%d%H%M%S') }}"
+        current_path: "{{ project_path }}/{{ directoryName }}"
+    
+    - name: Retrieve current release folder
+      command: readlink -f {{ directoryName }}
+      register: current_release_path
+      ignore_errors: yes
+      args:
+        chdir: "{{ project_path }}"
+
+    - name: Create new folder
+      file:
+        dest={{ release_path }}
+        mode=0755
+        recurse=yes
+        state=directory
+
+    - name: Clone the repository
+      git:
+        repo: https://github.com/ELEVATE-Project/utils.git
+        dest: "{{ release_path }}"
+        clone: yes
+        update: yes
+        version: "{{ gitBranch }}"
+
+    - name: Delete Old Folder & create folder
+      shell: rm -rf {{ current_path }} &&  cd {{ project_path }} && mkdir {{ directoryName }}
+
+    - name: Update npm
+      shell: cd {{release_path}}/{{ folderPath }} && npm i
+
+    - name: Move code from release to service folder
+      shell: mv "{{ release_path }}"/* {{ current_path }}/
+
+    - name: Delete release folder
+      shell: rm -rf  {{ release_path }}
+
+    - name: Authenticate npm using npm token
+      shell: |
+        echo "//registry.npmjs.org/:_authToken={{npmToken}}" > .npmrc
+      args:
+        chdir: "{{ current_path }}/{{ folderPath }}"
+    
+    - name: Get the current version of the npm package
+      shell: |
+        current_version=$(npm show {{ folderPath }} version)
+        echo "Current version is: $current_version"
+      args:
+        chdir: "{{ current_path }}/{{ folderPath }}"
+      register: current_version_output
+
+    - name: Increment npm version (patch)
+      shell: |
+        cd {{ current_path }}/{{ folderPath }}
+        # Increment version and capture the updated version
+        npm version patch --no-git-tag-version
+        new_version=$(node -p "require('./package.json').version")
+        echo "New version is: $new_version"
+      args:
+        chdir: "{{ current_path }}/{{ folderPath }}"
+      register: version_output
+
+    - name: Publish the npm package
+      shell: |
+        cd {{ current_path }}/{{ folderPath }} && npm publish --registry {{ npm_registry }}
+      args:
+        chdir: "{{ current_path }}/{{ folderPath }}"
+      register: npm_publish_output
+    
+    - name: Display NPM publish output
+      debug:
+        msg: "{{ npm_publish_output.stdout }}"

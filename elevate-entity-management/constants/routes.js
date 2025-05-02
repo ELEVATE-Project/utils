@@ -61,12 +61,42 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/entity-management/v1/entityTypes/update/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entityTypes/update/:id',
+				type: 'POST'
+			},
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/bulkCreate',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
 				path: '/entity-management/v1/entities/bulkCreate',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/entityListBasedOnEntityType',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/entityListBasedOnEntityType',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/mappingUpload',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/mappingUpload',
 				type: 'POST'
 			},
 		},
@@ -81,12 +111,12 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/entity-management/v1/entities/create',
+			sourceRoute: '/entity-management/v1/entities/add',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/entity-management/v1/entities/create',
+				path: '/entity-management/v1/entities/add',
 				type: 'POST'
 			},
 		},
@@ -101,12 +131,82 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/update/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/update/:id',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/userRoleExtension/create',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/userRoleExtension/create',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/userRoleExtension/update/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/userRoleExtension/update/:id',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/userRoleExtension/find',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/userRoleExtension/find',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/userRoleExtension/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/userRoleExtension/delete/:id',
+				type: 'DELETE'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/targetedRoles/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/targetedRoles/:id',
+				type: 'GET'
+			},
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/list',
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
 				path: '/entity-management/v1/entities/list',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/list/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/list/:id',
 				type: 'GET'
 			},
 		},
@@ -131,6 +231,16 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/details/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/details/:id',
+				type: 'GET'
+			},
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/listByEntityType',
 			type: 'GET',
 			inSequence: false,
@@ -141,12 +251,32 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/listByEntityType/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/listByEntityType/:id',
+				type: 'GET'
+			},
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/subEntityList',
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
 				path: '/entity-management/v1/entities/subEntityList',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/subEntityList/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/subEntityList/:id',
 				type: 'GET'
 			},
 		},
@@ -169,7 +299,48 @@ module.exports = {
 				path: '/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation',
 				type: 'GET'
 			},
-		}
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation/:id',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/listByLocationIds',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/listByLocationIds',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/relatedEntities',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/relatedEntities',
+				type: 'GET'
+			},
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/relatedEntities/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/relatedEntities/:id',
+				type: 'GET'
+			},
+		},
+
 
 	],
 }

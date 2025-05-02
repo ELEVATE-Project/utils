@@ -90,10 +90,30 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 	}
 }
 
+const get = (baseUrl, route, headers, requestBody = {}) => {
+	const url = baseUrl + route
+	const options = {
+		headers,
+		data: requestBody 
+	};
+
+	return axios
+		.post(url, requestBody, options) // Use POST to send body data
+		.then((response) => response.data)
+		.catch((error) => {
+			console.error('Error fetching data:', error)
+			if (error.response) {
+				return error.response
+			}
+			return error
+		})
+}
+
 const requesters = {
 	passThroughRequester,
 	post,
 	patch,
+	get
 }
 
 module.exports = requesters

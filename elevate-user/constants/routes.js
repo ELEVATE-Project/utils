@@ -123,6 +123,7 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/account/list',
 				type: 'GET',
+				functionName: 'accountsList'
 			},
 		},
 		{
@@ -143,6 +144,7 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/user/read/:id',
 				type: 'GET',
+				functionName: 'readUser',
 			},
 		},
 		{
@@ -153,6 +155,7 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/user/read',
 				type: 'GET',
+				functionName: 'readUser',
 			},
 		},
 		{
@@ -162,6 +165,16 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/user/v1/user/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/setLanguagePreference',
+			type: 'PATCH',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/setLanguagePreference',
 				type: 'PATCH',
 			},
 		},
@@ -482,6 +495,16 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/entity/list',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/entity/list',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/org-admin/inheritEntityType',
 			type: 'POST',
 			targetRoute: {
@@ -495,6 +518,7 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/organization/read',
 				type: 'GET',
+				functionName: 'readOrganization',
 			},
 		},
 		{
@@ -791,15 +815,17 @@ module.exports = {
 			targetRoute: {
 				path: '/user/v1/account/changePassword',
 				type: 'POST',
-			},
+			}
 		},
 		{
-			sourceRoute: '/user/v1/account/searchByEmailIds',
+			sourceRoute: '/user/v1/account/validatingEmailIds',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/user/v1/account/searchByEmailIds',
+				path: '/user/v1/account/validatingEmailIds',
+				type: 'POST',
+				functionName: 'validateEmails'
 			}
 		},
 		{
@@ -823,7 +849,140 @@ module.exports = {
 				path: '/user/v1/account/validateUserSession',
 				type: 'POST',
 			}
-		}
+		},
+		{
+			sourceRoute: '/interface/v2/account/create',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v2/account/create',
+				type: 'POST'
+			},
+		},
+
+		{
+			sourceRoute: '/user/v1/account/create',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/create',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/updateUser/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/org-admin/updateUser/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/org-admin/updateUser',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/org-admin/updateUser',
+				type: 'POST'
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/read/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/account/searchByEmailIds',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/searchByEmailIds',
+				type: 'POST',
+			}
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerViewRebuild',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerViewRebuild',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerPeriodicViewRefresh',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerPeriodicViewRefresh',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerPeriodicViewRefreshInternal',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerPeriodicViewRefreshInternal',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/admin/triggerViewRebuildInternal',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/admin/triggerViewRebuildInternal',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/mentors/details/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+			    functionName: 'mentorDetails',
+			},
+		},
+		{
+			sourceRoute: '/interface/v1/profile/read',
+			type: 'GET',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				path: '/user/v1/user/read',
+				type: 'GET',
+				functionName: 'userDetails',
+			},
+		},
 	]
 }
 

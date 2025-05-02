@@ -15,6 +15,7 @@ const handleInterfaceError = (res, err) => {
 const passThroughRequester = async (req, res) => {
 	try {
 		const sourceBaseUrl = req.protocol + '://' + req.headers.host + '/'
+
 		const sourceUrl = new URL(req.originalUrl, sourceBaseUrl)
 		const route = routesConfig.routes.find((route) => route.sourceRoute === req.sourceRoute)
 		const params = matchPathsAndExtractParams(route.sourceRoute, req.originalUrl)
@@ -89,11 +90,29 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 		throw error // Re-throw the error to be caught by the caller
 	}
 }
+const get = (baseUrl, route, headers, requestBody = {}) => {
+	const url = baseUrl + route
+	const options = {
+		headers
+	};
+
+	return axios
+		.get(url, options) // Use POST to send body data
+		.then((response) => response.data)
+		.catch((error) => {
+			console.error('Error fetching data:', error)
+			if (error.response) {
+				return error.response
+			}
+			return error
+		})
+}
 
 const requesters = {
 	passThroughRequester,
 	post,
 	patch,
+	get
 }
 
 module.exports = requesters
