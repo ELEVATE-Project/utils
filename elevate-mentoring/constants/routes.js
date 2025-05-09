@@ -3090,7 +3090,7 @@ module.exports = {
 			targetRoute: {
 				path: '/mentoring/v1/org-admin/themeDetails',
 				type: 'GET'
-			}			
+			}
 		},
 		{
 			"sourceRoute": "/mentoring/v1/org-admin/updateTheme",
@@ -3099,6 +3099,18 @@ module.exports = {
 				path: '/mentoring/v1/org-admin/updateTheme',
 				type: 'POST'
 			}
-		}
+		},
+		{
+			sourceRoute: '/user/v1/public/branding',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/public/branding',
+				type: 'GET',
+			},
+		},
+
 	],
 }
