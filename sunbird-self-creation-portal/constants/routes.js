@@ -1012,18 +1012,6 @@ module.exports = {
 			service: 'user',
 		},
 		{
-			sourceRoute: '/entity-management/v1/entities/entityListBasedOnEntityType/:id',
-			type: 'GET',
-			inSequence: false,
-			orchestrated: false,
-			targetRoute: {
-				path: '/data/v1/location/search',
-				type: 'GET',
-				functionName: 'entityListBasedOnEntityType',
-			},
-			service: 'entity',
-		},
-		{
 			sourceRoute: '/entity-management/v1/entities/entityListBasedOnEntityType',
 			type: 'GET',
 			inSequence: false,
@@ -1036,16 +1024,52 @@ module.exports = {
 			service: 'entity',
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/api/entities/mlcore/v1/subEntityListBasedOnRoleAndLocation',
+				type: 'GET',
+				functionName: 'subEntityListBasedOnRoleAndLocation',
+			},
+			service: 'mlcore',
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/subEntityListBasedOnRoleAndLocation/:id',
 			type: 'GET',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/kendra/entities/mlcore/v1/subEntityList',
+				path: '/api/entities/mlcore/v1/subEntityListBasedOnRoleAndLocation',
 				type: 'GET',
 				functionName: 'subEntityListBasedOnRoleAndLocation',
 			},
-			service: 'entity',
+			service: 'mlcore',
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/targetedRoles',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '',
+				type: 'POST',
+				functionName: 'getTargetedRoles',
+			},
+			service: 'mlcore',
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/targetedRoles/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '',
+				type: 'POST',
+				functionName: 'getTargetedRoles',
+			},
+			service: 'mlcore',
 		},
 		{
 			sourceRoute: '/entity-management/v1/entities/find',

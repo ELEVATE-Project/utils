@@ -225,37 +225,33 @@ const readOrganization = async (req, res, selectedConfig) => {
 
 const entityListBasedOnEntityType = async (req, res, selectedConfig) => {
 	try {
-		
 		if (selectedConfig.service) {
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 		}
 
 		let bodyData = {
 			request: {
-				filters : {}
-			}
+				filters: {},
+			},
 		}
 		Object.keys(req.query).forEach((query) => {
-			if(query == 'entityType') bodyData.request.filters.type = req.query[query]
-			if(query == 'limit') bodyData.request[query] = Number(req.query[query])
-			if(query == 'page') bodyData.request.offset = Number(req.query[query])
+			if (query == 'entityType') bodyData.request.filters.type = req.query[query]
+			if (query == 'limit') bodyData.request[query] = Number(req.query[query])
+			if (query == 'page') bodyData.request.offset = Number(req.query[query])
 		})
 		const locationDetails = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, bodyData, {
 			Authorization: `bearer ${process.env.SUNBIRD_BEARER_TOKEN}`,
-			'content-type' : 'application/json'
+			'content-type': 'application/json',
 		})
 		// Verifying the response
 		if (locationDetails.responseCode === 'OK' && locationDetails.result?.response?.length > 0) {
-			
 			res.json({
-				message: "ASSETS_FETCHED_SUCCESSFULLY",
+				message: 'ASSETS_FETCHED_SUCCESSFULLY',
 				status: 200,
-				result: {
-					data: entityListDataProcessor(locationDetails.result.response),
-					count: locationDetails.result.count,
-					}
-				})
-			// return 
+				result: entityListDataProcessor(locationDetails.result.response),
+				count: locationDetails.result.count,
+			})
+			// return
 		} else {
 			if (process.env.DEBUG_MODE === 'true') {
 				console.log('Location API error', JSON.stringify(locationDetails))
@@ -272,48 +268,46 @@ const entityListBasedOnEntityType = async (req, res, selectedConfig) => {
 
 const subEntityListBasedOnRoleAndLocation = async (req, res, selectedConfig) => {
 	try {
-		console.log("req : QUERY : ---------->>>>> ",req.params.id)
 		if (selectedConfig.service) {
 			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
 		}
-		const route = selectedConfig.targetRoute.path.endsWith("\\") ? `${selectedConfig.targetRoute.path}${req.params.id}?role=${common.DEFAULT_ROLE_FOR_STATE_HIERARCHY}` : `${selectedConfig.targetRoute.path} \ ${req.params.id}?role=${common.DEFAULT_ROLE_FOR_STATE_HIERARCHY}`
-		let bodyData = {
-			request: {
-				filters : {
 
-				}
-			}
+		const targetRoute = `${selectedConfig.targetRoute.path}/${req.params.id}?role=${common.DEFAULT_ROLE_FOR_STATE_HIERARCHY}`
+
+		// Format token removes "Bearer " if present at the start
+		const authToken = req.headers['x-auth-token'] || ''
+		const cleanToken = authToken.replace(/^bearer\s+/i, '')
+
+		let childHierarchyResponse = await requesters.get(
+			req.baseUrl,
+			targetRoute,
+			{
+				Authorization: `Bearer ${process.env.ML_SERVICE_BEARER_TOKEN}`,
+				'x-authenticated-user-token': cleanToken,
+				'x-auth-token': cleanToken,
+			},
+			{}
+		)
+
+		if (!childHierarchyResponse || childHierarchyResponse?.status != 200) {
+			throw new Error('Failed to get response')
 		}
-		Object.keys(req.query).forEach((query) => {
-			if(query == 'entityType') bodyData.request.filters.type = req.query[query]
-			if(query == 'limit') bodyData.request[query] = Number(req.query[query])
-			if(query == 'page') bodyData.request.offset = Number(req.query[query])
+
+		let data = [
+			{
+				_id: req.params.id,
+				childHierarchyPath: childHierarchyResponse?.result || [],
+			},
+		]
+
+		res.json({
+			message: 'ENTITIES_CHILD_HIERACHY_PATH',
+			status: 200,
+			result: data,
 		})
-		const locationDetails = await requesters.get(req.baseUrl, route , {
-			Authorization: `bearer ${process.env.SUNBIRD_BEARER_TOKEN}`,
-			'content-type' : 'application/json'
-		})
-		// // Verifying the response
-		// if (locationDetails.responseCode === 'OK' && locationDetails.result?.response?.length > 0) {
-			
-		// 	res.json({
-		// 		message: "ASSETS_FETCHED_SUCCESSFULLY",
-		// 		status: 200,
-		// 		result: {
-		// 			data: entityListDataProcessor(locationDetails.result.response),
-		// 			count: locationDetails.result.count,
-		// 			}
-		// 		})
-		// 	// return 
-		// } else {
-		// 	if (process.env.DEBUG_MODE === 'true') {
-		// 		console.log('Location API error', JSON.stringify(locationDetails))
-		// 	}
-		// 	return []
-		// }
 	} catch (error) {
 		if (process.env.DEBUG_MODE === 'true') {
-			console.error('Error in getLocationDetails:', error)
+			console.error('Error in subEntityListBasedOnRoleAndLocation:', error)
 		}
 		return []
 	}
@@ -322,11 +316,10 @@ const subEntityListBasedOnRoleAndLocation = async (req, res, selectedConfig) => 
 const entityListDataProcessor = (data) => {
 	const response = data.map((entity) => {
 		return {
-			_id : entity.identifier,
-			name : entity.name,
-			externalId : entity.identifier
+			_id: entity.identifier,
+			name: entity.name,
+			externalId: entity.identifier,
 		}
-
 	})
 	return response
 }
@@ -344,10 +337,8 @@ const getLocationDetails = async (req, res, selectedConfig) => {
 		}
 		const bodyData = {
 			request: {
-				filters: {
-					
-				}
-			}
+				filters: {},
+			},
 		}
 		const locationDetails = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, bodyData, {
 			Authorization: `Bearer ${process.env.SUNBIRD_BEARER_TOKEN}`,
@@ -479,6 +470,10 @@ const accountList = async (req, res, selectedConfig) => {
 			body.request['limit'] = parseInt(req.query.limit)
 		}
 
+		if (req.query.page && req.query.page > 0) {
+			body.request['offset'] = parseInt(req.query.page - 1)
+		}
+
 		// Format token removes "Bearer " if present at the start
 		const authToken = req.headers['x-auth-token'] || ''
 		const cleanToken = authToken.replace(/^bearer\s+/i, '')
@@ -501,7 +496,6 @@ const accountList = async (req, res, selectedConfig) => {
 		}
 
 		let data = processUserSearchResponse(userSearchResponse.result.response.content) || []
-
 		return res.json({
 			result: {
 				data: data?.result,
@@ -541,6 +535,10 @@ const organizationList = async (req, res, selectedConfig) => {
 
 		if (req.query.limit) {
 			body.request['limit'] = parseInt(req.query.limit)
+		}
+
+		if (req.query.page && req.query.page > 0) {
+			body.request['offset'] = parseInt(req.query.page - 1)
 		}
 
 		// Format token removes "Bearer " if present at the start
@@ -590,6 +588,18 @@ const processOrgSearchResponse = (content) => {
 	}
 }
 
+const getTargetedRoles = (req, res, selectedConfig) => {
+	console.log('came here line no 606')
+	try {
+		console.log('hello')
+	} catch (error) {
+		if (process.env.DEBUG_MODE == 'true') {
+			console.error('Error fetching user details:', error)
+		}
+		return res.status(500).json({ error: 'Internal Server Error' })
+	}
+}
+
 scpController = {
 	readUserById,
 	profileRead,
@@ -599,7 +609,8 @@ scpController = {
 	organizationList,
 	getLocationDetails,
 	entityListBasedOnEntityType,
-	subEntityListBasedOnRoleAndLocation
+	subEntityListBasedOnRoleAndLocation,
+	getTargetedRoles,
 }
 
 module.exports = scpController
