@@ -3111,6 +3111,105 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/user/v1/tenant/update',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/update/:id',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/addDomain',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/addDomain',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/addDomain/:id',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/addDomain/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/removeDomain',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/removeDomain',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/removeDomain/:id',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/removeDomain/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/read',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/read/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/list',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/list',
+				type: 'GET',
+			},
+		},
 
 	],
 }
