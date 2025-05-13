@@ -3210,6 +3210,17 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/mentoring/v1/resources/delete/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'mentoring',
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/resources/delete/:id',
+				type: 'GET',
+			},
+		}
 
 	],
 }
