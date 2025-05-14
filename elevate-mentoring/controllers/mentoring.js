@@ -93,9 +93,23 @@ const readUser = async (req, res, selectedConfig) => {
     
 	  let response = await requesters.get(req.baseUrl, parameterisedRoute, headers)
 
+
+	  if(response && response.result){
+			response.result = convertIdsToString(response.result)
+			return res.json(response)
+	   } else {
+		
+		let data ={
+			error: 'Internal Server Error'
+		}
+
+		return res.status(response.status? response.status: 500).json(response.data ? response.data : data)
+		//  return res.json(response);
+	   }
+
 	  // Extract only the relevant data
-	  response.result = convertIdsToString(response.result)
-	  return res.json(response)
+	  
+	//   return res.json(return)
 	} catch (error) {
 	  console.error('Error fetching user details:', error);
 	  return res.status(500).json({ error: 'Internal Server Error' })
