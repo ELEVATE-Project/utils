@@ -80,10 +80,19 @@ const readUser = async (req, res, selectedConfig) => {
 	  let headers
   
 	  if (req.params.id) {
-		headers = {
-		  'internal_access_token': req.headers['internal_access_token'],
-		  'Content-Type': 'application/json',
+
+		if(req.headers['x-auth-token']){
+			headers = {
+				'Content-Type': 'application/json',
+				'X-auth-token': req.headers['x-auth-token'],
+			  }	
+		} else {
+			headers = {
+				'internal_access_token': req.headers['internal_access_token'],
+				'Content-Type': 'application/json',
+			}
 		}
+		
 	  } else {
 		headers = {
 		  'X-auth-token': req.headers['x-auth-token'],
