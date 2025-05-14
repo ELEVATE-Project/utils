@@ -1986,6 +1986,28 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/organization/details',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/details',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/details/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/details/:id',
+				type: 'GET',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/entity-type/create',
 			type: 'POST',
 			inSequence: false,
