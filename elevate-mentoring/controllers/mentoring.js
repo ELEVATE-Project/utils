@@ -7,8 +7,11 @@ const {convertIdsToString} = require('../utils/integerToStringConverter')
 const createProfile = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	req.body.skipValidation = true
+
+	console.log("--------- createProfile -------",req.headers);
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
-		'X-auth-token': `bearer ${responses.user.result.access_token}`,
+		'origin': req.headers['origin'],
+		'X-auth-token': `bearer ${responses.user.result.access_token}`, // override or add this header
 	})
 }
 const updateUser = async (req, res, responses) => {
@@ -42,7 +45,10 @@ const rolePermissions = async (req, res, responses) => {
 
 const createUser = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) =>  req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+
+	console.log("--------- createUser -------",req.headers);
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body,{
+		'origin': req.headers['origin'],
 		'device-info': req.headers['device-info'],
 	})
 }

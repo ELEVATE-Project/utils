@@ -3242,6 +3242,17 @@ module.exports = {
 				path: '/mentoring/v1/resources/delete/:id',
 				type: 'GET',
 			},
+		},
+		{
+			sourceRoute: '/user/v1/public/checkUsername',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/public/checkUsername',
+				type: 'GET',
+			},
 		}
 
 	],
