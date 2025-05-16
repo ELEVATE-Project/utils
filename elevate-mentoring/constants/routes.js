@@ -3156,6 +3156,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/tenant/userBulkUpload',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/userBulkUpload',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/tenant/addDomain',
 			type: 'POST',
 			inSequence: false,
