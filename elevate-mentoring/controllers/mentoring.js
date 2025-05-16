@@ -11,7 +11,7 @@ const createProfile = async (req, res, responses) => {
 	console.log("--------- createProfile -------",req.headers);
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 		'origin': req.headers['origin'],
-		'X-auth-token': `bearer ${responses.user.result.access_token}`, // override or add this header
+		'X-auth-token': `${responses.user.result.access_token}`, // override or add this header
 	})
 }
 const updateUser = async (req, res, responses) => {
@@ -39,7 +39,7 @@ const rolePermissions = async (req, res, responses) => {
 	console.log("selected req.responses",JSON.stringify(responses));
 
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path,req.body,{
-		'X-auth-token': `bearer ${responses.user.result.access_token}`,
+		'X-auth-token': `${responses.user.result.access_token}`,
 	})
 }
 
