@@ -50,7 +50,7 @@ const createPackage = (options) => {
 }
 const kafkaPackageName = "MENTORING NOTIFICATION"
 
-const environmentVariablePrefix = "MENTORING_NOTIFICATION";
+const environmentVariablePrefix = "ELEVATE_NOTIFICATION";
 const requiredEnvs = {
 	[`${environmentVariablePrefix}_KAFKA_BROKERS`]: {
 		message: `[${kafkaPackageName}] Required Kafka Brokers Hosts`,
