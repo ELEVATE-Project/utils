@@ -1803,6 +1803,16 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/mentoring/v1/users/add',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/users/add',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/user-role/create',
 			type: 'POST',
 			inSequence: false,
