@@ -1810,6 +1810,7 @@ module.exports = {
 			targetRoute: {
 				path: '/mentoring/v1/users/add',
 				type: 'POST',
+				functionName: 'userAddEvent',
 			},
 		},
 		{

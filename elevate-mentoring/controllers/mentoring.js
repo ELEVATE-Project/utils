@@ -29,6 +29,24 @@ const entityTypeRead = async (req, res, responses) => {
 	})
 }
 
+const userAddEvent = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	const allowedEventTypes = ['bulk-create']
+	if(allowedEventTypes.includes(req.body.eventType)){
+		return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
+			'internal_access_token': req.headers['internal_access_token'],
+		})
+	} else {
+		// Return a resolved Promise with a success response
+		return Promise.resolve({
+			success: true,
+			message: 'No Action taken.',
+			data: {},
+		  });
+	}
+	
+} 
+
 const rolePermissions = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	
@@ -281,7 +299,8 @@ mentoringController = {
 	mentorDetails,
 	mentoringProfile,
 	userDetails,
-	getUserDetailsFromExternal
+	getUserDetailsFromExternal,
+	userAddEvent
 }
 
 module.exports = mentoringController
