@@ -1690,6 +1690,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/account/delete',
+			type: 'DELETE',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/account/delete',
+				type: 'DELETE',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/account/list',
 			type: 'POST',
 			inSequence: false,
