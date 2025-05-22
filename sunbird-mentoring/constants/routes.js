@@ -2156,29 +2156,6 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/interface/v1/profile/read',
-			type: 'GET',
-			inSequence: true,
-			orchestrated: true,
-			service:"user",
-			targetRoute: {
-				paths: [
-					{
-						service: "user",
-						path: '/private/user/v1/read/:id',
-						type: 'GET'
-					},
-					{
-						service: "user",
-						baseUrl: 'http://lms-service:9000',
-						path: '/private/v3/user/courses/list/:id',
-						type: 'GET'
-					}
-					],
-					functionName: 'readUserWithToken'
-				},
-		},
-		{
 			sourceRoute: '/mentoring/v1/reports/reportData',
 			type: 'POST',
 			targetRoute: {

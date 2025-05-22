@@ -48,7 +48,9 @@ const profileRead = async (req, res, selectedConfig) => {
 			console.log("mentoringResponse api respo",mentoringResponse);
 			console.log("mentoringResponse  read json",JSON.stringify(mentoringResponse));
 		}
-		if(mentoringResponse && mentoringResponse.result['id']){
+		if(mentoringResponse && mentoringResponse.result['user_id']){
+
+			console.log("mentoringResponse return userId",mentoringResponse.result['user_id']);
 
 			mentoringResponse.result['id'] = mentoringResponse.result?.user_id;
 			res.json(mentoringResponse)
@@ -118,6 +120,8 @@ const loginUser = async (req, res, responses, selectedConfig) => {
 }
 
 const readOrganization = async (req, res, selectedConfig) => {
+
+	console.log("------- org read config -------",selectedConfig);
 	const body = {
 		request: {
 			organisationId: req.query.organisation_id || req.query.organisation_code,
