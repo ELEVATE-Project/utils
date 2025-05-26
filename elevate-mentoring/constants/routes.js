@@ -1748,6 +1748,28 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/user/profileById/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/profileById/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/user/profileById',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/user/profileById',
+				type: 'GET',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/user/update',
 			type: 'PATCH',
 			inSequence: false,
