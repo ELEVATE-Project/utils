@@ -33,6 +33,12 @@ const userAddEvent = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
 	const allowedEventTypes = ['bulk-create']
 	if(allowedEventTypes.includes(req.body.eventType)){
+		req.body.organization_id = req.body.organizations[0].id
+		req.body.roles = req.body.organizations[0].roles.map((role) => {
+			return {
+				title : role.title
+			}
+		})
 		return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body, {
 			'internal_access_token': req.headers['internal_access_token'],
 		})
