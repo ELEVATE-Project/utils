@@ -3308,7 +3308,18 @@ module.exports = {
 				path: '/user/v1/public/checkUsername',
 				type: 'GET',
 			},
-		}
+		},
+		{
+			sourceRoute: '/mentoring/v1/users/delete',
+			type: 'POST',
+			inSequence: false,
+			service: 'mentoring',
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/users/delete',
+				type: 'POST',
+			},
+		},
 
 	],
 }
