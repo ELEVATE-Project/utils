@@ -846,14 +846,14 @@ module.exports = {
 		},
 		{
 			sourceRoute: '/project/v1/cloud-services/files/download',
-			type: 'GET',
+			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/project/v1/cloud-services/files/download',
-				type: 'GET',
+				path: '/api/cloud-services/mlcore/v1/files/download',
+				type: 'POST',
 			},
-			service: 'project',
+			service: 'mlcore',
 		},
 		{
 			sourceRoute: '/project/v1/cloud-services/files/preSignedUrls',
@@ -1129,6 +1129,18 @@ module.exports = {
 				functionName: 'organizationList',
 			},
 			service: 'user',
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/list',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/data/v1/location/search',
+				type: 'POST',
+				functionName: 'getEntityList',
+			},
+			service: 'entity',
 		},
 	],
 }

@@ -478,6 +478,8 @@ const accountList = async (req, res, selectedConfig) => {
 		const authToken = req.headers['x-auth-token'] || ''
 		const cleanToken = authToken.replace(/^bearer\s+/i, '')
 
+		console.log(cleanToken,'cleanToken')
+
 		const userSearchResponse = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, body, {
 			'device-info': req.headers['device-info'], // Passing device info from request headers
 			Authorization: `Bearer ${process.env.SUNBIRD_BEARER_TOKEN}`, // Authorization token from environment variables
@@ -588,10 +590,11 @@ const processOrgSearchResponse = (content) => {
 	}
 }
 
-const getTargetedRoles = (req, res, selectedConfig) => {
+const getTargetedRoles = async (req, res, selectedConfig) => {
 	console.log('came here line no 606')
 	try {
 		console.log('hello')
+		return res.json({ result: []})
 	} catch (error) {
 		if (process.env.DEBUG_MODE == 'true') {
 			console.error('Error fetching user details:', error)
@@ -599,6 +602,68 @@ const getTargetedRoles = (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
+
+const getEntityList = async (req, res, selectedConfig) => {
+	try {
+		if (selectedConfig.service) {
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+
+		let bodyData = {
+			request: {
+				filters: {},
+			},
+		}
+
+		if (req.body.type) {
+			bodyData.request.filters.type = req.body.type
+		}
+
+		if (req.body.id) {
+			bodyData.request.filters.id = req.body.id
+		}
+		const locationDetails = await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, bodyData, {
+			Authorization: `bearer ${process.env.SUNBIRD_BEARER_TOKEN}`,
+			'content-type': 'application/json',
+		})
+		// Verifying the response
+		if (locationDetails.responseCode === 'OK' && locationDetails.result?.response?.length > 0) {
+			res.json({
+				result: entityListProcessor(locationDetails.result.response),
+			})
+			// return
+		} else {
+			if (process.env.DEBUG_MODE === 'true') {
+				console.log('Location API error', JSON.stringify(locationDetails))
+			}
+			res.json({
+				result: []
+			})
+		}
+	} catch (error) {
+		if (process.env.DEBUG_MODE == 'true') {
+			console.error('Error fetching user details:', error)
+		}
+		return res.status(500).json({ error: 'Internal Server Error' })
+	}
+	
+}
+
+const entityListProcessor = (data) => {
+	const response = data.map((entity) => {
+		return {
+			_id: entity.identifier,
+			name: entity.name,
+			externalId: entity.identifier,
+			parentId: entity.parentId,
+			type: entity.type,
+		}
+	})
+	return response
+}
+
+
+
 
 scpController = {
 	readUserById,
@@ -611,6 +676,7 @@ scpController = {
 	entityListBasedOnEntityType,
 	subEntityListBasedOnRoleAndLocation,
 	getTargetedRoles,
+	getEntityList
 }
 
 module.exports = scpController
