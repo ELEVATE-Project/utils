@@ -133,6 +133,50 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: "/project/v1/userProjects/solutionDetails/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/solutionDetails/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/solutionDetails",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/solutionDetails",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/pushSubmissionToTask/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/pushSubmissionToTask/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/pushSubmissionToTask",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/pushSubmissionToTask",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
             sourceRoute: "/project/v1/certificateBaseTemplates/createOrUpdate",
             type: "POST",
             inSequence: false,
@@ -394,6 +438,28 @@ module.exports = {
             targetRoute: {
                 path: "/project/v1/dataPipeline/userProject/:id",
                 type: "GET"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/dataPipeline/pushProjectDetailsToKafka",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/dataPipeline/pushProjectDetailsToKafka",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/dataPipeline/pushProjectDetailsToKafka/:id",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/dataPipeline/pushProjectDetailsToKafka/:id",
+                type: "POST"
             },
             service: "project"
         },
@@ -2916,6 +2982,39 @@ module.exports = {
                 type: "POST"
             },
             service: "user"
-        }
+        },
+        {
+            sourceRoute: "/user/v1/tenant/read",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/user/v1/tenant/read",
+                type: "POST"
+            },
+            service: "user"
+        },
+        {
+            sourceRoute: "/user/v1/tenant/read/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/user/v1/tenant/read/:id",
+                type: "POST"
+            },
+            service: "user"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/deleteUserPIIData",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/deleteUserPIIData",
+                type: "POST"
+            },
+            service: "project"
+        },
     ]
 }

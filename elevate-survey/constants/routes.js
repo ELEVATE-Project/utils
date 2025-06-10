@@ -89,6 +89,17 @@ module.exports = {
 			service:"survey"
 		},
 		{
+			sourceRoute: '/survey/v1/files/download',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/files/download',
+				type: 'GET'
+			},
+			service:"survey"
+		},
+		{
 			sourceRoute: '/survey/v1/reports/submissionReport',
 			type: 'POST',
 			inSequence: false,
@@ -233,12 +244,12 @@ module.exports = {
 		},
 		{
 			sourceRoute: '/survey/v1/solutions/list',
-			type: 'GET',
+			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
 				path: '/survey/v1/solutions/list',
-				type: 'GET'
+				type: 'POST'
 			},
 			service:"survey"
 		},
@@ -766,6 +777,17 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/survey/v1/questions/bulkCreate',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+		{
+			sourceRoute: '/survey/v1/observations/create',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/observations/create',
 				type: 'POST'
 			},
 			service:"survey"
@@ -1305,6 +1327,94 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/survey/v1/users/programs',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/observationSubmissions/pushCompletedObservationSubmissionForReporting/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/observationSubmissions/pushCompletedObservationSubmissionForReporting/:id',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/observationSubmissions/pushCompletedObservationSubmissionForReporting',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/observationSubmissions/pushCompletedObservationSubmissionForReporting',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/observationSubmissions/pushInCompleteObservationSubmissionForReporting/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/observationSubmissions/pushInCompleteObservationSubmissionForReporting/:id',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/observationSubmissions/pushInCompleteObservationSubmissionForReporting',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/observationSubmissions/pushInCompleteObservationSubmissionForReporting',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/surveySubmissions/pushCompletedSurveySubmissionForReporting/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/surveySubmissions/pushCompletedSurveySubmissionForReporting/:id',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/surveySubmissions/pushCompletedSurveySubmissionForReporting',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/surveySubmissions/pushCompletedSurveySubmissionForReporting',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/surveySubmissions/pushInCompleteSurveySubmissionForReporting/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/surveySubmissions/pushInCompleteSurveySubmissionForReporting/:id',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/surveySubmissions/pushInCompleteSurveySubmissionForReporting',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/surveySubmissions/pushInCompleteSurveySubmissionForReporting',
 				type: 'POST'
 			},
 			service:"survey"
@@ -2330,6 +2440,28 @@ module.exports = {
             },
             service: "user"
         },
+		{
+            sourceRoute: "/user/v1/tenant/read",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/user/v1/tenant/read",
+                type: "GET"
+            },
+            service: "user"
+        },
+		{
+            sourceRoute: "/user/v1/tenant/read/:id",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/user/v1/tenant/read/:id",
+                type: "GET"
+            },
+            service: "user"
+        },
         {
             sourceRoute: "/entity-management/v1/entityTypes/bulkCreate",
             type: "POST",
@@ -2768,7 +2900,18 @@ module.exports = {
                 type: "POST"
             },
             service: "scheduler"
-        }
+        },
+		{
+			sourceRoute: '/survey/v1/users/deleteUserPIIData',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/users/deleteUserPIIData',
+				type: 'POST'
+			},
+			service:"survey"
+		},
 	],
 }
 
