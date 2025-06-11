@@ -1053,11 +1053,11 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '',
+				path: '/data/v1/location/search',
 				type: 'POST',
 				functionName: 'getTargetedRoles',
 			},
-			service: 'mlcore',
+			service: 'entity',
 		},
 		{
 			sourceRoute: '/entity-management/v1/entities/targetedRoles/:id',
@@ -1065,11 +1065,11 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '',
+				path: '/data/v1/location/search',
 				type: 'POST',
 				functionName: 'getTargetedRoles',
 			},
-			service: 'mlcore',
+			service: 'entity',
 		},
 		{
 			sourceRoute: '/entity-management/v1/entities/find',

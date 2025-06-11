@@ -591,17 +591,110 @@ const processOrgSearchResponse = (content) => {
 }
 
 const getTargetedRoles = async (req, res, selectedConfig) => {
-	console.log('came here line no 606')
 	try {
-		console.log('hello')
-		return res.json({ result: []})
+		//fetch the entity details
+		if (selectedConfig.service) {
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+
+		// Function to fetch entities by filter
+        const fetchEntities = async (filters) => {
+            const bodyData = {
+                request: { filters }
+            };
+
+            try {
+                const response = await requesters.post(
+                    req.baseUrl,
+                    selectedConfig.targetRoute.path,
+                    bodyData,
+                    {
+                        Authorization: `Bearer ${process.env.SUNBIRD_BEARER_TOKEN}`
+                    }
+                );
+                if (response.responseCode === 'OK' && response.result?.response) {
+                    return response.result.response;
+                }
+                return [];
+            } catch (error) {
+                if (process.env.DEBUG_MODE === 'true') {
+                    console.error('Error fetching entities:', error.message);
+                }
+                return [];
+            }
+        };
+
+		// Function to collect all IDs from entities and fetch their children
+        const fetchAllChildrenByIds = async (parentIds, typeSet = new Set()) => {
+            if (!parentIds.length) {
+                return typeSet;
+            }
+
+            // Fetch all entities that have any of the parentIds as their parent
+            const childEntities = await fetchEntities({ parentId: parentIds });
+            
+            // Stop if no child entities found
+            if (!childEntities.length) {
+                return typeSet;
+            }
+
+            // Collect all IDs from the current level
+            const currentLevelIds = [];
+            
+            // Process each entity
+            for (const entity of childEntities) {
+                if (entity.type) {
+                    typeSet.add(entity.type);
+                }
+                if (entity.id) {
+                    currentLevelIds.push(entity.id);
+                }
+            }
+
+            // Recursively fetch children using all collected IDs
+            if (currentLevelIds.length > 0) {
+                await fetchAllChildrenByIds(currentLevelIds, typeSet);
+            }
+
+            return typeSet;
+        };
+
+		// Step 1: Get the initial entity by ID
+		const initialEntities = await fetchEntities({
+            id: req.params.id
+        });
+
+        // Step 2: Collect types starting from the initial entity
+        const typeSet = new Set();
+        if (initialEntities.length && initialEntities[0]?.id) {
+            // Add the initial entity's type if it exists
+            if (initialEntities[0].type) {
+                typeSet.add(initialEntities[0].type);
+            }
+            
+            // Start with the initial entity ID and fetch all children recursively
+            await fetchAllChildrenByIds([initialEntities[0].id], typeSet);
+        }
+
+        // Step 3: Convert Set to array and return response
+        const entityTypes = Array.from(typeSet);
+        return res.json({
+            message: 'Entity types fetched successfully',
+            result: entityTypes
+        });
+
 	} catch (error) {
 		if (process.env.DEBUG_MODE == 'true') {
 			console.error('Error fetching user details:', error)
 		}
-		return res.status(500).json({ error: 'Internal Server Error' })
+		return res.status(500).json({
+            message: 'Internal server error',
+            result: []
+        });
 	}
 }
+
+
 
 const getEntityList = async (req, res, selectedConfig) => {
 	try {
