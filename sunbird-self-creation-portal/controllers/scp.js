@@ -678,9 +678,68 @@ const getTargetedRoles = async (req, res, selectedConfig) => {
 
         // Step 3: Convert Set to array and return response
         const entityTypes = Array.from(typeSet);
+
+		let result = {
+			data : []
+		}
+		
+		if (entityTypes.length === 0) {
+			return res.json({
+				message: 'ROLES_FETCHED_SUCCESSFULLY',
+				result,
+				status: 200
+			});
+		}
+
+		//fetch roles based on entity types
+		let reqBody = {
+			query: {
+				"entityTypes.entityType" : {$in: entityTypes} 
+			}
+
+		}
+		
+		req['baseUrl'] = process.env.MLCORE_SERVICE_BASE_URL
+		let dbFindURL = process.env.ML_SURVEY_DB_FIND_URL
+ 
+		const authToken = req.headers['x-auth-token'] || ''
+		const cleanToken = authToken.replace(/^bearer\s+/i, '')
+
+		let roleResponse = await requesters.post(
+			req.baseUrl,
+			dbFindURL,
+			reqBody,
+			{
+				Authorization: `Bearer ${process.env.ML_SERVICE_BEARER_TOKEN}`,
+				'x-authenticated-user-token': cleanToken,
+				'x-auth-token': cleanToken,
+			},
+		)
+
+		if (!roleResponse || roleResponse?.status != 200 || roleResponse?.result?.length === 0) {
+			return res.json({
+				message: 'ROLES_FETCHED_SUCCESSFULLY',
+				result,
+				status: 200
+			});
+		}
+		
+
+		let roles = roleResponse.result.map((role) => {
+			return {
+				id: role._id,
+				value: role.code,
+				label: role.title,
+				code: role.code
+			}
+		}) || []
+
+		result.data = roles
+
         return res.json({
-            message: 'Entity types fetched successfully',
-            result: entityTypes
+            message: 'ROLES_FETCHED_SUCCESSFULLY',
+			result,
+			status: 200
         });
 
 	} catch (error) {
@@ -693,8 +752,6 @@ const getTargetedRoles = async (req, res, selectedConfig) => {
         });
 	}
 }
-
-
 
 const getEntityList = async (req, res, selectedConfig) => {
 	try {
