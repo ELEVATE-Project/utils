@@ -1072,6 +1072,30 @@ module.exports = {
 			service: 'entity',
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/subEntityList',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/api/entities/mlcore/v1/subEntityList',
+				type: 'GET',
+				functionName: 'subEntityList',
+			},
+			service: 'mlcore',
+		},
+		{
+			sourceRoute: '/entity-management/v1/entities/subEntityList/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/api/entities/mlcore/v1/subEntityList',
+				type: 'GET',
+				functionName: 'subEntityList',
+			},
+			service: 'mlcore',
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/find',
 			type: 'POST',
 			inSequence: false,
