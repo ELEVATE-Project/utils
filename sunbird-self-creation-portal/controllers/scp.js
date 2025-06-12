@@ -799,6 +799,186 @@ const getEntityList = async (req, res, selectedConfig) => {
 	
 }
 
+const subEntityList = async (req, res, selectedConfig) => {
+    try {
+        if (selectedConfig.service) {
+            req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+        }
+
+        const targetRoute = `${selectedConfig.targetRoute.path}/${req.params.id}?type=${req.query.type}&page=${req.query.page}&limit=${req.query.limit}`
+        console.log(targetRoute, 'targetRoute')
+        // Format token removes "Bearer " if present at the start
+        const authToken = req.headers['x-auth-token'] || ''
+        const cleanToken = authToken.replace(/^bearer\s+/i, '')
+
+        let entityResponse = await requesters.get(
+            req.baseUrl,
+            targetRoute,
+            {
+                Authorization: `Bearer ${process.env.ML_SERVICE_BEARER_TOKEN}`,
+                'x-authenticated-user-token': cleanToken,
+                'x-auth-token': cleanToken,
+            },
+            {}
+        )
+
+        if (!entityResponse || entityResponse?.status != 200) {
+            throw new Error('Failed to get response')
+        }
+
+        // Process response to add additional fields
+        let dataArray = entityResponse?.result?.data || []
+        let formattedData = []
+
+        // Helper function to fetch entities using filters
+        const fetchEntities = async (filters) => {
+            const bodyData = {
+                request: { filters }
+            }
+
+            try {
+                const response = await requesters.post(
+                    process.env['ENTITY_SERVICE_BASE_URL'],
+                    process.env.ENTITY_FETCH_URL,
+                    bodyData,
+                    {
+                        Authorization: `Bearer ${process.env.SUNBIRD_BEARER_TOKEN}`
+                    }
+                )
+                if (response.responseCode === 'OK' && response.result?.response) {
+                    return response.result.response
+                }
+                return []
+            } catch (error) {
+                if (process.env.DEBUG_MODE === 'true') {
+                    console.error('Error fetching entities:', error.message)
+                }
+                return []
+            }
+        }
+
+        // Helper function to build parent hierarchy from cached entities
+        const getAllParents = (entityId, entityMap) => {
+            const parents = []
+            let currentId = entityId
+
+            while (currentId) {
+                const entity = entityMap.get(currentId)
+                if (!entity) break
+
+                parents.push({
+                    type: entity.type || null,
+                    name: entity.name || null
+                })
+                currentId = entity.parentId || null
+            }
+
+            return parents
+        }
+
+        // Collect all IDs to fetch in batches
+        const entityIds = dataArray.map(entity => entity._id)
+        const entityMap = new Map()
+
+        // Fetch all entities in one call
+        if (entityIds.length > 0) {
+            const entities = await fetchEntities({ id: entityIds })
+            entities.forEach(entity => entityMap.set(entity.id, entity))
+        }
+
+        // Function to recursively collect all parent IDs in the hierarchy
+        const collectAllParentIds = async (entityMap, maxDepth = 10) => {
+            const allParentIds = new Set()
+            let currentDepth = 0
+            let newParentsFound = true
+
+            // Get initial parent IDs from the main entities
+            entityIds.forEach(id => {
+                const entity = entityMap.get(id)
+                if (entity?.parentId) {
+                    allParentIds.add(entity.parentId)
+                }
+            })
+
+            // Keep fetching parent hierarchies until no new parents are found
+            while (newParentsFound && currentDepth < maxDepth) {
+                newParentsFound = false
+                const currentParentIds = Array.from(allParentIds)
+                
+                // Get all parents that we don't have in entityMap yet
+                const missingParentIds = currentParentIds.filter(id => !entityMap.has(id))
+                
+                if (missingParentIds.length > 0) {
+                    const parentEntities = await fetchEntities({ id: missingParentIds })
+                    
+                    parentEntities.forEach(entity => {
+                        entityMap.set(entity.id, entity)
+                        // Add this entity's parent to the list if it exists
+                        if (entity.parentId && !allParentIds.has(entity.parentId)) {
+                            allParentIds.add(entity.parentId)
+                            newParentsFound = true
+                        }
+                    })
+                }
+
+                // Check existing entities for more parents
+                for (const parentId of currentParentIds) {
+                    const parentEntity = entityMap.get(parentId)
+                    if (parentEntity?.parentId && !allParentIds.has(parentEntity.parentId)) {
+                        allParentIds.add(parentEntity.parentId)
+                        newParentsFound = true
+                    }
+                }
+
+                currentDepth++
+            }
+
+            return allParentIds
+        }
+
+        // Collect and fetch all parent entities in the hierarchy
+        await collectAllParentIds(entityMap)
+
+        // Process each entity to add all parent types and names
+        for (const entity of dataArray) {
+            const entityDetails = entityMap.get(entity._id)
+            let parentFields = {}
+            
+            if (entityDetails?.parentId) {
+                const parents = getAllParents(entityDetails.parentId, entityMap)
+                console.log(parents, 'parents')
+                parents.forEach(parent => {
+                    if (parent.type && parent.name) {
+                        parentFields[parent.type] = parent.name
+                    }
+                })
+            }
+
+            formattedData.push({
+                ...entity,
+                ...parentFields
+            })
+        }
+
+        res.json({
+            message: 'ENTITIES_FETCHED',
+            status: 200,
+            result: formattedData
+        })
+    } catch (error) {
+        if (process.env.DEBUG_MODE === 'true') {
+            console.error('Error in subEntityList:', error)
+        }
+        res.status(500).json({
+            message: 'ERROR_FETCHING_ENTITIES',
+            status: 500,
+            error: error.message
+        })
+        return []
+    }
+}
+
+
 const entityListProcessor = (data) => {
 	const response = data.map((entity) => {
 		return {
@@ -826,7 +1006,8 @@ scpController = {
 	entityListBasedOnEntityType,
 	subEntityListBasedOnRoleAndLocation,
 	getTargetedRoles,
-	getEntityList
+	getEntityList,
+	subEntityList
 }
 
 module.exports = scpController
