@@ -600,7 +600,7 @@ const getTargetedRoles = async (req, res, selectedConfig) => {
 		// Function to fetch entities by filter
         const fetchEntities = async (filters) => {
             const bodyData = {
-                request: { filters }
+                request: { filters, limit : 10000 }
             };
 
             try {
@@ -678,7 +678,7 @@ const getTargetedRoles = async (req, res, selectedConfig) => {
 
         // Step 3: Convert Set to array and return response
         const entityTypes = Array.from(typeSet);
-
+		console.log('Entity Types:', entityTypes);
 		let result = {
 			data : []
 		}
