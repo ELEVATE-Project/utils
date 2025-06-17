@@ -3320,6 +3320,149 @@ module.exports = {
 				type: 'POST',
 			},
 		},
+		{
+			sourceRoute: '/user/v1/organization-feature/create',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/create',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/read',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/read',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/read/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/read/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/update',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/update',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/update/:id',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/update/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/update',
+			type: 'DELETE',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/update',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization-feature/update/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization-feature/update/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/update',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/update/:id',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/list',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/list/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/list/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/delete',
+			type: 'DELETE',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/delete',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/feature/delete/:id',
+			type: 'DELETE',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/feature/delete/:id',
+				type: 'DELETE',
+			},
+		}
 
 	],
 }
