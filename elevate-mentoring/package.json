@@ -1,6 +1,6 @@
 {
 	"name": "elevate-mentoring",
-	"version": "1.2.70",
+	"version": "1.2.71",
 	"description": "Npm package for Elevate-Mentoring service integration with Interface service. ",
 	"main": "index.js",
 	"scripts": {
