@@ -3200,13 +3200,13 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/user/v1/tenant/userBulkUpload',
+			sourceRoute: '/user/v1/tenant/bulkUserCreate',
 			type: 'POST',
 			inSequence: false,
 			service: 'user',
 			orchestrated: false,
 			targetRoute: {
-				path: '/user/v1/tenant/userBulkUpload',
+				path: '/user/v1/tenant/bulkUserCreate',
 				type: 'POST',
 			},
 		},
