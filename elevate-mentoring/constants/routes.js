@@ -3462,6 +3462,17 @@ module.exports = {
 				path: '/user/v1/feature/delete/:id',
 				type: 'DELETE',
 			},
+		},
+		{
+			sourceRoute: '/user/v1/public/userInvites',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/public/userInvites',
+				type: 'GET',
+			},
 		}
 
 	],
