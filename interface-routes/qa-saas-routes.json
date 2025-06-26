@@ -8545,7 +8545,7 @@
 			"service": "survey"
 		},
 		{
-			"sourceRoute": "/survey/v1/surveys/importSurveyTemplateToSolution/:id",
+			"sourceRoute": "/survey/v1/surveys/importSurveryTemplateToSolution/:id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -8559,7 +8559,7 @@
 			"service": "survey"
 		},
 		{
-			"sourceRoute": "/survey/v1/surveys/importSurveyTemplateToSolution",
+			"sourceRoute": "/survey/v1/surveys/importSurveryTemplateToSolution",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
