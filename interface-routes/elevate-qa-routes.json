@@ -12267,7 +12267,35 @@
                     "packageName": "elevate-mentoring"
                 }
             ]
-        }
+        },
+{
+
+			"sourceRoute": "/mentoring/v1/org-admin/themeDetails",
+			"type": "GET",
+			 "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+		
+
+},{
+
+"sourceRoute": "/mentoring/v1/connections/pending",
+			"type": "GET",
+"inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+
+}
 		
 	]
 }
