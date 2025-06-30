@@ -628,23 +628,23 @@ module.exports = {
 			service:"survey"
 		},
 		{
-			sourceRoute: '/survey/v1/surveys/mapSurverySolutionToProgram/:id',
+			sourceRoute: '/survey/v1/surveys/mapSurveySolutionToProgram/:id',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/survey/v1/surveys/mapSurverySolutionToProgram/:id',
+				path: '/survey/v1/surveys/mapSurveySolutionToProgram/:id',
 				type: 'POST'
 			},
 			service:"survey"
 		},
 		{
-			sourceRoute: '/survey/v1/surveys/mapSurverySolutionToProgram',
+			sourceRoute: '/survey/v1/surveys/mapSurveySolutionToProgram',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/survey/v1/surveys/mapSurverySolutionToProgram',
+				path: '/survey/v1/surveys/mapSurveySolutionToProgram',
 				type: 'POST'
 			},
 			service:"survey"
