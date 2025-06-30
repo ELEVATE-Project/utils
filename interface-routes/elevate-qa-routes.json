@@ -12190,53 +12190,84 @@
 				}
 			]
 		},
-		{
-			"sourceRoute": "/mentoring/v1/requestSessions/create",
-			type: "POST",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/create",
-				type: "POST",
-                        }
-                 }
+ {
+            "sourceRoute": "/mentoring/v1/requestSessions/create",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        },
 {
-			sourceRoute: "/mentoring/v1/requestSessions/list",
-			type: "GET",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/list",
-				type: "GET",
-    }
-},
-{
-			sourceRoute: "/mentoring/v1/requestSessions/accept",
-			type: "POST",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/accept",
-				type: "POST",
-    }
-},
-{
-			sourceRoute: "/mentoring/v1/requestSessions/reject",
-			type: "POST",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/reject",
-				type: "POST",
-    }
-},
-{
-			sourceRoute: "/mentoring/v1/requestSessions/getDetails",
-			type: "GET",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/getDetails",
-				type: "GET",
-    }
-},
-{
-			sourceRoute: "/mentoring/v1/requestSessions/userAvailability",
-			type: "GET",
-			targetRoute: {
-				path: "/mentoring/v1/requestSessions/userAvailability",
-				type: "GET",
-    }
-}
+			"sourceRoute": "/mentoring/v1/requestSessions/list",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        },
+        {
+			"sourceRoute": "/mentoring/v1/requestSessions/accept",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        },
+        {
+			"sourceRoute": "/mentoring/v1/requestSessions/reject",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        },
+        {
+			"sourceRoute": "/mentoring/v1/requestSessions/getDetails",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        },
+        {
+			"sourceRoute": "/mentoring/v1/requestSessions/userAvailability",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "mentoring",
+                    "packageName": "elevate-mentoring"
+                }
+            ]
+        }
+		
 	]
 }
