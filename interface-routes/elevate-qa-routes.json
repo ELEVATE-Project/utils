@@ -12176,7 +12176,7 @@
 					"packageName": "elevate-mentoring"
 				}
 			]
-		},,
+		},
 		{
 			"sourceRoute": "/user/v1/public/userInvites",
 			"type": "GET",
