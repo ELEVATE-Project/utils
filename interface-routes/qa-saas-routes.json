@@ -666,7 +666,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/user/v1/organization/addRelatedOrg",
+			"sourceRoute": "/user/v1/organization/addRegistrationCode",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -679,7 +679,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/user/v1/organization/addRelatedOrg/:id",
+			"sourceRoute": "/user/v1/organization/addRegistrationCode/:id",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -692,7 +692,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/user/v1/organization/removeRelatedOrg",
+			"sourceRoute": "/user/v1/organization/removeRegistrationCode",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -705,7 +705,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/user/v1/organization/removeRelatedOrg/:id",
+			"sourceRoute": "/user/v1/organization/removeRegistrationCode/:id",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
