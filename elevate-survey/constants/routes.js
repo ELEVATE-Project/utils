@@ -639,23 +639,23 @@ module.exports = {
 			service:"survey"
 		},
 		{
-			sourceRoute: '/survey/v1/surveys/mapSurveySolutionToProgram/:id',
+			sourceRoute: '/survey/v1/surveys/mapSurverySolutionToProgram/:id',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/survey/v1/surveys/mapSurveySolutionToProgram/:id',
+				path: '/survey/v1/surveys/mapSurverySolutionToProgram/:id',
 				type: 'POST'
 			},
 			service:"survey"
 		},
 		{
-			sourceRoute: '/survey/v1/surveys/mapSurveySolutionToProgram',
+			sourceRoute: '/survey/v1/surveys/mapSurverySolutionToProgram',
 			type: 'POST',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/survey/v1/surveys/mapSurveySolutionToProgram',
+				path: '/survey/v1/surveys/mapSurverySolutionToProgram',
 				type: 'POST'
 			},
 			service:"survey"

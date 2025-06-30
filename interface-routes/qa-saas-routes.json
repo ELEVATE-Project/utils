@@ -8615,7 +8615,7 @@
 			"service": "survey"
 		},
 		{
-			"sourceRoute": "/survey/v1/surveys/mapSurveySolutionToProgram/:id",
+			"sourceRoute": "/survey/v1/surveys/mapSurverySolutionToProgram/:id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -8629,7 +8629,7 @@
 			"service": "survey"
 		},
 		{
-			"sourceRoute": "/survey/v1/surveys/mapSurveySolutionToProgram",
+			"sourceRoute": "/survey/v1/surveys/mapSurverySolutionToProgram",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
