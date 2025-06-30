@@ -12190,53 +12190,53 @@
 				}
 			]
 		},
-{
-			sourceRoute: '/mentoring/v1/requestSessions/create',
-			type: 'POST',
+		{
+			"sourceRoute": "/mentoring/v1/requestSessions/create",
+			type: "POST",
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/create',
-				type: 'POST',
-    },
+				path: "/mentoring/v1/requestSessions/create",
+				type: "POST",
+                        }
+                 }
+{
+			sourceRoute: "/mentoring/v1/requestSessions/list",
+			type: "GET",
+			targetRoute: {
+				path: "/mentoring/v1/requestSessions/list",
+				type: "GET",
+    }
 },
 {
-			sourceRoute: '/mentoring/v1/requestSessions/list',
-			type: 'GET',
+			sourceRoute: "/mentoring/v1/requestSessions/accept",
+			type: "POST",
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/list',
-				type: 'GET',
-    },
+				path: "/mentoring/v1/requestSessions/accept",
+				type: "POST",
+    }
 },
 {
-			sourceRoute: '/mentoring/v1/requestSessions/accept',
-			type: 'POST',
+			sourceRoute: "/mentoring/v1/requestSessions/reject",
+			type: "POST",
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/accept',
-				type: 'POST',
-    },
+				path: "/mentoring/v1/requestSessions/reject",
+				type: "POST",
+    }
 },
 {
-			sourceRoute: '/mentoring/v1/requestSessions/reject',
-			type: 'POST',
+			sourceRoute: "/mentoring/v1/requestSessions/getDetails",
+			type: "GET",
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/reject',
-				type: 'POST',
-    },
+				path: "/mentoring/v1/requestSessions/getDetails",
+				type: "GET",
+    }
 },
 {
-			sourceRoute: '/mentoring/v1/requestSessions/getDetails',
-			type: 'GET',
+			sourceRoute: "/mentoring/v1/requestSessions/userAvailability",
+			type: "GET",
 			targetRoute: {
-				path: '/mentoring/v1/requestSessions/getDetails',
-				type: 'GET',
-    },
-},
-{
-			sourceRoute: '/mentoring/v1/requestSessions/userAvailability',
-			type: 'GET',
-			targetRoute: {
-				path: '/mentoring/v1/requestSessions/userAvailability',
-				type: 'GET',
-    },
+				path: "/mentoring/v1/requestSessions/userAvailability",
+				type: "GET",
+    }
 }
 	]
 }
