@@ -2019,6 +2019,50 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/organization/addRelatedOrg/:id',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/addRelatedOrg/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/addRelatedOrg',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/addRelatedOrg',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/removeRelatedOrg/:id',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/removeRelatedOrg/:id',
+				type: 'PATCH',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/organization/removeRelatedOrg',
+			type: 'PATCH',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/removeRelatedOrg',
+				type: 'PATCH',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/organization/list',
 			type: 'GET',
 			inSequence: false,
