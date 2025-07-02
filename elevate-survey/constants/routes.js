@@ -2923,6 +2923,17 @@ module.exports = {
 			},
 			service:"survey"
 		},
+		{
+			sourceRoute: '/entity-management/v1/entities/fetch',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/fetch',
+				type: 'POST'
+			},
+			service:"entity"
+		},
 	],
 }
 
