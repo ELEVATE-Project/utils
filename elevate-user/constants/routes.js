@@ -983,6 +983,17 @@ module.exports = {
 				functionName: 'userDetails',
 			},
 		},
+		{
+            sourceRoute: "/user/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/user/health",
+                type: "GET"
+            },
+            service: "entity"
+        },
 	]
 }
 
