@@ -6,26 +6,71 @@
  */
 
 const { v1: uuidv1 } = require('uuid');
-const mongodb = require('./services/mongodb');
-const kafka = require('./services/kafka');
 const httpService = require('./services/httpService');
 
-async function healthCheckHandler(config) {
+async function healthCheckHandler(config,currentServiceName = '') {
 	const checks = [];
-	
-	if (config.checks.mongodb?.enabled) {
-		const healthy = await mongodb.check(config.checks.mongodb.url);
-		checks.push(serviceResult('MongoDB', healthy));
+
+	if (config?.checks?.mongodb?.enabled) {
+		try {
+			const mongodb = require('./services/mongodb');
+			const healthy = await mongodb.check(config.checks.mongodb.url);
+			checks.push(serviceResult('mongodb', healthy));
+		} catch (err) {
+			checks.push(serviceResult('mongodb', false));
+		}
 	}
 	
-	if (config.checks.kafka?.enabled) {
-		const healthy = await kafka.check(config.checks.kafka.url);
-		checks.push(serviceResult('Kafka', healthy));
+	if (config?.checks?.kafka?.enabled) {
+		try {
+			const kafka = require('./services/kafka');
+			const healthy = await kafka.check(config.checks.kafka.url);
+			checks.push(serviceResult('Kafka', healthy));
+		} catch (err) {
+			checks.push(serviceResult('Kafka', false));
+		}
+	}
+
+	if (config?.checks?.redis?.enabled) {
+		try {
+			const redis = require('./services/redis');
+			const healthy = await redis.check(config.checks.redis.url);
+			checks.push(serviceResult('redis', healthy));
+		} catch (err) {
+			checks.push(serviceResult('redis', false));
+		}
+	}
+
+
+	if (config?.checks?.postgres?.enabled) {
+		try {
+			const postgres = require('./services/postgres');
+			const healthy = await postgres.check(config.checks.postgres.url);
+			checks.push(serviceResult('postgres', healthy));
+		} catch (err) {
+			checks.push(serviceResult('postgres', false));
+		}
+	}
+
+	if (config?.checks?.gotenberg?.enabled) {
+		try {
+			const gotenberg = require('./services/gotenberg');
+			const healthy = await gotenberg.check(config.checks.gotenberg.url);
+			checks.push(serviceResult('gotenberg', healthy));
+		} catch (err) {
+			checks.push(serviceResult('gotenberg', false));
+		}
 	}
 
 	if (Array.isArray(config.checks.microservices)) {
 		for (let ms of config.checks.microservices) {
 			if (!ms.enabled) continue;
+
+			if (ms.name === currentServiceName) {
+				console.log(`[${currentServiceName}] Skipping self-check for '${ms.name}' to avoid loop.`);
+				continue;
+			}
+
 			const healthy = await httpService.check(ms);
 			checks.push(serviceResult(ms.name, healthy));
 		}

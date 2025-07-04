@@ -3049,5 +3049,28 @@ module.exports = {
             },
             service: "project"
         },
+        {
+            sourceRoute: "/project/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/health",
+                type: "GET"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/entity/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/entity/health",
+                type: "GET"
+            },
+            service: "entity"
+        },
+
     ]
 }
