@@ -12190,112 +12190,189 @@
 				}
 			]
 		},
- {
-            "sourceRoute": "/mentoring/v1/requestSessions/create",
+		{
+			"sourceRoute": "/mentoring/v1/requestSessions/create",
 			"type": "POST",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-{
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/requestSessions/list",
 			"type": "GET",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-        {
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/requestSessions/accept",
 			"type": "POST",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-        {
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/requestSessions/reject",
 			"type": "POST",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-        {
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/requestSessions/getDetails",
 			"type": "GET",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-        {
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/requestSessions/userAvailability",
 			"type": "GET",
 			"priority": "MUST_HAVE",
-            "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-        },
-{
-
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/mentoring/v1/org-admin/themeDetails",
 			"type": "GET",
-			 "inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
-		
-
-},{
-
-"sourceRoute": "/mentoring/v1/connections/pending",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/mentoring/v1/connections/pending",
 			"type": "GET",
-"inSequence": false,
-            "orchestrated": false,
-            "targetPackages": [
-                {
-                    "basePackageName": "mentoring",
-                    "packageName": "elevate-mentoring"
-                }
-            ]
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/mentoring/health",
+			"type": "GET",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/survey/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+			  {
+				"basePackageName": "survey",
+				"packageName": "elevate-survey-observation"
+			  }
+			],
+			"service": "survey"
+		  },
+		  {
+			"sourceRoute": "/scp/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/project/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/entity/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "entity"
+		},
+		{
+			"sourceRoute": "/user/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "user",
+					"packageName": "elevate-user"
+				}
+			]
+		}
 
-}
 		
 	]
 }

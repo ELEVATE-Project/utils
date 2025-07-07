@@ -1835,5 +1835,13 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+            sourceRoute: "/mentoring/health",
+            type: "GET",
+            targetRoute: {
+                path: "/health",
+                type: "GET"
+            },
+        },
 	],
 }

@@ -2929,7 +2929,7 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/survey/health',
+				path: '/health',
 				type: 'GET'
 			},
 			service:"survey"

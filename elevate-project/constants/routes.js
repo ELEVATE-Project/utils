@@ -3055,7 +3055,7 @@ module.exports = {
             inSequence: false,
             orchestrated: false,
             targetRoute: {
-                path: "/project/health",
+                path: "/health",
                 type: "GET"
             },
             service: "project"
@@ -3066,7 +3066,7 @@ module.exports = {
             inSequence: false,
             orchestrated: false,
             targetRoute: {
-                path: "/entity/health",
+                path: "/health",
                 type: "GET"
             },
             service: "entity"

@@ -989,7 +989,7 @@ module.exports = {
             inSequence: false,
             orchestrated: false,
             targetRoute: {
-                path: "/user/health",
+                path: "/health",
                 type: "GET"
             },
             service: "entity"

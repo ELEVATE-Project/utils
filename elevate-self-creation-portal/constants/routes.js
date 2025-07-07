@@ -791,5 +791,15 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+            sourceRoute: "/scp/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/health",
+                type: "GET"
+            },
+        },
 	],
 }
