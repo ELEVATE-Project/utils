@@ -2965,9 +2965,9 @@ module.exports = {
 			orchestrated: true,
 			service: 'user',
 			targetRoute: {
-				path: '/user/v1/user/read',
+				path: '/user/v1/user/read/:id',
 				type: 'POST',
-				functionName: 'getUserDetailsFromExternal',
+				functionName: 'read',
 			},
 		},
 		{
