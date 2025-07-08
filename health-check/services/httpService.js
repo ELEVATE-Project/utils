@@ -27,7 +27,7 @@ exports.check = async (service) => {
 			url,
 			method,
 			headers,
-			timeout: 3000
+			timeout: 8000
 		};
 
 		// Only include body for methods that support it
