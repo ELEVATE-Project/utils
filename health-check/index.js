@@ -17,6 +17,7 @@ const httpService = require('./services/httpService')
  * @returns {Promise<Object>} - A formatted response with health check results.
  */
 async function healthCheckHandler(config, basicCheck = false, currentServiceName = '') {
+	validateHealthConfig(config)
 	const checks = []
 
 	// Check MongoDB health if enabled
@@ -107,6 +108,60 @@ function serviceResult(name, healthy) {
 		healthy,
 		err: healthy ? '' : `${name.toUpperCase()}_HEALTH_FAILED`,
 		errMsg: healthy ? '' : `${name} is not healthy`,
+	}
+}
+
+/**
+ * Validates the structure of the health check configuration.
+ *
+ * @param {Object} config - The configuration object for health checks.
+ * @param {Object} config.checks - The checks object containing service configurations.
+ * @param {Object} [config.checks.kafka] - Kafka config with `enabled` and `url`.
+ * @param {Object} [config.checks.postgres] - PostgreSQL config with `enabled` and `url`.
+ * @param {Object} [config.checks.redis] - Redis config with `enabled` and `url`.
+ * @param {Object} [config.checks.mongodb] - MongoDB config with `enabled` and `url`.
+ * @param {Object} [config.checks.gotenberg] - Gotenberg config with `enabled` and `url`.
+ * @param {Array<Object>} [config.checks.microservices] - List of microservice health configs.
+ *
+ * @throws Will throw an error if required fields are missing for any enabled service.
+ */
+function validateHealthConfig(config) {
+	if (!config.checks) {
+		throw new Error('Health config must include a `checks` object')
+	}
+
+	const { kafka, postgres, redis, mongodb, gotenberg, microservices } = config.checks
+
+	const basicServices = [
+		{ name: 'kafka', value: kafka },
+		{ name: 'postgres', value: postgres },
+		{ name: 'redis', value: redis },
+		{ name: 'mongodb', value: mongodb },
+		{ name: 'gotenberg', value: gotenberg },
+	]
+
+	for (const { name, value } of basicServices) {
+		if (value?.enabled && !value.url) {
+			throw new Error(`Missing 'url' for enabled service: ${name}`)
+		}
+	}
+
+	if (Array.isArray(microservices)) {
+		microservices.forEach((service, index) => {
+			if (service.enabled) {
+				const missingKeys = []
+				if (!service.name) missingKeys.push('name')
+				if (!service.url) missingKeys.push('url')
+				if (!service.request) missingKeys.push('request')
+				if (!service.expectedResponse) missingKeys.push('expectedResponse')
+
+				if (missingKeys.length > 0) {
+					throw new Error(
+						`Missing required fields for enabled microservice at index ${index}: ${missingKeys.join(', ')}`
+					)
+				}
+			}
+		})
 	}
 }
 
