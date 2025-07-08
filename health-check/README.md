@@ -22,4 +22,3 @@ This package helps you implement a standardized `/health` endpoint for your serv
 
 ```bash
 npm install elevate-services-health-check
-npm install kafka-node

@@ -16,7 +16,7 @@ const httpService = require('./services/httpService')
  * @param {string} [currentServiceName=''] - Optional. Name of the current service to avoid self-check.
  * @returns {Promise<Object>} - A formatted response with health check results.
  */
-async function healthCheckHandler(config, basicCheck, currentServiceName = '') {
+async function healthCheckHandler(config, basicCheck = false, currentServiceName = '') {
 	const checks = []
 
 	// Check MongoDB health if enabled
@@ -64,7 +64,7 @@ async function healthCheckHandler(config, basicCheck, currentServiceName = '') {
 	}
 
 	// Check other microservices if provided and basicCheck is true
-	if (Array.isArray(config.checks.microservices) && basicCheck) {
+	if (Array.isArray(config.checks.microservices) && !basicCheck) {
 		for (let ms of config.checks.microservices) {
 			if (!ms.enabled) continue
 			// Avoid self-check to prevent request loops
