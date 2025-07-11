@@ -12329,7 +12329,8 @@
 					"basePackageName": "self-creation-portal",
 					"packageName": "elevate-self-creation-portal"
 				}
-			]
+			],
+			"service": "survey"
 		},
 		{
 			"sourceRoute": "/project/health",
