@@ -12238,6 +12238,20 @@
 			"orchestrated": false,
 			"targetPackages": [
 				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "entity"
+		},
+		{
+			"sourceRoute": "/entity/health",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
 					"basePackageName": "project",
 					"packageName": "elevate-project"
 				}
