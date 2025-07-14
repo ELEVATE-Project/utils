@@ -12311,25 +12311,12 @@
 			"inSequence": false,
 			"orchestrated": false,
 			"targetPackages": [
-			  {
-				"basePackageName": "survey",
-				"packageName": "elevate-survey-observation"
-			  }
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
 			],
 			"service": "survey"
-		  },
-		  {
-			"sourceRoute": "/scp/health",
-			"type": "GET",
-			"priority": "MUST_HAVE",
-			"inSequence": false,
-			"orchestrated": false,
-			"targetPackages": [
-				{
-					"basePackageName": "self-creation-portal",
-					"packageName": "elevate-self-creation-portal"
-				}
-			]
 		},
 		{
 			"sourceRoute": "/project/health",
@@ -12367,12 +12354,10 @@
 			"orchestrated": false,
 			"targetPackages": [
 				{
-					"basePackageName": "user",
-					"packageName": "elevate-user"
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
 				}
 			]
 		}
-
-		
 	]
 }
