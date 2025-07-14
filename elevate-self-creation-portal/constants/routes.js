@@ -800,6 +800,7 @@ module.exports = {
                 path: "/health",
                 type: "GET"
             },
+			service:"scp"
         },
 	],
 }
