@@ -1,6 +1,6 @@
 {
 	"name": "elevate-survey-observation",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "Npm package for Elevate-survey-observation service integration with Interface service",
 	"main": "index.js",
 	"scripts": {
