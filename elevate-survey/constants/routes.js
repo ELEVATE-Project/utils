@@ -2933,7 +2933,18 @@ module.exports = {
 				type: 'GET'
 			},
 			service:"survey"
-		  }
+		  },
+		  {
+            sourceRoute: "/entity/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/health",
+                type: "GET"
+            },
+            service: "entity"
+        },
 	],
 }
 
