@@ -3517,7 +3517,28 @@ module.exports = {
 				path: '/user/v1/public/userInvites',
 				type: 'GET',
 			},
-		}
+		},
+		{
+			sourceRoute: '/mentoring/health',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/health',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/health',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/health',
+				type: 'GET',
+			},
+		},
 
 	],
 }
