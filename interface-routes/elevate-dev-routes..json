@@ -12285,8 +12285,8 @@
 			"sourceRoute": "/mentoring/health",
 			"type": "GET",
 			"inSequence": false,
-			"priority": "MUST_HAVE",
 			"orchestrated": false,
+			"priority": "MUST_HAVE",
 			"targetPackages": [
 				{
 					"basePackageName": "mentoring",
@@ -12301,13 +12301,13 @@
 			"inSequence": false,
 			"orchestrated": false,
 			"targetPackages": [
-				{
-					"basePackageName": "survey",
-					"packageName": "elevate-survey-observation"
-				}
+			  {
+				"basePackageName": "survey",
+				"packageName": "elevate-survey-observation"
+			  }
 			],
 			"service": "survey"
-		},
+		  },
 		{
 			"sourceRoute": "/project/health",
 			"type": "GET",
