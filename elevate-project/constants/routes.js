@@ -3061,7 +3061,7 @@ module.exports = {
             service: "project"
         },
         {
-            sourceRoute: "/entity/health",
+            sourceRoute: "/entity-management/health",
             type: "GET",
             inSequence: false,
             orchestrated: false,
