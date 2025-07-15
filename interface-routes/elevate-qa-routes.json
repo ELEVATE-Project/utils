@@ -12272,6 +12272,7 @@
 			"sourceRoute": "/mentoring/v1/org-admin/themeDetails",
 			"type": "GET",
 			"inSequence": false,
+			"priority": "MUST_HAVE",
 			"orchestrated": false,
 			"targetPackages": [
 				{
@@ -12284,6 +12285,7 @@
 			"sourceRoute": "/mentoring/v1/connections/pending",
 			"type": "GET",
 			"inSequence": false,
+			"priority": "MUST_HAVE",
 			"orchestrated": false,
 			"targetPackages": [
 				{
@@ -12296,6 +12298,7 @@
 			"sourceRoute": "/mentoring/health",
 			"type": "GET",
 			"inSequence": false,
+			"priority": "MUST_HAVE",
 			"orchestrated": false,
 			"targetPackages": [
 				{

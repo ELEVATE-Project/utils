@@ -12195,6 +12195,7 @@
 			"type": "GET",
 			"inSequence": false,
 			"orchestrated": false,
+			"priority": "MUST_HAVE",
 			"targetPackages": [
 				{
 					"basePackageName": "mentoring",
