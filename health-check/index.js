@@ -64,6 +64,20 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 		}
 	}
 
+	// Check BullMQ (Redis-backed job queue) if enabled
+	if (config?.checks?.bullmq?.enabled) {
+		try {
+			const bullmq = require('./services/bullmq');
+			const healthy = await bullmq.check(
+				config.checks.bullmq.redisHost,
+				config.checks.bullmq.redisPort
+			);
+			checks.push(serviceResult('bullmq', healthy));
+		} catch (err) {
+			checks.push(serviceResult('bullmq', false));
+		}
+	}
+
 	// Check other microservices if provided and basicCheck is true
 	if (Array.isArray(config.checks.microservices) && !basicCheck) {
 		for (let ms of config.checks.microservices) {
