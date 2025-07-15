@@ -12336,7 +12336,7 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/entity/health",
+			"sourceRoute": "/entity-management/health",
 			"type": "GET",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -12350,7 +12350,7 @@
 			"service": "entity"
 		},
 		{
-			"sourceRoute": "/entity/health",
+			"sourceRoute": "/entity-management/health",
 			"type": "GET",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
