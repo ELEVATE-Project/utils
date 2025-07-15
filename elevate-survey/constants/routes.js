@@ -2935,7 +2935,7 @@ module.exports = {
 			service:"survey"
 		  },
 		  {
-            sourceRoute: "/entity/health",
+            sourceRoute: "/entity-management/health",
             type: "GET",
             inSequence: false,
             orchestrated: false,
