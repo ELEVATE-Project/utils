@@ -3548,6 +3548,15 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/interface/scheduler/health',
+			type: 'GET',
+			service: 'scheduler',
+			targetRoute: {
+				path: '/health',
+				type: 'GET',
+			},
+		},
 
 	],
 }
