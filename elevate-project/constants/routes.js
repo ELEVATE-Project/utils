@@ -3071,6 +3071,18 @@ module.exports = {
             },
             service: "entity"
         },
+        {
+            sourceRoute: "/interface/v1/users/solutions",
+            type: "POST",
+            inSequence: true,
+            orchestrated: true,
+            targetRoute: {
+                path: "/project/v1/users/solutions",
+                type: "POST",
+                functionName: "fetchSolutionList"
+            },
+            service : "project"
+        }
 
     ]
 }

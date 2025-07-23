@@ -2945,6 +2945,18 @@ module.exports = {
             },
             service: "entity"
         },
+		{
+			sourceRoute: '/interface/v1/users/solutions',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: true,
+			targetRoute: {
+				path: '/survey/v1/users/solutions',
+				type: 'POST',
+				functionName: 'fetchSolutionList',
+			},
+			service:"survey"
+		}
 	],
 }
 
