@@ -12313,7 +12313,9 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
-					"requiresCustomHandling":false
+					"requiresCustomHandling":false,
+					"merge": true,
+                    "mergeKey": "first"
 				},
 				{
 					"basePackageName": "survey",
@@ -12321,7 +12323,9 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
-					"requiresCustomHandling":false
+					"requiresCustomHandling":false,
+					"merge": true,
+                    "mergeKey": "second"
 				}
 			]
 		},
