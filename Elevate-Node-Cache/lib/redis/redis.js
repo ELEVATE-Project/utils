@@ -27,13 +27,12 @@ RedisClientHelper.setKey = async (key, value, expRedis) => {
   const stringifiedValue = typeof value === 'string' ? value : JSON.stringify(value);
 
   if (expRedis !== undefined && expRedis !== null) {
-    if (typeof expRedis !== 'number') {
-      throw new Error("Expiration must be a number representing seconds");
-    }
-    const finalKey = prefixKey(key);
-    await redisClient.set(finalKey, stringifiedValue, 'EX', expRedis);
 
-    // return await redisClient.set(key, stringifiedValue, { EX: expRedis });
+    expRedis = typeof expRedis === 'string' ? Number(expRedis) : expRedis;
+
+    const finalKey = prefixKey(key);
+    return await redisClient.set(finalKey, stringifiedValue, 'EX', expRedis);
+
   } else {
     const finalKey = prefixKey(key);
     return await redisClient.set(finalKey, stringifiedValue);
