@@ -12312,8 +12312,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
-					"merge": true,
-					"mergeKey": "first"
+					"merge": true
 				},
 				{
 					"basePackageName": "survey",
@@ -12321,11 +12320,9 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
-					"merge": true,
-					"mergeKey": "second"
+					"merge": true
 				}
-			],
-			"service": "project"
+			]
 		},
 		{
 			"sourceRoute": "/interface/v1/users/solutions/:id",
@@ -12341,8 +12338,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
-					"merge": true,
-					"mergeKey": "first"
+					"merge": true
 				},
 				{
 					"basePackageName": "survey",
@@ -12350,8 +12346,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
-					"merge": true,
-					"mergeKey": "second"
+					"merge": true
 				}
 			]
 		}
