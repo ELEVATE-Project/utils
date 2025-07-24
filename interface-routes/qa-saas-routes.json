@@ -12304,6 +12304,7 @@
 			"priority": "MUST_HAVE",
 			"inSequence": true,
 			"orchestrated": true,
+			"requiresCustomHandling":false,
 			"responseMessage": "Successfully fetched programs",
 			"targetPackages": [
 				{
@@ -12312,6 +12313,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
+					"requiresCustomHandling":false,
 					"merge": true
 				},
 				{
@@ -12320,6 +12322,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
+					"requiresCustomHandling":false,
 					"merge": true
 				}
 			]
@@ -12330,6 +12333,7 @@
 			"priority": "MUST_HAVE",
 			"inSequence": true,
 			"orchestrated": true,
+			"requiresCustomHandling":false,
 			"responseMessage": "Successfully fetched programs",
 			"targetPackages": [
 				{
