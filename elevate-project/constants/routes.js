@@ -3071,6 +3071,18 @@ module.exports = {
             },
             service: "entity"
         },
+        {
+			sourceRoute: "/project/v1/userProjects/searchEntities",
+			type: "GET",
+			priority: "MUST_HAVE",
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+                path: "/project/v1/userProjects/searchEntities",
+                type: "POST"
+            },
+			service: "project"
+		}
 
     ]
 }
