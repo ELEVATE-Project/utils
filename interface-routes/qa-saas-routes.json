@@ -12313,8 +12313,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
-					"requiresCustomHandling":false,
-					"merge": true
+					"requiresCustomHandling":false
 				},
 				{
 					"basePackageName": "survey",
@@ -12322,8 +12321,7 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
-					"requiresCustomHandling":false,
-					"merge": true
+					"requiresCustomHandling":false
 				}
 			]
 		},
@@ -12341,16 +12339,14 @@
 					"packageName": "elevate-project",
 					"targetBody": [],
 					"responseBody": [],
-					"service": "project",
-					"merge": true
+					"service": "project"
 				},
 				{
 					"basePackageName": "survey",
 					"packageName": "elevate-survey-observation",
 					"targetBody": [],
 					"responseBody": [],
-					"service": "survey",
-					"merge": true
+					"service": "survey"
 				}
 			]
 		}
