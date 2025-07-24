@@ -2952,8 +2952,18 @@ module.exports = {
 			orchestrated: true,
 			targetRoute: {
 				path: '/survey/v1/users/solutions',
-				type: 'POST',
-				functionName: 'fetchSolutionList',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+		{
+			sourceRoute: '/interface/v1/users/solutions/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: true,
+			targetRoute: {
+				path: '/survey/v1/users/solutions/:id',
+				type: 'POST'
 			},
 			service:"survey"
 		}
