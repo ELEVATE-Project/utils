@@ -12343,14 +12343,18 @@
 					"packageName": "elevate-project",
 					"targetBody": [],
 					"responseBody": [],
-					"service": "project"
+					"service": "project",
+					"merge": true,
+                    "mergeKey": "first"
 				},
 				{
 					"basePackageName": "survey",
 					"packageName": "elevate-survey-observation",
 					"targetBody": [],
 					"responseBody": [],
-					"service": "survey"
+					"service": "survey",
+					"merge": true,
+                    "mergeKey": "second"
 				}
 			]
 		}
