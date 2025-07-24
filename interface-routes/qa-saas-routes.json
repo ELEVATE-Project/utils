@@ -12353,8 +12353,7 @@
 					"merge": true,
 					"mergeKey": "second"
 				}
-			],
-			"service": "project"
+			]
 		}
 	]
 }
