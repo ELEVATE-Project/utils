@@ -278,12 +278,53 @@ const readOrganization = async (req, res, selectedConfig) => {
 	}
 }
 
+const fetchPrograms = async (req, res) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	let targetedRoutePath = selectedConfig.targetRoute.path
+	let params = req.params;
+	
+	targetedRoutePath = targetedRoutePath.replace('/:id', `/${params.id}`)
+
+	return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
+		'X-auth-token': req.headers['x-auth-token'],
+	})
+}
+
+const mergeProgramResponse = async (results) => {
+	const mergedMap = new Map();
+	try{
+		for (const item of results) {
+			const key = item.programId;
+		
+			if (!mergedMap.has(key)) {
+			  // Clone the item to avoid mutating the original
+			  mergedMap.set(key, {
+				...item,
+				data: [...item.data],
+				count: item.count || 0
+			  });
+			} else {
+			  const existing = mergedMap.get(key);
+			  existing.data.push(...item.data);
+			  existing.count += item.count || 0;
+			}
+		  }
+	}catch(err){
+		console.error('Error merging program response:', err);
+	}
+
+  
+	return Array.from(mergedMap.values());
+}
+
 const projectController = {
 	fetchProjectTemplates,
 	projectsList,
 	readUser,
 	readOrganization,
-	readUserTitle
+	readUserTitle,
+	mergeProgramResponse,
+	fetchPrograms
 }
 
 module.exports = projectController
