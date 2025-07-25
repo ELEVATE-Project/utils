@@ -290,9 +290,31 @@ const fetchPrograms = async (req, res) => {
 	})
 }
 
-const mergeProgramResponse = async (data) => {
-	console.log(data,'data....')
-	return data;
+const mergeProgramResponse = async (results) => {
+	const mergedMap = new Map();
+	try{
+		for (const item of results) {
+			const key = item.programId;
+		
+			if (!mergedMap.has(key)) {
+			  // Clone the item to avoid mutating the original
+			  mergedMap.set(key, {
+				...item,
+				data: [...item.data],
+				count: item.count || 0
+			  });
+			} else {
+			  const existing = mergedMap.get(key);
+			  existing.data.push(...item.data);
+			  existing.count += item.count || 0;
+			}
+		  }
+	}catch(err){
+		console.error('Error merging program response:', err);
+	}
+
+  
+	return Array.from(mergedMap.values());
 }
 
 const projectController = {
