@@ -12305,11 +12305,10 @@
 			"inSequence": true,
 			"orchestrated": true,
 			"requiresCustomHandling":false,
-			"mergeStrategy":"custom",
-            "mergeConfig":    {
-                    "basePackageName": "project",
-                    "packageName": "elevate-project",
-                    "functionName": "mergeProgramResponse"
+            "mergeConfiguration": {
+                "basePackageName": "project",
+                "packageName": "elevate-project",
+                "functionName": "mergeProgramResponse"
             }, 
 			"responseMessage": "Successfully fetched programs",
 			"targetPackages": [
@@ -12342,11 +12341,10 @@
 			"inSequence": true,
 			"orchestrated": true,
 			"requiresCustomHandling":false,
-			"mergeStrategy":"custom",
-            "mergeConfig":    {
-                    "basePackageName": "project",
-                    "packageName": "elevate-project",
-                    "functionName": "mergeProgramResponse"
+            "mergeConfiguration": {
+                "basePackageName": "project",
+                "packageName": "elevate-project",
+                "functionName": "mergeProgramResponse"
             }, 
 			"responseMessage": "Successfully fetched programs",
 			"targetPackages": [
