@@ -278,12 +278,31 @@ const readOrganization = async (req, res, selectedConfig) => {
 	}
 }
 
+const fetchPrograms = async (req, res) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
+	let targetedRoutePath = selectedConfig.targetRoute.path
+	let params = req.params;
+	
+	targetedRoutePath = targetedRoutePath.replace('/:id', `/${params.id}`)
+
+	return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
+		'X-auth-token': req.headers['x-auth-token'],
+	})
+}
+
+const mergeProgramResponse = async (data) => {
+	console.log(data,'data....')
+	return data;
+}
+
 const projectController = {
 	fetchProjectTemplates,
 	projectsList,
 	readUser,
 	readOrganization,
-	readUserTitle
+	readUserTitle,
+	fetchPrograms,
+	mergeProgramResponse
 }
 
 module.exports = projectController

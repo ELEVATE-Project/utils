@@ -3078,7 +3078,8 @@ module.exports = {
             orchestrated: true,
             targetRoute: {
                 path: "/project/v1/users/solutions",
-                type: "POST"
+                type: "POST",
+                functionName: "fetchPrograms"
             },
             service : "project"
         },
@@ -3089,7 +3090,8 @@ module.exports = {
             orchestrated: true,
             targetRoute: {
                 path: "/project/v1/users/solutions/:id",
-                type: "POST"
+                type: "POST",
+                functionName: "fetchPrograms"
             },
             service : "project"
         }
