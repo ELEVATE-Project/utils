@@ -323,8 +323,8 @@ const projectController = {
 	readUser,
 	readOrganization,
 	readUserTitle,
-	fetchPrograms,
-	mergeProgramResponse
+	mergeProgramResponse,
+	fetchPrograms
 }
 
 module.exports = projectController
