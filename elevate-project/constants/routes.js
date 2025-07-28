@@ -3093,6 +3093,46 @@ module.exports = {
             },
             service: "entity"
         },
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity",
+				type: "POST"
+			},
+            service: "entity"
+		},
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity/:id",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity/:id",
+				type: "POST"
+			},
+            service: "entity"
+		},
+        {
+            sourceRoute: "/project/v1/admin/deleteResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/admin/deleteResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
 
     ]
 }
