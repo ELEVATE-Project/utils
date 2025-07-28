@@ -2966,7 +2966,27 @@ module.exports = {
 				type: 'POST'
 			},
 			service:"survey"
-		}
+		},
+		{
+            sourceRoute: "/survey/v1/admin/deleteResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteResource",
+                type: "POST"
+            },
+            service: "survey"
+        },
+        {
+            sourceRoute: "/survey/v1/admin/deleteResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteResource/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
 	],
 }
 
