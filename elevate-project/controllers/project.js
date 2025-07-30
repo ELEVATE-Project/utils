@@ -314,7 +314,7 @@ const mergeProgramResponse = async (results) => {
 	}
 
   
-	return Array.from(mergedMap.values());
+	return Array.from(mergedMap.values())[0] || {};
 }
 
 const projectController = {
