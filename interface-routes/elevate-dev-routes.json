@@ -12401,7 +12401,7 @@
                 "packageName": "elevate-project",
                 "functionName": "mergeProgramResponse"
             }, 
-			"responseMessage": "Successfully fetched programs",
+			"responseMessage": "Program solutions fetched successfully",
 			"targetPackages": [
 				{
 					"basePackageName": "project",
@@ -12437,7 +12437,7 @@
                 "packageName": "elevate-project",
                 "functionName": "mergeProgramResponse"
             }, 
-			"responseMessage": "Successfully fetched programs",
+			"responseMessage": "Program solutions fetched successfully",
 			"targetPackages": [
 				{
 					"basePackageName": "project",
