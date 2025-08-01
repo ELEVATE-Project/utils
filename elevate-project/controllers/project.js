@@ -279,15 +279,31 @@ const readOrganization = async (req, res, selectedConfig) => {
 }
 
 const fetchPrograms = async (req, res) => {
-	const selectedConfig = routeConfigs.routes.find((obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute)
-	let targetedRoutePath = selectedConfig.targetRoute.path
-	let params = req.params;
-	
-	targetedRoutePath = targetedRoutePath.replace('/:id', `/${params.id}`)
+	try {
+		const selectedConfig = routeConfigs.routes.find(
+			(obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute
+		)
 
-	return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
-		'X-auth-token': req.headers['x-auth-token'],
-	})
+		if (!selectedConfig) {
+			throw new Error(
+				`Route configuration not found for service: ${req.service}, sourceRoute: ${req.sourceRoute}`
+			)
+		}
+
+		let targetedRoutePath = selectedConfig.targetRoute.path
+		let params = req.params
+
+		if (params.id) {
+			targetedRoutePath = targetedRoutePath.replace('/:id', `/${params.id}`)
+		}
+
+		return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
+			'X-auth-token': req.headers['x-auth-token'],
+		})
+	} catch (err) {
+		console.error('Error fetching programs:', err)
+		return res.status(500).json({ error: 'Internal Server Error' })
+	}
 }
 
 const mergeProgramResponse = async (results) => {
