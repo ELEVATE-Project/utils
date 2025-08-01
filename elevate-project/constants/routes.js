@@ -3114,21 +3114,21 @@ module.exports = {
             service: "entity"
 		},
         {
-            sourceRoute: "/project/v1/admin/deleteResource",
+            sourceRoute: "/project/v1/admin/deletedResourceDetails",
             type: "POST",
             inSequence: false,
             targetRoute: {
-                path: "/project/v1/admin/deleteResource",
+                path: "/project/v1/admin/deletedResourceDetails",
                 type: "POST"
             },
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/admin/deleteResource/:id",
+            sourceRoute: "/project/v1/admin/deletedResourceDetails/:id",
             type: "POST",
             inSequence: false,
             targetRoute: {
-                path: "/project/v1/admin/deleteResource/:id",
+                path: "/project/v1/admin/deletedResourceDetails/:id",
                 type: "POST"
             },
             service: "project"
