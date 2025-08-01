@@ -12473,7 +12473,6 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "project",
-					"requiresCustomHandling":false,
 					"merge": true,
                     "mergeKey": "first"
 				},
@@ -12483,7 +12482,6 @@
 					"targetBody": [],
 					"responseBody": [],
 					"service": "survey",
-					"requiresCustomHandling":false,
 					"merge": true,
                     "mergeKey": "second"
 				}
