@@ -325,6 +325,15 @@ const mergeProgramResponse = async (results) => {
 			  existing.count += item.count || 0;
 			}
 		  }
+
+		      // After merging, sort the data array of each program
+			  for (const program of mergedMap.values()) {
+				program.data.sort((a, b) => {
+				  const orderA = a.order !== null && a.order !== undefined ? a.order : Infinity;
+				  const orderB = b.order !== null && b.order !== undefined ? b.order : Infinity;
+				  return orderA - orderB;
+				});
+			  }
 	}catch(err){
 		console.error('Error merging program response:', err);
 	}
