@@ -2974,7 +2974,8 @@ module.exports = {
 			orchestrated: true,
 			targetRoute: {
 				path: '/survey/v1/users/solutions',
-				type: 'POST'
+				type: 'POST',
+				functionName: "fetchPrograms"
 			},
 			service:"survey"
 		},
@@ -2985,7 +2986,8 @@ module.exports = {
 			orchestrated: true,
 			targetRoute: {
 				path: '/survey/v1/users/solutions/:id',
-				type: 'POST'
+				type: 'POST',
+				functionName: "fetchPrograms"
 			},
 			service:"survey"
 		}

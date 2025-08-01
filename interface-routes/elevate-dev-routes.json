@@ -12418,6 +12418,76 @@
 			]
 		},
 		{
+			"sourceRoute": "/interface/v1/users/solutions",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": true,
+			"orchestrated": true,
+			"requiresCustomHandling":false,
+            "mergeConfiguration": {
+                "basePackageName": "project",
+                "packageName": "elevate-project",
+                "functionName": "mergeProgramResponse"
+            }, 
+			"responseMessage": "Program solutions fetched successfully",
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "project",
+					"requiresCustomHandling":false,
+					"merge": true,
+                    "mergeKey": "first"
+				},
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "survey",
+					"requiresCustomHandling":false,
+					"merge": true,
+                    "mergeKey": "second"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/interface/v1/users/solutions/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": true,
+			"orchestrated": true,
+			"requiresCustomHandling":false,
+            "mergeConfiguration": {
+                "basePackageName": "project",
+                "packageName": "elevate-project",
+                "functionName": "mergeProgramResponse"
+            }, 
+			"responseMessage": "Program solutions fetched successfully",
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "project",
+					"merge": true,
+                    "mergeKey": "first"
+				},
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "survey",
+					"merge": true,
+                    "mergeKey": "second"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/project/v1/userProjects/searchEntities",
 			"type": "GET",
 			"priority": "MUST_HAVE",
