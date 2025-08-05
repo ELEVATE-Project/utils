@@ -3167,6 +3167,28 @@ module.exports = {
                 type: "POST"
             },
 			service: "project"
+		},
+        {
+            sourceRoute: "/project/v1/programs/removeSolutionsFromProgramComponent/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/programs/removeSolutionsFromProgramComponent/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+
+			sourceRoute: "/project/v1/programs/removeSolutionsFromProgramComponent",
+			type: "POST",
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+                path: "/project/v1/programs/removeSolutionsFromProgramComponent",
+                type: "POST"
+            },
+			service: "project"
 		}
     ]
 }
