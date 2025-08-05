@@ -12429,6 +12429,38 @@
 					"packageName": "elevate-project"
 				}
 			],
+			"service": "entity"
+		},
+		{
+			"sourceRoute": "/entity-management/v1/admin/deleteEntity/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "entity"
+		},
+		{
+			"sourceRoute": "/entity-management/v1/admin/deleteEntity",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "entity"
+		},
+		{
+			"sourceRoute": "/project/v1/admin/deleteResource/:id",
 			"service": "project"
 		},
 		{
@@ -12446,7 +12478,74 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/project/v1/userCourses/createOrUpdate",
+			"sourceRoute": "/project/v1/admin/deleteResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteResource/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeSolutionsFromProgramComponent/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+            "sourceRoute": "/project/v1/userCourses/createOrUpdate",
+            "type": "POST",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetRoute": {
+                "path": "/project/v1/userCourses/createOrUpdate",
+                "type": "POST"
+            },
+            "service": "project"
+        },
+		{
+			"sourceRoute": "/project/v1/programs/removeSolutionsFromProgramComponent",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -12461,3 +12560,5 @@
 		}
 	]
 }
+
+
