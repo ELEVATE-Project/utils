@@ -3557,6 +3557,15 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/mentoring/v1/users/requestCount',
+			type: 'GET',
+			service: 'mentoring',
+			targetRoute: {
+				path: '/mentoring/v1/users/requestCount',
+				type: 'GET',
+			},
+		}
 
 	],
 }
