@@ -3126,6 +3126,26 @@ module.exports = {
                 type: "POST"
             },
 			service: "project"
+		},
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity",
+				type: "POST"
+			},
+            service: "entity"
+		},
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity/:id",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity/:id",
+				type: "POST"
+			},
+            service: "entity"
 		}
     ]
 }
