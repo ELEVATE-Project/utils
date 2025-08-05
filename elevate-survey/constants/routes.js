@@ -2968,21 +2968,21 @@ module.exports = {
 			service:"survey"
 		},
 		{
-            sourceRoute: "/survey/v1/admin/deletedResourceDetails",
+            sourceRoute: "/survey/v1/admin/deleteResource",
             type: "POST",
             inSequence: false,
             targetRoute: {
-                path: "/survey/v1/admin/deletedResourceDetails",
+                path: "/survey/v1/admin/deleteResource",
                 type: "POST"
             },
             service: "survey"
         },
         {
-            sourceRoute: "/survey/v1/admin/deletedResourceDetails/:id",
+            sourceRoute: "/survey/v1/admin/deleteResource/:id",
             type: "POST",
             inSequence: false,
             targetRoute: {
-                path: "/survey/v1/admin/deletedResourceDetails/:id",
+                path: "/survey/v1/admin/deleteResource/:id",
                 type: "POST"
             },
             service: "survey"
