@@ -12008,6 +12008,34 @@
 			"service": "survey"
 		},
 		{
+			"sourceRoute": "/survey/v1/userCourses/createOrUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/userCourses/delete",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
 			"sourceRoute": "/mentoring/v1/users/delete",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -12390,6 +12418,20 @@
 			]
 		},
 		{
+			"sourceRoute": "/project/v1/userProjects/searchEntities",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "entity"
+		},
+		{
 			"sourceRoute": "/entity-management/v1/admin/deleteEntity/:id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -12419,6 +12461,10 @@
 		},
 		{
 			"sourceRoute": "/project/v1/admin/deleteResource/:id",
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/userCourses/delete",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -12487,6 +12533,17 @@
 			],
 			"service": "project"
 		},
+		{
+            "sourceRoute": "/project/v1/userCourses/createOrUpdate",
+            "type": "POST",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetRoute": {
+                "path": "/project/v1/userCourses/createOrUpdate",
+                "type": "POST"
+            },
+            "service": "project"
+        },
 		{
 			"sourceRoute": "/project/v1/programs/removeSolutionsFromProgramComponent",
 			"type": "POST",

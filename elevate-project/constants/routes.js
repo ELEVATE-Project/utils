@@ -1531,6 +1531,28 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: "/project/v1/userCourses/delete",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userCourses/delete",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userCourses/createOrUpdate",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userCourses/createOrUpdate",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
             sourceRoute: "/user/v1/account/login",
             type: "POST",
             inSequence: false,
@@ -3133,6 +3155,18 @@ module.exports = {
             },
             service: "project"
         },
+        {
 
+			sourceRoute: "/project/v1/userProjects/searchEntities",
+			type: "GET",
+			priority: "MUST_HAVE",
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+                path: "/project/v1/userProjects/searchEntities",
+                type: "POST"
+            },
+			service: "project"
+		}
     ]
 }

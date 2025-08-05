@@ -2924,6 +2924,28 @@ module.exports = {
 			service:"survey"
 		},
 		{
+			sourceRoute: '/survey/v1/userCourses/createOrUpdate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/userCourses/createOrUpdate',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+		{
+			sourceRoute: '/survey/v1/userCourses/delete',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/userCourses/delete',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+		{
 			sourceRoute: '/survey/health',
 			type: 'GET',
 			inSequence: false,
