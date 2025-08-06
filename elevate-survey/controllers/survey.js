@@ -154,7 +154,6 @@ const readOrganization = async (req, res, selectedConfig) => {
 		return res.status(500).json({ error: 'Internal Server Error' })
 	}
 }
-
 const surveyController = {
 	fetchObserbationAndSurvey,
 	readUser,

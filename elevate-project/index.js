@@ -33,5 +33,5 @@ module.exports = {
 	routes,
 	createPackage,
 	packageMeta: getPackageMeta(),
-	packageRouter
+	packageRouter,
 }
