@@ -289,16 +289,29 @@ const getMergedProgramSolutions = async (req, res) => {
 		const { id } = req.params;
 		const authToken = req.headers['x-auth-token'];
 
+		if(!id) {
+			return res.status(400).json({ error: 'ID parameter is required.' });
+		}
+
+		if(!authToken) {
+			return res.status(401).json({ error: 'Authentication token is required.' });
+		}
+
 		const [path1, path2] = config.targetRoute.paths;
 
 		const targetUrl1 = buildServiceUrl(req.baseUrl, path1.path, id);
+
+		if (!path2.service) {
+			return res.status(500).json({ error: 'Service configuration is missing for second path.' })
+		}
+			
 		const targetUrl2 = buildServiceUrl(
 			process.env[`${path2.service.toUpperCase()}_SERVICE_BASE_URL`],
 			path2.path,
 			id
 		);
 
-		const headers = { 'X-auth-token': authToken };
+		const headers = { 'X-auth-token': authToken, 'Content-Type': 'application/json' };
 
 		const [response1, response2] = await Promise.all([
 			requesters.post(targetUrl1.baseUrl, targetUrl1.path, req.body, headers),
@@ -306,6 +319,14 @@ const getMergedProgramSolutions = async (req, res) => {
 		]);
 
 		const results = [response1?.result, response2?.result].filter(Boolean);
+
+		if (results.length === 0) {
+			return res.status(404).json({
+				message: 'No program solutions found.',
+				result: {},
+			})
+		}
+
 		const mergedResult = mergeProgramResults(results);
 
 		return res.json({
@@ -339,6 +360,12 @@ function mergeProgramResults(results) {
 	const merged = new Map();
 
 	for (const result of results) {
+
+		if(!result || !result.programId) {
+			console.warn('Skipping result without programId:', result);
+			continue; // Skip invalid results
+		}
+
 		const key = result.programId;
 
 		if (!merged.has(key)) {
