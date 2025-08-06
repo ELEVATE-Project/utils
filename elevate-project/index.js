@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const routes = require('./constants/routes')
 const packageRouter = require('./router')
-const customMergeFunctionHandler = require('./customMergeFunctionHandler')
 
 const getDependencies = () => {
 	return ['kafka', 'kafka-connect', 'redis']
@@ -34,6 +33,5 @@ module.exports = {
 	routes,
 	createPackage,
 	packageMeta: getPackageMeta(),
-	packageRouter,
-	customMergeFunctionHandler
+	packageRouter
 }
