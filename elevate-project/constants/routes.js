@@ -3076,23 +3076,43 @@ module.exports = {
             type: "POST",
             inSequence: true,
             orchestrated: true,
-            targetRoute: {
-                path: "/project/v1/users/solutions",
-                type: "POST"
-            },
+			targetRoute: {
+				type: 'POST',
+				functionName: 'getMergedProgramSolutions',
+				paths: [
+					{
+						path: '/project/v1/users/solutions/:id',
+						type: 'POST',
+					},
+					{   service: 'survey',
+						path: '/survey/v1/users/solutions/:id',
+						type: 'POST',
+					},
+				],
+			},
             service : "project"
         },
-        {
-            sourceRoute: "/interface/v1/users/solutions/:id",
-            type: "POST",
-            inSequence: true,
-            orchestrated: true,
-            targetRoute: {
-                path: "/project/v1/users/solutions/:id",
-                type: "POST"
-            },
-            service : "project"
-        },
+		{
+			sourceRoute: '/interface/v1/users/solutions/:id',
+			type: 'POST',
+			inSequence: true,
+			orchestrated: true,
+			targetRoute: {
+				type: 'POST',
+				functionName: 'getMergedProgramSolutions',
+				paths: [
+					{
+						path: '/project/v1/users/solutions/:id',
+						type: 'POST',
+					},
+					{   service: 'survey',
+						path: '/survey/v1/users/solutions/:id',
+						type: 'POST',
+					},
+				],
+			},
+			service: 'project',
+		},
         {
             sourceRoute: "/project/health",
             type: "GET",
