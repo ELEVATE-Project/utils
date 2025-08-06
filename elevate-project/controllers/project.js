@@ -278,69 +278,96 @@ const readOrganization = async (req, res, selectedConfig) => {
 	}
 }
 
-const fetchPrograms = async (req, res) => {
+const getMergedProgramSolutions = async (req, res) => {
 	try {
-		const selectedConfig = routeConfigs.routes.find(
-			(obj) => req.service === obj.service && obj.sourceRoute === req.sourceRoute
-		)
+		const config = routeConfigs.routes.find(r => r.sourceRoute === req.sourceRoute);
 
-		if (!selectedConfig) {
-			throw new Error(
-				`Route configuration not found for service: ${req.service}, sourceRoute: ${req.sourceRoute}`
-			)
+		if (!config || !Array.isArray(config.targetRoute?.paths) || config.targetRoute.paths.length < 2) {
+			return res.status(400).json({ error: 'Route configuration is invalid or incomplete.' });
 		}
 
-		let targetedRoutePath = selectedConfig.targetRoute.path
-		let params = req.params
+		const { id } = req.params;
+		const authToken = req.headers['x-auth-token'];
 
-		if (params.id) {
-			targetedRoutePath = targetedRoutePath.replace('/:id', `/${params.id}`)
+		const [path1, path2] = config.targetRoute.paths;
+
+		const targetUrl1 = buildServiceUrl(req.baseUrl, path1.path, id);
+		const targetUrl2 = buildServiceUrl(
+			process.env[`${path2.service.toUpperCase()}_SERVICE_BASE_URL`],
+			path2.path,
+			id
+		);
+
+		const headers = { 'X-auth-token': authToken };
+
+		const [response1, response2] = await Promise.all([
+			requesters.post(targetUrl1.baseUrl, targetUrl1.path, req.body, headers),
+			requesters.post(targetUrl2.baseUrl, targetUrl2.path, req.body, headers),
+		]);
+
+		const results = [response1?.result, response2?.result].filter(Boolean);
+		const mergedResult = mergeProgramResults(results);
+
+		return res.json({
+			status: 200,
+			message: 'Program solutions fetched successfully',
+			result: mergedResult,
+		});
+	} catch (error) {
+		console.error('Error in getMergedProgramSolutions:', {
+			message: error.message,
+			stack: error.stack,
+		});
+		return res.status(500).json({ error: 'Internal server error.' });
+	}
+};
+
+
+/**
+ * Utility: Builds the full URL and path for a service call
+ */
+function buildServiceUrl(baseUrl, pathTemplate, id) {
+	const path = pathTemplate.replace('/:id', `/${id}`);
+	return { baseUrl, path };
+}
+
+
+/**
+ * Utility: Merges program results by programId
+ */
+function mergeProgramResults(results) {
+	const merged = new Map();
+
+	for (const result of results) {
+		const key = result.programId;
+
+		if (!merged.has(key)) {
+			merged.set(key, {
+				...result,
+				data: Array.isArray(result.data) ? [...result.data] : [],
+				count: result.count || 0,
+			});
+			continue;
 		}
 
-		return await requesters.post(req.baseUrl, targetedRoutePath, req.body, {
-			'X-auth-token': req.headers['x-auth-token'],
-		})
-	} catch (err) {
-		console.error('Error fetching programs:', err)
-		return res.status(500).json({ error: 'Internal Server Error' })
-	}
-}
-
-const mergeProgramResponse = async (results) => {
-	const mergedMap = new Map();
-	try{
-		for (const item of results) {
-			const key = item.programId;
-		
-			if (!mergedMap.has(key)) {
-			  // Clone the item to avoid mutating the original
-			  mergedMap.set(key, {
-				...item,
-				data: [...item.data],
-				count: item.count || 0
-			  });
-			} else {
-			  const existing = mergedMap.get(key);
-			  existing.data.push(...item.data);
-			  existing.count += item.count || 0;
-			}
-		  }
-
-		      // After merging, sort the data array of each program
-			  for (const program of mergedMap.values()) {
-				program.data.sort((a, b) => {
-				  const orderA = a.order !== null && a.order !== undefined ? a.order : Infinity;
-				  const orderB = b.order !== null && b.order !== undefined ? b.order : Infinity;
-				  return orderA - orderB;
-				});
-			  }
-	}catch(err){
-		console.error('Error merging program response:', err);
+		const existing = merged.get(key);
+		existing.data.push(...(result.data || []));
+		existing.count += result.count || 0;
 	}
 
-  
-	return Array.from(mergedMap.values())[0] || {};
+	// Sort each data array by `order`
+	for (const program of merged.values()) {
+		program.data.sort((a, b) => {
+			const aOrder = a?.order ?? Infinity;
+			const bOrder = b?.order ?? Infinity;
+			return aOrder - bOrder;
+		});
+	}
+
+	// Assuming you need the first merged program only
+	return merged.values().next().value || {};
 }
+
 
 const projectController = {
 	fetchProjectTemplates,
@@ -348,8 +375,7 @@ const projectController = {
 	readUser,
 	readOrganization,
 	readUserTitle,
-	mergeProgramResponse,
-	fetchPrograms
+	getMergedProgramSolutions
 }
 
 module.exports = projectController

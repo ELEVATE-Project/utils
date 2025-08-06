@@ -3076,11 +3076,20 @@ module.exports = {
             type: "POST",
             inSequence: true,
             orchestrated: true,
-            targetRoute: {
-                path: "/project/v1/users/solutions",
-                type: "POST",
-                functionName: "fetchPrograms"
-            },
+			targetRoute: {
+				type: 'POST',
+				functionName: 'getMergedProgramSolutions',
+				paths: [
+					{
+						path: '/project/v1/users/solutions/:id',
+						type: 'POST',
+					},
+					{   service: 'survey',
+						path: '/survey/v1/users/solutions/:id',
+						type: 'POST',
+					},
+				],
+			},
             service : "project"
         },
 		{
@@ -3090,13 +3099,13 @@ module.exports = {
 			orchestrated: true,
 			targetRoute: {
 				type: 'POST',
-				functionName: 'fetchPrograms',
+				functionName: 'getMergedProgramSolutions',
 				paths: [
 					{
 						path: '/project/v1/users/solutions/:id',
 						type: 'POST',
 					},
-					{
+					{   service: 'survey',
 						path: '/survey/v1/users/solutions/:id',
 						type: 'POST',
 					},
