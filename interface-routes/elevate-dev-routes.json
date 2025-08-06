@@ -12436,20 +12436,7 @@
 					"packageName": "elevate-project",
 					"targetBody": [],
 					"responseBody": [],
-					"service": "project",
-					"requiresCustomHandling":false,
-					"merge": true,
-                    "mergeKey": "first"
-				},
-				{
-					"basePackageName": "survey",
-					"packageName": "elevate-survey-observation",
-					"targetBody": [],
-					"responseBody": [],
-					"service": "survey",
-					"requiresCustomHandling":false,
-					"merge": true,
-                    "mergeKey": "second"
+					"service": "project"
 				}
 			]
 		},
