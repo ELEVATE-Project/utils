@@ -12422,13 +12422,8 @@
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": true,
-			"orchestrated": true,
-			"requiresCustomHandling":false,
-            "mergeConfiguration": {
-                "basePackageName": "project",
-                "packageName": "elevate-project",
-                "functionName": "mergeProgramResponse"
-            }, 
+			"orchestrated": false,
+			"requiresCustomHandling":true,
 			"responseMessage": "Program solutions fetched successfully",
 			"targetPackages": [
 				{
