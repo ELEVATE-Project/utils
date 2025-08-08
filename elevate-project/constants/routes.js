@@ -3146,6 +3146,26 @@ module.exports = {
 				type: "POST"
 			},
             service: "entity"
+		},
+        {
+			sourceRoute: "/project/v1/userProjects/addEntity",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/project/v1/userProjects/addEntity",
+				type: "POST"
+			},
+            service: "project"
+		},
+        {
+			sourceRoute: "/project/v1/userProjects/addEntity/:id",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/project/v1/userProjects/addEntity/:id",
+				type: "POST"
+			},
+            service: "project"
 		}
     ]
 }
