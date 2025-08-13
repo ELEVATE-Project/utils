@@ -371,7 +371,7 @@ function mergeProgramResults(results) {
 
 	const merged = new Map();
 
-	// Single pass: process results AND assign missing orders
+	// Single pass: merge results AND assign missing orders
 	for (const result of results) {
 		if (!result?.programId) {
 			console.warn('Skipping result without programId:', result);
@@ -392,12 +392,17 @@ function mergeProgramResults(results) {
 			});
 		}
 
-		// Since there's only one programId, just store the result
-		merged.set(key, {
-			...result,
-			data: Array.isArray(result.data) ? [...result.data] : [],
-			count: result.count || 0,
-		});
+		if (!merged.has(key)) {
+			merged.set(key, {
+				...result,
+				data: Array.isArray(result.data) ? [...result.data] : [],
+				count: result.count || 0,
+			});
+		} else {
+			const existing = merged.get(key);
+			existing.data.push(...(result.data || []));
+			existing.count += result.count || 0;
+		}
 	}
 
 	// Sort each data array by `order` (keeping your original sorting logic)
