@@ -357,16 +357,40 @@ function buildServiceUrl(baseUrl, pathTemplate, id) {
  * Utility: Merges program results by programId
  */
 function mergeProgramResults(results) {
+	// Build order map once from the first result with components
+	const orderMap = new Map();
+	
+	for (const result of results) {
+		if (result?.components?.length > 0) {
+			result.components.forEach((component) => {
+				orderMap.set(component._id.toString(), component.order);
+			});
+			break; // Found components, no need to continue
+		}
+	}
+
 	const merged = new Map();
 
+	// Single pass: merge results AND assign missing orders
 	for (const result of results) {
-
-		if(!result || !result.programId) {
+		if (!result?.programId) {
 			console.warn('Skipping result without programId:', result);
-			continue; // Skip invalid results
+			continue;
 		}
 
 		const key = result.programId;
+		
+		// Assign missing orders to solutions in this result
+		if (result.data) {
+			result.data.forEach(solution => {
+				if (!solution.order) {
+					const order = orderMap.get(solution._id?.toString());
+					if (order !== undefined) {
+						solution.order = order;
+					}
+				}
+			});
+		}
 
 		if (!merged.has(key)) {
 			merged.set(key, {
@@ -374,15 +398,14 @@ function mergeProgramResults(results) {
 				data: Array.isArray(result.data) ? [...result.data] : [],
 				count: result.count || 0,
 			});
-			continue;
+		} else {
+			const existing = merged.get(key);
+			existing.data.push(...(result.data || []));
+			existing.count += result.count || 0;
 		}
-
-		const existing = merged.get(key);
-		existing.data.push(...(result.data || []));
-		existing.count += result.count || 0;
 	}
 
-	// Sort each data array by `order`
+	// Sort each data array by `order` (keeping your original sorting logic)
 	for (const program of merged.values()) {
 		program.data.sort((a, b) => {
 			const aOrder = a?.order ?? Infinity;
@@ -391,7 +414,6 @@ function mergeProgramResults(results) {
 		});
 	}
 
-	// Assuming you need the first merged program only
 	return merged.values().next().value || {};
 }
 
