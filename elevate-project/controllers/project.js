@@ -405,7 +405,7 @@ function mergeProgramResults(results) {
 		}
 	}
 
-	// Sort each data array by `order` (keeping your original sorting logic)
+	// Sort each data array by `order`
 	for (const program of merged.values()) {
 		program.data.sort((a, b) => {
 			const aOrder = a?.order ?? Infinity;
