@@ -12418,6 +12418,42 @@
 			]
 		},
 		{
+			"sourceRoute": "/interface/v1/users/solutions",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": true,
+			"orchestrated": false,
+			"requiresCustomHandling":true,
+			"responseMessage": "Program solutions fetched successfully",
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "project"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/interface/v1/users/solutions/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": true,
+			"orchestrated": false,
+			"requiresCustomHandling":true,
+			"responseMessage": "Program solutions fetched successfully",
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project",
+					"targetBody": [],
+					"responseBody": [],
+					"service": "project"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/project/v1/userProjects/searchEntities",
 			"type": "GET",
 			"priority": "MUST_HAVE",
@@ -12570,6 +12606,34 @@
 				}
 			],
 			"service": "project"
-		}
+		},
+		{
+            "sourceRoute": "/project/v1/userProjects/addEntity",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "project",
+                    "packageName": "elevate-project"
+                }
+            ],
+            "service": "project"
+        },
+		{
+            "sourceRoute": "/project/v1/userProjects/addEntity/:id",
+            "type": "POST",
+            "priority": "MUST_HAVE",
+            "inSequence": false,
+            "orchestrated": false,
+            "targetPackages": [
+                {
+                    "basePackageName": "project",
+                    "packageName": "elevate-project"
+                }
+            ],
+            "service": "project"
+        }
 	]
 }
