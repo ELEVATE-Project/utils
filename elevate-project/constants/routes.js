@@ -3162,6 +3162,46 @@ module.exports = {
             service: "entity"
 		},
         {
+            sourceRoute: "/project/v1/admin/deleteResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/admin/deleteResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/removeSolutions",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/programs/removeSolutions",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/removeSolutions/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/programs/removeSolutions/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
 			sourceRoute: "/project/v1/userProjects/addEntity",
 			type: "POST",
 			inSequence: false,

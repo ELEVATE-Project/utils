@@ -12329,13 +12329,13 @@
 			"inSequence": false,
 			"orchestrated": false,
 			"targetPackages": [
-			  {
-				"basePackageName": "survey",
-				"packageName": "elevate-survey-observation"
-			  }
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
 			],
 			"service": "survey"
-		  },
+		},
 		{
 			"sourceRoute": "/project/health",
 			"type": "GET",
@@ -12522,6 +12522,90 @@
 				}
 			],
 			"service": "entity"
+		},
+		{
+			"sourceRoute": "/project/v1/admin/deleteResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/admin/deleteResource/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteResource/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeSolutions",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/programs/removeSolutions/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
 		},
 		{
             "sourceRoute": "/project/v1/userProjects/addEntity",
