@@ -35,7 +35,7 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 	if (config?.checks?.kafka?.enabled) {
 		try {
 			const kafka = require('./services/kafka')
-			const healthy = await kafka.check(config.checks.kafka.url)
+			const healthy = await kafka.check(config.checks.kafka.url,config.checks.kafka.topic)
 			checks.push(serviceResult('Kafka', healthy))
 		} catch (err) {
 			checks.push(serviceResult('Kafka', false))
