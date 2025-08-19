@@ -1,6 +1,6 @@
 {
   "name": "elevate-services-health-check",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Package that can be used for service health check",
   "main": "index.js",
   "scripts": {

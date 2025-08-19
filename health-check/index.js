@@ -35,7 +35,7 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 	if (config?.checks?.kafka?.enabled) {
 		try {
 			const kafka = require('./services/kafka')
-			const healthy = await kafka.check(config.checks.kafka.url)
+			const healthy = await kafka.check(config.checks.kafka.url, config.checks.kafka.topic)
 			checks.push(serviceResult('Kafka', healthy))
 		} catch (err) {
 			checks.push(serviceResult('Kafka', false))
@@ -67,14 +67,11 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 	// Check BullMQ (Redis-backed job queue) if enabled
 	if (config?.checks?.bullmq?.enabled) {
 		try {
-			const bullmq = require('./services/bullmq');
-			const healthy = await bullmq.check(
-				config.checks.bullmq.redisHost,
-				config.checks.bullmq.redisPort
-			);
-			checks.push(serviceResult('bullmq', healthy));
+			const bullmq = require('./services/bullmq')
+			const healthy = await bullmq.check(config.checks.bullmq.redisHost, config.checks.bullmq.redisPort)
+			checks.push(serviceResult('bullmq', healthy))
 		} catch (err) {
-			checks.push(serviceResult('bullmq', false));
+			checks.push(serviceResult('bullmq', false))
 		}
 	}
 
@@ -107,7 +104,6 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 
 	return formatResponse(result)
 }
-
 
 /**
  * Create a service result object from the health check status.
@@ -157,6 +153,15 @@ function validateHealthConfig(config) {
 	for (const { name, value } of basicServices) {
 		if (value?.enabled && !value.url) {
 			throw new Error(`Missing 'url' for enabled service: ${name}`)
+		}
+	}
+	// Validate Kafka (needs both url and topic)
+	if (kafka?.enabled) {
+		if (!kafka.url) {
+			throw new Error("Missing 'url' for enabled service: kafka")
+		}
+		if (!kafka.topic) {
+			throw new Error("Missing 'topic' for enabled service: kafka")
 		}
 	}
 
