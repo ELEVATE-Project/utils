@@ -88,7 +88,6 @@ async function check(kafkaUrl,topicName,groupId) {
 					[{ topic: uniqueTopicName, partition: 0 }],
 					{
 						groupId: uniqueGroupId, 
-						autoCommit: true,
 						fromOffset: false,
 					}
 				);
