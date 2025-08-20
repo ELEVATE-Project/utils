@@ -163,6 +163,9 @@ function validateHealthConfig(config) {
 		if (!kafka.topic) {
 			throw new Error("Missing 'topic' for enabled service: kafka")
 		}
+		if (!kafka.groupId) {
+			throw new Error("Missing 'groupId' for enabled service: kafka")
+		}
 	}
 
 	if (Array.isArray(microservices)) {
