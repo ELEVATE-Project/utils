@@ -46,13 +46,16 @@ function ensureTopicExists(client, topicName) {
 	});
 }
 
-async function check(kafkaUrl,topicName) {
+async function check(kafkaUrl,topicName,groupId) {
 	return new Promise(async (resolve) => {
+		const pidSuffix = `-${process.pid}`;
+		const uniqueTopicName = `${topicName}${pidSuffix}`;
+		const uniqueGroupId = `${groupId}${pidSuffix}`;
 		console.log(`[Kafka Health Check] Connecting to Kafka at ${kafkaUrl}`);
 		const client = new kafka.KafkaClient({ kafkaHost: kafkaUrl });
 
 		try {
-			await ensureTopicExists(client, topicName);
+			await ensureTopicExists(client, uniqueTopicName);
 		} catch (err) {
 			client.close();
 			return resolve(false);
@@ -61,7 +64,7 @@ async function check(kafkaUrl,topicName) {
 		const messageId = `health-check-${uuidv4()}`;
 		const payloads = [
 			{
-				topic: topicName,
+				topic: uniqueTopicName,
 				messages: messageId,
 			},
 		];
@@ -82,9 +85,9 @@ async function check(kafkaUrl,topicName) {
 
 				const consumer = new kafka.Consumer(
 					client,
-					[{ topic: topicName, partition: 0 }],
+					[{ topic: uniqueTopicName, partition: 0 }],
 					{
-						autoCommit: true,
+						groupId: uniqueGroupId, 
 						fromOffset: false,
 					}
 				);
