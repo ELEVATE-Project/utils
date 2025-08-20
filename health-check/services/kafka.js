@@ -48,9 +48,9 @@ function ensureTopicExists(client, topicName) {
 
 async function check(kafkaUrl,topicName,groupId) {
 	return new Promise(async (resolve) => {
-
-		let uniqueTopicName = topicName + process.pid
-		let uniqueGroupId = groupId + process.pid
+		const pidSuffix = `-${process.pid}`;
+		const uniqueTopicName = `${topicName}${pidSuffix}`;
+		const uniqueGroupId = `${groupId}${pidSuffix}`;
 		console.log(`[Kafka Health Check] Connecting to Kafka at ${kafkaUrl}`);
 		const client = new kafka.KafkaClient({ kafkaHost: kafkaUrl });
 
