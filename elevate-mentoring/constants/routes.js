@@ -2074,6 +2074,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/organization/list',
+			type: 'POST',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/organization/list',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/organization/details',
 			type: 'GET',
 			inSequence: false,
