@@ -3220,6 +3220,66 @@ module.exports = {
 				type: "POST"
 			},
             service: "project"
-		}
+		},
+        {
+            sourceRoute: "/project/v1/organizationExtension/eventListener",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/eventListener",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/update",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/update",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/update/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/update/:id",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/update",
+            type: "PATCH",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/update",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/update/:id",
+            type: "PATCH",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/update/:id",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/admin/updateRelatedOrgs",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/admin/updateRelatedOrgs",
+				type: "POST"
+			},
+            service: "project"
+        }  
     ]
 }
