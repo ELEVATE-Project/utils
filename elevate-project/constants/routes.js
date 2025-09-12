@@ -3029,23 +3029,23 @@ module.exports = {
         },
         {
             sourceRoute: "/user/v1/tenant/read",
-            type: "POST",
+            type: "GET",
             inSequence: false,
             orchestrated: false,
             targetRoute: {
                 path: "/user/v1/tenant/read",
-                type: "POST"
+                type: "GET"
             },
             service: "user"
         },
         {
             sourceRoute: "/user/v1/tenant/read/:id",
-            type: "POST",
+            type: "GET",
             inSequence: false,
             orchestrated: false,
             targetRoute: {
                 path: "/user/v1/tenant/read/:id",
-                type: "POST"
+                type: "GET"
             },
             service: "user"
         },
@@ -3232,41 +3232,41 @@ module.exports = {
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/organizationExtension/update",
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate",
             type: "POST",
             inSequence: false,
             targetRoute: {
-				path: "/project/v1/organizationExtension/update",
+				path: "/project/v1/organizationExtension/createOrUpdate",
 				type: "POST"
 			},
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/organizationExtension/update/:id",
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate/:id",
             type: "POST",
             inSequence: false,
             targetRoute: {
-				path: "/project/v1/organizationExtension/update/:id",
+				path: "/project/v1/organizationExtension/createOrUpdate/:id",
 				type: "POST"
 			},
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/organizationExtension/update",
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate",
             type: "PATCH",
             inSequence: false,
             targetRoute: {
-				path: "/project/v1/organizationExtension/update",
+				path: "/project/v1/organizationExtension/createOrUpdate",
 				type: "POST"
 			},
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/organizationExtension/update/:id",
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate/:id",
             type: "PATCH",
             inSequence: false,
             targetRoute: {
-				path: "/project/v1/organizationExtension/update/:id",
+				path: "/project/v1/organizationExtension/createOrUpdate/:id",
 				type: "POST"
 			},
             service: "project"
