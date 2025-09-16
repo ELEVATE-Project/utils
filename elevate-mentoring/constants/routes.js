@@ -3332,6 +3332,28 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/tenant/readInternal',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/readInternal',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/tenant/readInternal/:id',
+			type: 'GET',
+			inSequence: false,
+			service: 'user',
+			orchestrated: false,
+			targetRoute: {
+				path: '/user/v1/tenant/readInternal/:id',
+				type: 'GET',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/tenant/list',
 			type: 'GET',
 			inSequence: false,
