@@ -13696,7 +13696,7 @@
 			"service": "self-creation-portal"
 		},
 		{
-			"sourceRoute": "/project/v1/organizationExtension/eventListener",
+			"sourceRoute": "/project/v1/organizationExtension/createOrUpdate",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -13710,7 +13710,7 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/project/v1/organizationExtension/update",
+			"sourceRoute": "/project/v1/organizationExtension/createOrUpdate/:id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -13724,21 +13724,7 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/project/v1/organizationExtension/update/:id",
-			"type": "POST",
-			"priority": "MUST_HAVE",
-			"inSequence": false,
-			"orchestrated": false,
-			"targetPackages": [
-				{
-					"basePackageName": "project",
-					"packageName": "elevate-project"
-				}
-			],
-			"service": "project"
-		},
-		{
-			"sourceRoute": "/project/v1/organizationExtension/update",
+			"sourceRoute": "/project/v1/organizationExtension/createOrUpdate",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -13752,7 +13738,7 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/project/v1/organizationExtension/update/:id",
+			"sourceRoute": "/project/v1/organizationExtension/createOrUpdate/:id",
 			"type": "PATCH",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -13766,7 +13752,7 @@
 			"service": "project"
 		},
 		{
-			"sourceRoute": "/project/v1/admin/updateRelatedOrgs",
+			"sourceRoute": "/project/v1/organizationExtension/updateRelatedOrgs",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
