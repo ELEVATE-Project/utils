@@ -3222,16 +3222,6 @@ module.exports = {
             service: "project"
 		},
         {
-            sourceRoute: "/project/v1/organizationExtension/eventListener",
-            type: "POST",
-            inSequence: false,
-            targetRoute: {
-				path: "/project/v1/organizationExtension/eventListener",
-				type: "POST"
-			},
-            service: "project"
-        },
-        {
             sourceRoute: "/project/v1/organizationExtension/createOrUpdate",
             type: "POST",
             inSequence: false,
@@ -3272,11 +3262,11 @@ module.exports = {
             service: "project"
         },
         {
-            sourceRoute: "/project/v1/admin/updateRelatedOrgs",
+            sourceRoute: "/project/v1/organizationExtension/updateRelatedOrgs",
             type: "POST",
             inSequence: false,
             targetRoute: {
-				path: "/project/v1/admin/updateRelatedOrgs",
+				path: "/project/v1/organizationExtension/updateRelatedOrgs",
 				type: "POST"
 			},
             service: "project"
