@@ -3009,6 +3009,128 @@ module.exports = {
             },
             service: "survey"
         },
+
+        {
+            sourceRoute: "/survey/v1/library/categories/create",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/categories/create",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/categories/update",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/categories/update",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/categories/update/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/categories/update/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/categories/list",
+            type: "GET",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/categories/list",
+                type: "GET"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/surveys/list",
+            type: "GET",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/surveys/list",
+                type: "GET"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/observations/list",
+            type: "GET",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/observations/list",
+                type: "GET"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/observations/import",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/observations/import",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/library/observations/import/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/library/observations/import/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/organizationExtension/create",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/organizationExtension/create",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/organizationExtension/update",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/organizationExtension/update",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/organizationExtension/update/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/organizationExtension/update/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
+		{
+            sourceRoute: "/survey/v1/organizationExtension/updateRelatedOrgs",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/organizationExtension/updateRelatedOrgs",
+                type: "POST"
+            },
+            service: "survey"
+        },
+
 	],
 }
 
