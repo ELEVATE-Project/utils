@@ -16,6 +16,6 @@ module.exports = {
     },
     AUTH_TOKEN_KEY : 'X-auth-token',
     HEADER_CONTENT_TYPE : 'content-type',
-    INTERNAL_ACCESS_TOKEN: 'internal-access-token'
-
+    INTERNAL_ACCESS_TOKEN: 'internal-access-token',
+    ENGLISH_LANGUGE_CODE: 'en',
 }
