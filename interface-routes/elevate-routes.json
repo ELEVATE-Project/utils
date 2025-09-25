@@ -13972,6 +13972,20 @@
 				}
 			],
 			"service": "self-creation-portal"
+		},
+		{
+			"sourceRoute": "/entity-management/dummyroute",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "entity"
 		}
 	]
 }
