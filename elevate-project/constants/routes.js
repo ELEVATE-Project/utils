@@ -3270,6 +3270,16 @@ module.exports = {
 				type: "POST"
 			},
             service: "project"
-        }  
+        },
+        {
+            sourceRoute: "/project/v1/userExtension/update",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/userExtension/update",
+				type: "POST"
+			},
+            service: "project"
+        }
     ]
 }
