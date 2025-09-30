@@ -1,6 +1,6 @@
 {
   "name": "elevate-logger",
-  "version": "2.0.4",
+  "version": "3.0.2",
   "description": "elevate-logger package is for  mapping the corelation id to incoming request and logs data    ",
   "main": "index.js",
   "directories": {
@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cls-hooked": "^4.2.2",
-    "request-promise-native": "^1.0.9",
-    "uuid": "^9.0.0",
-    "winston": "^3.8.2"
+    "cls-hooked": "4.2.2",
+    "request-promise-native": "1.0.9",
+    "uuid": "9.0.0",
+    "winston": "3.17.0"
   }
 }

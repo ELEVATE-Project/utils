@@ -1,6 +1,6 @@
 {
   "name": "elevate-node-cache",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Caching Library",
   "main": "index.js",
   "scripts": {
