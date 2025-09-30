@@ -1531,6 +1531,28 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: "/project/v1/userCourses/delete",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userCourses/delete",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userCourses/createOrUpdate",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userCourses/createOrUpdate",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
             sourceRoute: "/user/v1/account/login",
             type: "POST",
             inSequence: false,
@@ -3007,23 +3029,23 @@ module.exports = {
         },
         {
             sourceRoute: "/user/v1/tenant/read",
-            type: "POST",
+            type: "GET",
             inSequence: false,
             orchestrated: false,
             targetRoute: {
                 path: "/user/v1/tenant/read",
-                type: "POST"
+                type: "GET"
             },
             service: "user"
         },
         {
             sourceRoute: "/user/v1/tenant/read/:id",
-            type: "POST",
+            type: "GET",
             inSequence: false,
             orchestrated: false,
             targetRoute: {
                 path: "/user/v1/tenant/read/:id",
-                type: "POST"
+                type: "GET"
             },
             service: "user"
         },
@@ -3050,6 +3072,42 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: '/interface/v1/users/solutions',
+            type: 'POST',
+            inSequence: true,
+            orchestrated: true,
+            targetRoute: {
+                type: 'POST',
+                functionName: 'getMergedProgramSolutions',
+                paths: [
+                    {
+                        path: '/project/v1/users/solutions/:id',
+                        type: 'POST',
+                    },
+                    { service: 'survey', path: '/survey/v1/users/solutions/:id', type: 'POST' },
+                ],
+            },
+            service: 'project',
+        },
+        {
+            sourceRoute: '/interface/v1/users/solutions/:id',
+            type: 'POST',
+            inSequence: true,
+            orchestrated: true,
+            targetRoute: {
+                type: 'POST',
+                functionName: 'getMergedProgramSolutions',
+                paths: [
+                    {
+                        path: '/project/v1/users/solutions/:id',
+                        type: 'POST',
+                    },
+                    { service: 'survey', path: '/survey/v1/users/solutions/:id', type: 'POST' },
+                ],
+            },
+            service: 'project',
+        },
+        {
             sourceRoute: "/project/health",
             type: "GET",
             inSequence: false,
@@ -3071,6 +3129,147 @@ module.exports = {
             },
             service: "entity"
         },
-
+        {
+			sourceRoute: "/project/v1/userProjects/searchEntities",
+			type: "GET",
+			priority: "MUST_HAVE",
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+                path: "/project/v1/userProjects/searchEntities",
+                type: "POST"
+            },
+			service: "project"
+		},
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity",
+				type: "POST"
+			},
+            service: "entity"
+		},
+        {
+			sourceRoute: "/entity-management/v1/admin/deleteEntity/:id",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/entity-management/v1/admin/deleteEntity/:id",
+				type: "POST"
+			},
+            service: "entity"
+		},
+        {
+            sourceRoute: "/project/v1/admin/deleteResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/admin/deleteResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/admin/deleteResource/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/removeSolutions",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/programs/removeSolutions",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/removeSolutions/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/project/v1/programs/removeSolutions/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+			sourceRoute: "/project/v1/userProjects/addEntity",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/project/v1/userProjects/addEntity",
+				type: "POST"
+			},
+            service: "project"
+		},
+        {
+			sourceRoute: "/project/v1/userProjects/addEntity/:id",
+			type: "POST",
+			inSequence: false,
+			targetRoute: {
+				path: "/project/v1/userProjects/addEntity/:id",
+				type: "POST"
+			},
+            service: "project"
+		},
+        {
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/createOrUpdate",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/createOrUpdate/:id",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate",
+            type: "PATCH",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/createOrUpdate",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/createOrUpdate/:id",
+            type: "PATCH",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/createOrUpdate/:id",
+				type: "POST"
+			},
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/organizationExtension/updateRelatedOrgs",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+				path: "/project/v1/organizationExtension/updateRelatedOrgs",
+				type: "POST"
+			},
+            service: "project"
+        }  
     ]
 }

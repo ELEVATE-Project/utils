@@ -278,12 +278,153 @@ const readOrganization = async (req, res, selectedConfig) => {
 	}
 }
 
+const getMergedProgramSolutions = async (req, res) => {
+	try {
+		const config = routeConfigs.routes.find(r => r.sourceRoute === req.sourceRoute);
+
+		if (!config || !Array.isArray(config.targetRoute?.paths) || config.targetRoute.paths.length < 2) {
+			return res.status(400).json({ error: 'Route configuration is invalid or incomplete.' });
+		}
+
+		const { id } = req.params;
+		const authToken = req.headers['x-auth-token'];
+
+		if(!id) {
+			return res.status(400).json({ error: 'ID parameter is required.' });
+		}
+
+		if(!authToken) {
+			return res.status(401).json({ error: 'Authentication token is required.' });
+		}
+
+		const [path1, path2] = config.targetRoute.paths;
+
+		const targetUrl1 = buildServiceUrl(req.baseUrl, path1.path, id);
+
+		if (!path2.service) {
+			return res.status(500).json({ error: 'Service configuration is missing for second path.' })
+		}
+			
+		const targetUrl2 = buildServiceUrl(
+			process.env[`${path2.service.toUpperCase()}_SERVICE_BASE_URL`],
+			path2.path,
+			id
+		);
+
+		const headers = { 'X-auth-token': authToken, 'Content-Type': 'application/json' };
+
+		const [response1, response2] = await Promise.all([
+			requesters.post(targetUrl1.baseUrl, targetUrl1.path, req.body, headers),
+			requesters.post(targetUrl2.baseUrl, targetUrl2.path, req.body, headers),
+		]);
+
+		const results = [response1?.result, response2?.result].filter(Boolean);
+
+		if (results.length === 0) {
+			return res.status(404).json({
+				message: 'No program solutions found.',
+				result: {},
+			})
+		}
+
+		const mergedResult = mergeProgramResults(results);
+
+		return res.json({
+			status: 200,
+			message: 'Program solutions fetched successfully',
+			result: mergedResult,
+		});
+	} catch (error) {
+		console.error('Error in getMergedProgramSolutions:', {
+			message: error.message,
+			stack: error.stack,
+		});
+		return res.status(500).json({ error: 'Internal server error.' });
+	}
+};
+
+
+/**
+ * Utility: Builds the full URL and path for a service call
+ */
+function buildServiceUrl(baseUrl, pathTemplate, id) {
+	const path = pathTemplate.replace('/:id', `/${id}`);
+	return { baseUrl, path };
+}
+
+
+/**
+ * Utility: Merges program results by programId
+ */
+function mergeProgramResults(results) {
+	// Build order map once from the first result with components
+	const orderMap = new Map();
+	
+	for (const result of results) {
+		if (result?.components?.length > 0) {
+			result.components.forEach((component) => {
+				orderMap.set(component._id.toString(), component.order);
+			});
+			break; // Found components, no need to continue
+		}
+	}
+
+	const merged = new Map();
+
+	// Single pass: merge results AND assign missing orders
+	for (const result of results) {
+		if (!result?.programId) {
+			console.warn('Skipping result without programId:', result);
+			continue;
+		}
+
+		const key = result.programId;
+		
+		// Assign missing orders to solutions in this result
+		if (result.data) {
+			result.data.forEach(solution => {
+				if (!solution.order) {
+					const order = orderMap.get(solution._id?.toString());
+					if (order !== undefined) {
+						solution.order = order;
+					}
+				}
+			});
+		}
+
+		if (!merged.has(key)) {
+			merged.set(key, {
+				...result,
+				data: Array.isArray(result.data) ? [...result.data] : [],
+				count: result.count || 0,
+			});
+		} else {
+			const existing = merged.get(key);
+			existing.data.push(...(result.data || []));
+			existing.count += result.count || 0;
+		}
+	}
+
+	// Sort each data array by `order`
+	for (const program of merged.values()) {
+		program.data.sort((a, b) => {
+			const aOrder = a?.order ?? Infinity;
+			const bOrder = b?.order ?? Infinity;
+			return aOrder - bOrder;
+		});
+	}
+
+	return merged.values().next().value || {};
+}
+
+
 const projectController = {
 	fetchProjectTemplates,
 	projectsList,
 	readUser,
 	readOrganization,
-	readUserTitle
+	readUserTitle,
+	getMergedProgramSolutions
 }
 
 module.exports = projectController
