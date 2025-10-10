@@ -3130,6 +3130,16 @@ module.exports = {
             },
             service: "survey"
         },
+        {
+            sourceRoute: "/survey/v1/userExtension/mapUsersToPrograms",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/userExtension/mapUsersToPrograms",
+                type: "POST"
+            },
+            service: "survey"
+        }
 
 	],
 }
