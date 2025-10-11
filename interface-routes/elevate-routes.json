@@ -4855,6 +4855,20 @@
 			"service": "project"
 		},
 		{
+			"sourceRoute": "/project/v1/programs/publishToLibrary",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
 			"sourceRoute": "/project/v1/programs/update",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -4870,6 +4884,34 @@
 		},
 		{
 			"sourceRoute": "/project/v1/programs/update/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/programs/ProgramUpdateForLibrary",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/programs/ProgramUpdateForLibrary/:id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
