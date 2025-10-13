@@ -475,6 +475,17 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: "/project/v1/project/templates/createChildProjectTemplate",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/project/templates/createChildProjectTemplate",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
             sourceRoute: "/project/v1/project/templates/bulkUpdate",
             type: "POST",
             inSequence: false,
@@ -702,6 +713,39 @@ module.exports = {
             targetRoute: {
                 path: "/project/v1/library/categories/list",
                 type: "GET"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/publishToLibrary",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/programs/publishToLibrary",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/ProgramUpdateForLibrary",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/programs/ProgramUpdateForLibrary",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/programs/ProgramUpdateForLibrary/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/programs/ProgramUpdateForLibrary/:id",
+                type: "POST"
             },
             service: "project"
         },

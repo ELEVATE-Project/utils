@@ -418,6 +418,17 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+			sourceRoute: '/survey/v1/programs/fetchProgramDetails',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/programs/fetchProgramDetails',
+				type: 'POST'
+			},
+			service:"survey"
+		},
 		{
 			sourceRoute: '/survey/v1/programs/addEntitiesInScope/:id',
 			type: 'POST',
