@@ -5303,6 +5303,34 @@
 			"service": "project"
 		},
 		{
+			"sourceRoute": "/project/v1/solutions/fetchLinkInternal",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
+			"sourceRoute": "/project/v1/solutions/fetchLinkInternal/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "project",
+					"packageName": "elevate-project"
+				}
+			],
+			"service": "project"
+		},
+		{
 			"sourceRoute": "/project/v1/solutions/verifyLink",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -8107,6 +8135,34 @@
 		},
 		{
 			"sourceRoute": "/survey/v1/solutions/fetchLink/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/solutions/fetchLinkInternal",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/solutions/fetchLinkInternal/:id",
 			"type": "GET",
 			"priority": "MUST_HAVE",
 			"inSequence": false,

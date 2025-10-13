@@ -198,6 +198,28 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+			sourceRoute: '/survey/v1/solutions/fetchLinkInternal',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/solutions/fetchLinkInternal',
+				type: 'GET'
+			},
+			service:"survey"
+		},
+		{
+			sourceRoute: '/survey/v1/solutions/fetchLinkInternal/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/solutions/fetchLinkInternal/:id',
+				type: 'GET'
+			},
+			service:"survey"
+		},
 		{
 			sourceRoute: '/survey/v1/solutions/update',
 			type: 'POST',
