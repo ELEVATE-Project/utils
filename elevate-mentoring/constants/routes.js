@@ -2339,6 +2339,15 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/admin/executeRawQuery',
+			type: 'POST',
+			service: 'user',
+			targetRoute: {
+				path: '/user/v1/admin/executeRawQuery',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/notification/create',
 			type: 'POST',
 			service: 'user',
