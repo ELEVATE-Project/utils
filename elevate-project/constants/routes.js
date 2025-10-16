@@ -1124,6 +1124,28 @@ module.exports = {
             service: "project"
         },
         {
+            sourceRoute: "/project/v1/solutions/fetchLinkInternal",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/solutions/fetchLinkInternal",
+                type: "GET"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/solutions/fetchLinkInternal/:id",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/solutions/fetchLinkInternal/:id",
+                type: "GET"
+            },
+            service: "project"
+        },
+        {
             sourceRoute: "/project/v1/solutions/verifyLink",
             type: "POST",
             inSequence: false,
