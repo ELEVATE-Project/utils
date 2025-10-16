@@ -2412,6 +2412,15 @@ module.exports = {
 		},
 		{
 			sourceRoute: '/user/v1/notification/template',
+			type: 'GET',
+			service: 'user',
+			targetRoute: {
+				path: '/user/v1/notification/template',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/user/v1/notification/template',
 			type: 'PATCH',
 			service: 'user',
 			targetRoute: {
