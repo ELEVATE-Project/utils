@@ -811,7 +811,6 @@ module.exports = {
 				path: '/scp/v1/resource/getDeepLink',
 				type: 'GET',
 			},
-			service: 'scp',
 		},
 	],
 }
