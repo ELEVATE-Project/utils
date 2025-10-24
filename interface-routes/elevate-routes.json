@@ -14150,8 +14150,7 @@
 					"basePackageName": "self-creation-portal",
 					"packageName": "elevate-self-creation-portal"
 				}
-			],
-			"service": "scp"
+			]
 		}
 	]
 }
