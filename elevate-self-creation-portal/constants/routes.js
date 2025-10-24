@@ -802,5 +802,16 @@ module.exports = {
             },
 			service:"scp"
         },
+		{
+			sourceRoute: '/scp/v1/resource/getDeepLink',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/getDeepLink',
+				type: 'GET',
+			},
+			service: 'scp',
+		},
 	],
 }
