@@ -1106,5 +1106,16 @@ module.exports = {
 			},
 			service: 'user',
 		},
+		{
+			sourceRoute: '/scp/v1/resource/getDeepLink',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/getDeepLink',
+				type: 'GET',
+			},
+			service: 'scp',
+		},
 	],
 }
