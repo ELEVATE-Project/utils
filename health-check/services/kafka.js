@@ -5,8 +5,8 @@
  * Description : Kafka health check functionality (send + receive).
  */
 
-const kafka = require('kafka-node');
-const { v4: uuidv4 } = require('uuid');
+const kafka = require('kafka-node')
+const { v4: uuidv4 } = require('uuid')
 
 /**
  * Ensure the given Kafka topic exists or create it.
