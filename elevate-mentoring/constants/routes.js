@@ -2267,6 +2267,15 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/user/v1/admin/assignRole',
+			type: 'POST',
+			service: 'user',
+			targetRoute: {
+				path: '/user/v1/admin/assignRole',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/user/v1/org-admin/bulkUserCreate',
 			type: 'POST',
 			service: 'user',
