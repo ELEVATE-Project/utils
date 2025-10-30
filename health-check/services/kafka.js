@@ -9,7 +9,7 @@ const kafka = require('kafka-node')
 const { v4: uuidv4 } = require('uuid')
 
 // Use environment variable or default to false
-const DEBUG_MODE = process.env.HEALTH_CHECK_DEBUG_MODE
+const DEBUG_MODE = process.env.HEALTH_CHECK_DEBUG_MODE === 'true' ? true : false
 
 /**
  * Ensure the given Kafka topic exists or create it.
