@@ -8,6 +8,9 @@
 const kafka = require('kafka-node')
 const { v4: uuidv4 } = require('uuid')
 
+// Use environment variable or default to false
+const DEBUG_MODE = process.env.HEALTH_CHECK_DEBUG_MODE === 'true' ? true : false
+
 /**
  * Ensure the given Kafka topic exists or create it.
  */
@@ -15,20 +18,28 @@ async function ensureTopicExists(client, topicName) {
 	return new Promise((resolve, reject) => {
 		client.loadMetadataForTopics([], (error, results) => {
 			if (error) {
-				console.error('[Kafka Health Check] Metadata load error:', error)
+				if (DEBUG_MODE) {
+					console.error('[Kafka Health Check] Metadata load error:', error)
+				}
 				return reject(error)
 			}
 
 			const topics = results?.[1]?.metadata || {}
 			if (topics[topicName]) {
-				console.log(`[Kafka Health Check] Topic '${topicName}' exists ✅`)
+				if (DEBUG_MODE) {
+					console.log(`[Kafka Health Check] Topic '${topicName}' exists ✅`)
+				}
 				return resolve(true)
 			}
 
-			console.log(`[Kafka Health Check] Topic '${topicName}' not found. Creating... ⏳`)
+			if (DEBUG_MODE) {
+				console.log(`[Kafka Health Check] Topic '${topicName}' not found. Creating... ⏳`)
+			}
 			client.createTopics([{ topic: topicName, partitions: 1, replicationFactor: 1 }], (err) => {
 				if (err) return reject(err)
-				console.log(`[Kafka Health Check] Topic '${topicName}' created ✅`)
+				if (DEBUG_MODE) {
+					console.log(`[Kafka Health Check] Topic '${topicName}' created ✅`)
+				}
 				resolve(true)
 			})
 		})
@@ -60,20 +71,26 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 				if (consumer) consumer.close(true)
 				if (client) client.close()
 			} catch (e) {
-				console.error('[Kafka Health Check] Cleanup error:', e.message)
+				if (DEBUG_MODE) {
+					console.error('[Kafka Health Check] Cleanup error:', e.message)
+				}
 			}
 			resolve(val)
 		}
 
 		try {
-			console.log(`[Kafka Health Check] Connecting to Kafka at ${kafkaUrl}`)
+			if (DEBUG_MODE) {
+				console.log(`[Kafka Health Check] Connecting to Kafka at ${kafkaUrl}`)
+			}
 			client = new kafka.KafkaClient({ kafkaHost: kafkaUrl })
 
 			// Step 1: Ensure topic exists
 			await ensureTopicExists(client, uniqueTopicName)
 
 			if (!sendReceive) {
-				console.log('[Kafka Health Check] Topic check complete.')
+				if (DEBUG_MODE) {
+					console.log('[Kafka Health Check] Topic check complete.')
+				}
 				return cleanup(true)
 			}
 
@@ -90,7 +107,9 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 			await new Promise((res, rej) => {
 				producer.send(payloads, (err) => {
 					if (err) return rej(err)
-					console.log(`[Kafka Health Check] Sent message: ${messageId}`)
+					if (DEBUG_MODE) {
+						console.log(`[Kafka Health Check] Sent message: ${messageId}`)
+					}
 					res()
 				})
 			})
@@ -105,7 +124,9 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 			let received = false
 			const receiveTimeout = setTimeout(() => {
 				if (!received) {
-					console.error('[Kafka Health Check] Message not received in time')
+					if (DEBUG_MODE) {
+						console.error('[Kafka Health Check] Message not received in time')
+					}
 					cleanup(false)
 				}
 			}, 5000)
@@ -113,18 +134,24 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 			consumer.on('message', (message) => {
 				if (message.value === messageId) {
 					clearTimeout(receiveTimeout)
-					console.log('[Kafka Health Check] Message received')
+					if (DEBUG_MODE) {
+						console.log('[Kafka Health Check] Message received')
+					}
 					cleanup(true)
 				}
 			})
 
 			consumer.on('error', (err) => {
-				console.error('[Kafka Health Check] Consumer error:', err.message)
+				if (DEBUG_MODE) {
+					console.error('[Kafka Health Check] Consumer error:', err.message)
+				}
 				clearTimeout(receiveTimeout)
 				cleanup(false)
 			})
 		} catch (err) {
-			console.error('[Kafka Health Check] Health check failed:', err.message)
+			if (DEBUG_MODE) {
+				console.error('[Kafka Health Check] Health check failed:', err.message)
+			}
 			cleanup(false)
 		}
 	})
