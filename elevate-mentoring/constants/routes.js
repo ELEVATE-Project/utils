@@ -1574,6 +1574,19 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/interface/v1/account/update',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: true,
+			service: 'mentoring',
+			targetRoute: {
+				service: 'mentoring',
+				path: '/mentoring/v1/profile/update/',
+				type: 'POST',
+				functionName: 'updateUser',
+			},
+		},
+		{
 			sourceRoute: '/interface/user-signup',
 			type: 'POST',
 			inSequence: true,
