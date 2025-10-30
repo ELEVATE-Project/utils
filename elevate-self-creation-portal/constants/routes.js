@@ -812,5 +812,25 @@ module.exports = {
 				type: 'GET',
 			},
 		},
+		{
+			sourceRoute: '/scp/v1/config/createOrUpdate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/getDeepLink',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/config/updateRelatedOrgs',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/getDeepLink',
+				type: 'GET',
+			},
+		},
 	],
 }
