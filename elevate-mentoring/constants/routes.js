@@ -2852,6 +2852,14 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/mentoring/v1/connections/checkConnection',
+			type: 'POST',
+			targetRoute: {
+				path: '/mentoring/v1/connections/checkConnection',
+				type: 'POST',
+			},
+		},
+		{
 			sourceRoute: '/mentoring/v1/connections/list',
 			type: 'GET',
 			targetRoute: {
