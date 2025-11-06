@@ -1,6 +1,6 @@
 {
 	"name": "elevate-self-creation-portal",
-	"version": "1.0.66",
+	"version": "1.0.67",
 	"description": "Npm package for Elevate-self-creation-portal service integration with Interface service",
 	"main": "index.js",
 	"dependencies": {
