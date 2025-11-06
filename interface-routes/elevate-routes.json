@@ -13131,6 +13131,32 @@
 			]
 		},
 		{
+			"sourceRoute": "/scp/v1/config/createOrUpdate",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/scp/v1/config/updateRelatedOrgs",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
 			"sourceRoute": "/scp/v1/form/create",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -14155,6 +14181,45 @@
 		{
 			"sourceRoute": "/scp/v1/resource/getDeepLink",
 			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/scp/v1/projects/republish/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/scp/v1/targeting/hierarchy/:id",
+			"type": "GET",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/scp/v1/targeting/subEntityList",
+			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
 			"orchestrated": false,
