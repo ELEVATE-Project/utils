@@ -842,5 +842,25 @@ module.exports = {
 				type: 'POST',
 			},
 		},
+		{
+			sourceRoute: '/scp/v1/config/createOrUpdate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/config/createOrUpdate',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/config/updateRelatedOrgs',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/config/updateRelatedOrgs',
+				type: 'POST',
+			},
+		},
 	],
 }
