@@ -818,8 +818,8 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/scp/v1/resource/getDeepLink',
-				type: 'GET',
+				path: '/scp/v1/config/createOrUpdate',
+				type: 'POST',
 			},
 		},
 		{
@@ -828,8 +828,8 @@ module.exports = {
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/scp/v1/resource/getDeepLink',
-				type: 'GET',
+				path: '/scp/v1/config/updateRelatedOrgs',
+				type: 'POST',
 			},
 		},
 	],
