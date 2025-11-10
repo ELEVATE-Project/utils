@@ -16,7 +16,7 @@ const httpService = require('./services/httpService')
  * @param {string} [currentServiceName=''] - Optional. Name of the current service to avoid self-check.
  * @returns {Promise<Object>} - A formatted response with health check results.
  */
-async function healthCheckHandler(config, basicCheck = false, currentServiceName = '') {
+async function healthCheckHandler(config, basicCheck = false, currentServiceName = '', serviceVersion) {
 	validateHealthConfig(config)
 	const checks = []
 
@@ -35,7 +35,7 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 	if (config?.checks?.kafka?.enabled) {
 		try {
 			const kafka = require('./services/kafka')
-			const healthy = await kafka.check(config.checks.kafka.url, config.checks.kafka.topic)
+			const healthy = await kafka.check(config.checks.kafka.url, config.checks.kafka.topic,config.checks.kafka.groupId)
 			checks.push(serviceResult('Kafka', healthy))
 		} catch (err) {
 			checks.push(serviceResult('Kafka', false))
@@ -102,7 +102,7 @@ async function healthCheckHandler(config, basicCheck = false, currentServiceName
 		checks,
 	}
 
-	return formatResponse(result)
+	return formatResponse(result,serviceVersion)
 }
 
 /**
@@ -193,10 +193,10 @@ function validateHealthConfig(config) {
  * @param {Object} result - The object containing service name, version, healthy status, and checks.
  * @returns {Object} - The formatted response object.
  */
-function formatResponse(result) {
+function formatResponse(result,serviceVersion) {
 	return {
 		id: 'service.health.api',
-		ver: '1.0',
+		version: serviceVersion,
 		ts: new Date(),
 		params: {
 			resmsgid: uuidv1(),
