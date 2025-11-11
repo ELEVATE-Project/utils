@@ -470,13 +470,13 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/scp/v1/role-permission-mapping/create/:role_id',
+			sourceRoute: '/scp/v1/role-permission-mapping/create',
 			type: 'POST',
 			priority: 'MUST_HAVE',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/scp/v1/role-permission-mapping/create/:role_id',
+				path: '/scp/v1/role-permission-mapping/create',
 				type: 'POST',
 			},
 		},
