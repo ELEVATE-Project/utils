@@ -7496,6 +7496,9 @@
 					"packageName": "elevate-project"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
@@ -7719,7 +7722,10 @@
 					"packageName": "elevate-project"
 				}
 			],
-			"service": "entity"
+			"service": "entity",
+			"rateLimit": {
+				"type": "internal"
+			}
 		},
 		{
 			"sourceRoute": "/entity-management/v1/entities/details",
@@ -11223,6 +11229,9 @@
 					"packageName": "elevate-survey-observation"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
@@ -11419,6 +11428,9 @@
 					"packageName": "elevate-survey-observation"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
