@@ -12755,6 +12755,34 @@
 			"service": "survey"
 		},
 		{
+			"sourceRoute": "/survey/v1/admin/deleteSolutionResource/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteSolutionResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
 			"sourceRoute": "/project/v1/programs/removeSolutions",
 			"type": "POST",
 			"priority": "MUST_HAVE",
