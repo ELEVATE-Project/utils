@@ -170,7 +170,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/user/v1/role-permission-mapping/create",
+			"sourceRoute": "/user/v1/role-permission-mapping/create/:role_id",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
@@ -7496,6 +7496,9 @@
 					"packageName": "elevate-project"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
@@ -7719,7 +7722,10 @@
 					"packageName": "elevate-project"
 				}
 			],
-			"service": "entity"
+			"service": "entity",
+			"rateLimit": {
+				"type": "internal"
+			}
 		},
 		{
 			"sourceRoute": "/entity-management/v1/entities/details",
@@ -11223,6 +11229,9 @@
 					"packageName": "elevate-survey-observation"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
@@ -11419,6 +11428,9 @@
 					"packageName": "elevate-survey-observation"
 				}
 			],
+			"rateLimit": {
+				"type": "internal"
+			},
 			"service": "entity"
 		},
 		{
@@ -12727,6 +12739,34 @@
 			"service": "survey"
 		},
 		{
+			"sourceRoute": "/survey/v1/admin/deleteSolutionResource/:id",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
+			"sourceRoute": "/survey/v1/admin/deleteSolutionResource",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "survey",
+					"packageName": "elevate-survey-observation"
+				}
+			],
+			"service": "survey"
+		},
+		{
 			"sourceRoute": "/project/v1/programs/removeSolutions",
 			"type": "POST",
 			"priority": "MUST_HAVE",
@@ -13674,7 +13714,7 @@
 			]
 		},
 		{
-			"sourceRoute": "/scp/v1/role-permission-mapping/create/:role_id",
+			"sourceRoute": "/scp/v1/role-permission-mapping/create",
 			"type": "POST",
 			"priority": "MUST_HAVE",
 			"inSequence": false,
