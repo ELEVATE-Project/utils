@@ -3022,6 +3022,26 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+            sourceRoute: "/survey/v1/admin/deleteSolutionResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteSolutionResource",
+                type: "POST"
+            },
+            service: "survey"
+        },
+        {
+            sourceRoute: "/survey/v1/admin/deleteSolutionResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteSolutionResource/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
 		{
             sourceRoute: "/survey/v1/admin/deleteResource",
             type: "POST",
