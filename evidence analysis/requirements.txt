@@ -1,0 +1,9 @@
+streamlit
+openai
+google-generativeai
+pandas
+openpyxl
+httpx
+requests
+typing_extensions
+python-dotenv
