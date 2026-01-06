@@ -1,46 +1,83 @@
 const RedisClientHelper = {};
+const { getClient,getKeyPrefix } = require("../../config/redis");
+
+
+/**
+ * Prefix helper
+ * Ensures all keys are namespaced
+ */
+ const prefixKey = (key) => {
+  const prefix = getKeyPrefix();
+  return prefix ? `${prefix}:${key}` : key;
+};
+
 /**
  * @method
- * @name setKey - Sets Key to the redis cache
- * @param {String} key key to save
- * @param {Object | Number | String} value data to save
- * @param {Number} exp key expiration value in seconds
- * @returns {Promise<Object>} Returns the success response
- * @author Aman Gupta
+ * @name setKey - Sets a key in Redis with optional expiration
+ * @param {String} key - Key to save
+ * @param {Object | Number | String} value - Data to save
+ * @param {Number} expRedis - Expiration in seconds (optional)
+ * @returns {Promise<String>} Result status (usually 'OK')
  */
 RedisClientHelper.setKey = async (key, value, expRedis) => {
-  expRedis = expRedis;
+  if (!key) throw new Error("Redis key is required");
 
-  value = JSON.stringify(value);
-  const result = await redisClient.set(key, value, {
-    EX: expRedis,
-  });
+  const redisClient = getClient();
+
+  const stringifiedValue = typeof value === 'string' ? value : JSON.stringify(value);
+
+  if (expRedis !== undefined && expRedis !== null) {
+    if (typeof expRedis !== 'number') {
+      throw new Error("Expiration must be a number representing seconds");
+    }
+    const finalKey = prefixKey(key);
+    await redisClient.set(finalKey, stringifiedValue, 'EX', expRedis);
+
+    // return await redisClient.set(key, stringifiedValue, { EX: expRedis });
+  } else {
+    const finalKey = prefixKey(key);
+    return await redisClient.set(finalKey, stringifiedValue);
+  }
+
+};
+
+/**
+ * @method
+ * @name getKey - Retrieves a value from Redis
+ * @param {String} key - Redis key
+ * @returns {Promise<Object|null>} Parsed object or null if not found
+ */
+RedisClientHelper.getKey = async (key) => {
+  if (!key) throw new Error("Redis key is required");
+
+  const redisClient = getClient();
+
+  const finalKey = prefixKey(key);
+  const data = await redisClient.get(finalKey);
+  return data ? JSON.parse(data) : null;
+};
+
+/**
+ * @method
+ * @name deleteKey - Deletes a key from Redis
+ * @param {String} key - Redis key
+ * @returns {Promise<Number>} 1 if key was deleted, 0 if not found
+ */
+RedisClientHelper.deleteKey = async (key) => {
+  if (!key) throw new Error("Redis key is required");
+
+
+  const redisClient = getClient();
+  const finalKey = prefixKey(key);
+  const result = await redisClient.del(finalKey);
   return result;
 };
 
+
 /**
  * @method
- * @name getKey - Get Key from the redis cache
- * @param {String} key key to get corresponding saved data
- * @returns {Promise<Object>} Returns the saved corresponding object
- * @author Aman Gupta
+ * @name native - Access the raw ioredis instance
  */
-
-RedisClientHelper.getKey = async (key) => {
-  const data = await redisClient.get(key);
-  return JSON.parse(data);
-};
-
-/**
- * @method
- * @name deleteKey - delete key from the redis cache
- * @param {String} key key to get corresponding saved data
- * @returns {Promise<Object>} Returns the deleted corresponding object
- * @author Rakesh
- **/
-RedisClientHelper.deleteKey = async (key) => {
-  const data = await redisClient.del(key);
-  return JSON.parse(data);
-};
+ RedisClientHelper.native = () => getClient(); // ← add this
 
 module.exports = RedisClientHelper;

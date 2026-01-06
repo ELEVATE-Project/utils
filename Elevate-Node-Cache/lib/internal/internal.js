@@ -23,4 +23,17 @@ InternalCache.delKey = async (key) => {
 InternalCache.init = (Exp_time) => {
   this.Exp_time = Exp_time;
 };
+
+// Pattern match keys (like Redis SCAN MATCH)
+InternalCache.scanKeys = (pattern) =>{
+    const regex = new RegExp(
+        "^" +
+        pattern
+           .replace(/\*/g, ".*")
+           .replace(/\?/g, ".") +
+        "$"
+    );
+    return myCache.keys().filter(k => regex.test(k));
+}
+
 module.exports = InternalCache;
