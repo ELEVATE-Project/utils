@@ -39,6 +39,14 @@ module.exports = {
 				path: '/scheduler/jobs/purge',
 				type: 'POST',
 			},
+		},
+		{
+			sourceRoute: '/scheduler/health',
+			type: 'GET',
+			targetRoute: {
+				path: '/health',
+				type: 'GET',
+			},
 		}
 	],
 }

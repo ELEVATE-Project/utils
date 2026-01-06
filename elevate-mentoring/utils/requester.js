@@ -15,6 +15,7 @@ const handleInterfaceError = (res, err) => {
 const passThroughRequester = async (req, res) => {
 	try {
 		const sourceBaseUrl = req.protocol + '://' + req.headers.host + '/'
+
 		const sourceUrl = new URL(req.originalUrl, sourceBaseUrl)
 		const route = routesConfig.routes.find((route) => route.sourceRoute === req.sourceRoute)
 	

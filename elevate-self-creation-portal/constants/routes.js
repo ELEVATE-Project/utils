@@ -7,7 +7,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/permissions/list',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -17,7 +17,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/config/list',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -97,6 +97,26 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/entity-types/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/organization-extensions/updateConfig/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/organization-extensions/updateConfig/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/organization-extensions/createConfig',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/organization-extensions/createConfig',
 				type: 'POST',
 			},
 		},
@@ -207,7 +227,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/details/',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -217,7 +237,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/details/:id',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -237,7 +257,17 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/reviewerList',
-				type: 'GET'
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/reviewerList',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/reviewerList',
+				type: 'GET',
 			},
 		},
 		{
@@ -247,7 +277,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/update',
-				type: 'POST'
+				type: 'POST',
 			},
 		},
 		{
@@ -257,7 +287,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/update/:id',
-				type: 'POST'
+				type: 'POST',
 			},
 		},
 		{
@@ -267,7 +297,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/projects/update/:id',
-				type: 'POST'
+				type: 'POST',
 			},
 		},
 		{
@@ -363,7 +393,27 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/certificates/list',
-				type: 'GET'
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/certificates/update',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/certificates/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/certificates/update/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/certificates/update/:id',
+				type: 'POST',
 			},
 		},
 		{
@@ -373,7 +423,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/resource/list',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -387,16 +437,16 @@ module.exports = {
 					{
 						baseUrl: process.env.PROJECT_SERVICE_BASE_URL,
 						path: '/project/v1/admin/dbFind/projectTemplates',
-						type: 'POST'
+						type: 'POST',
 					},
 					{
 						baseUrl: process.env.SURVEY_SERVICE_BASE_URL,
-						path: '/samiksha/v1/admin/dbFind/solutions',
-						type: 'POST'
-						}
-			],
+						path: '/survey/v1/admin/dbFind/solutions',
+						type: 'POST',
+					},
+				],
 				functionName: 'fetchResources',
-			}
+			},
 		},
 		{
 			sourceRoute: '/scp/v1/resource/upForReview',
@@ -405,7 +455,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/resource/upForReview',
-				type: 'GET'
+				type: 'GET',
 			},
 		},
 		{
@@ -420,13 +470,13 @@ module.exports = {
 			},
 		},
 		{
-			sourceRoute: '/scp/v1/role-permission-mapping/create/:role_id',
+			sourceRoute: '/scp/v1/role-permission-mapping/create',
 			type: 'POST',
 			priority: 'MUST_HAVE',
 			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
-				path: '/scp/v1/role-permission-mapping/create/:role_id',
+				path: '/scp/v1/role-permission-mapping/create',
 				type: 'POST',
 			},
 		},
@@ -497,6 +547,17 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/scp/v1/comments/update/:id',
+			type: 'DELETE',
+			priority: 'MUST_HAVE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/comments/update/:id',
+				type: 'DELETE',
+			},
+		},
+		{
 			sourceRoute: '/scp/v1/reviews/update/:id',
 			type: 'POST',
 			priority: 'MUST_HAVE',
@@ -547,7 +608,7 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/cloud-services/file/getSignedUrl',
-				type: 'POST'
+				type: 'POST',
 			},
 		},
 		{
@@ -557,19 +618,249 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/cloud-services/file/getDownloadableUrl',
-				type: 'POST'
+				type: 'POST',
 			},
-		},	
-		,
-        {
-            sourceRoute: "/scp/v1/resource/getPublishedResources",
-            type: "GET",
-            inSequence: false,
+		},
+		{
+			sourceRoute: '/scp/v1/resource/getPublishedResources',
+			type: 'GET',
+			inSequence: false,
 			orchestrated: false,
 			targetRoute: {
 				path: '/scp/v1/resource/getPublishedResources',
-				type: 'POST'
-			}
-        }	
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/getDataManagers',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/getDataManagers',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/update',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/update/:id',
+			type: 'DELETE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/update/:id',
+				type: 'DELETE',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/list',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/list',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/details/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/details/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/rollouts/publish/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/rollouts/publish/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/resource/publishCallback',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/publishCallback',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/update',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/update',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/update/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/update/:id',
+			type: 'DELETE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/update/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/addResources/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/addResources/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/removeResources/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/removeResources/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/details/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/details/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/submitForReview/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/submitForReview/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/getProgramManagers',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/getProgramManagers',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/programs/publish/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/programs/publish/:id',
+				type: 'GET',
+			},
+		},
+		{
+            sourceRoute: "/scp/health",
+            type: "GET",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/health",
+                type: "GET"
+            },
+			service:"scp"
+        },
+		{
+			sourceRoute: '/scp/v1/resource/getDeepLink',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/resource/getDeepLink',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/projects/republish/:id',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/projects/republish/:id',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/targeting/hierarchy/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/targeting/hierarchy/:id',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/targeting/subEntityList',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/targeting/subEntityList',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/config/createOrUpdate',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/config/createOrUpdate',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/scp/v1/config/updateRelatedOrgs',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/scp/v1/config/updateRelatedOrgs',
+				type: 'POST',
+			},
+		},
 	],
 }

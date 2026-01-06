@@ -8,6 +8,7 @@
 const routeConfigs = require('../constants/routes')
 const requesters = require('../utils/requester')
 const common = require('../constants/common')
+const {convertIdsToString} = require('../utils/integerToStringConverter')
 
 /**
  * Fetch resources from Samiksha service.
@@ -108,9 +109,55 @@ const fetchObserbationAndSurvey = async (req, res, responses) => {
 	
 	return response
 }
+const readUser = async (req, res, selectedConfig) => {
+	try {
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 
+		const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
+		let headers
+	
+		if (req.params.id) {
+			headers = {
+			'internal_access_token': req.headers['internal_access_token'],
+			'Content-Type': 'application/json',
+			}
+		} else {
+			headers = {
+			'X-auth-token': req.headers['x-auth-token'],
+			'Content-Type': 'application/json',
+			}
+		}
+		
+		let response = await requesters.get(req.baseUrl, parameterisedRoute, headers)
+		return res.json(response)
+	} catch (error) {
+		console.error('Error fetching user details:', error);
+		return res.status(500).json({ error: 'Internal Server Error' })
+	}
+}
+const readOrganization = async (req, res, selectedConfig) => {
+	try {
+		const parameterisedRoute = req.query.organisation_code ? selectedConfig.targetRoute.path + `?organisation_code=${req.query.organisation_code}` : selectedConfig.targetRoute.path + `?organisation_id=${req.query.organisation_id}`
+		if(selectedConfig.service){
+			req['baseUrl'] = process.env[`${selectedConfig.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		let response = await requesters.get(req.baseUrl, parameterisedRoute , {
+			'internal_access_token': req.headers['internal_access_token'],
+			'Content-Type':'application/json'
+		})
+	    response.result = convertIdsToString(response.result)
+		return res.json(response)
+	} catch (error) {
+		console.error('Error fetching organization details:', error)
+		return res.status(500).json({ error: 'Internal Server Error' })
+	}
+}
 const surveyController = {
-	fetchObserbationAndSurvey
+	fetchObserbationAndSurvey,
+	readUser,
+	readOrganization
 }
 
 module.exports = surveyController

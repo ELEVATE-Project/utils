@@ -17,6 +17,9 @@ const passThroughRequester = async (req, res) => {
 		const sourceBaseUrl = req.protocol + '://' + req.headers.host + '/'
 		const sourceUrl = new URL(req.originalUrl, sourceBaseUrl)
 		const route = routesConfig.routes.find((route) => route.sourceRoute === req.sourceRoute)
+		if(route.service){
+			req['baseUrl'] = process.env[`${route.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
 		const params = matchPathsAndExtractParams(route.sourceRoute, req.originalUrl)
 		console.log(params,'params')
 		const targetRoute = pathParamSetter(route.targetRoute.path, params)

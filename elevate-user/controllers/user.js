@@ -23,6 +23,29 @@ const entityTypeRead = async (req, res, responses) => {
 	})
 }
 
+const userDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	const parameterisedRoute = selectedConfig.targetRoute.path;
+	let headers
+	if (req.params.id) {
+		headers = {
+		  'internal_access_token': req.headers['internal_access_token'],
+		  'Content-Type': 'application/json',
+		}
+	  } else {
+	    headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+	}
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
 const loginUser = async (req, res, responses) => {
 	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
 	return await requesters.post(req.baseUrl, selectedConfig.targetRoute.path, req.body,{
@@ -48,6 +71,7 @@ const readOrganization = async (req, res, selectedConfig) => {
 
 const readUser = async (req, res, selectedConfig) => {
 	try {
+
 	  const parameterisedRoute = req.params.id ? selectedConfig.targetRoute.path.replace('/:id', `/${req.params.id}`) : selectedConfig.targetRoute.path;
 	  let headers
   
@@ -122,6 +146,27 @@ const validateEmails = async (req, res , selectedConfig) => {
 	}
 }
 
+const mentorDetails = async (req, res, responses) => {
+	const selectedConfig = routeConfigs.routes.find((obj) => obj.sourceRoute === req.sourceRoute)
+	
+	let parameterisedRoute = selectedConfig.targetRoute.path;
+
+	if(req.params.id){
+		parameterisedRoute = parameterisedRoute+'/'+req.params.id;
+	}
+	let	headers = {
+		  'Content-Type': 'application/json',
+		  'X-auth-token': req.headers['x-auth-token'],
+		}
+
+		console.log("parameterisedRoute ---------------",parameterisedRoute);
+
+	
+	 let response = await requesters.get(req.baseUrl, parameterisedRoute,headers,{})
+	  return response
+
+}
+
 const userController = {
 	createUser,
 	updateUser,
@@ -130,7 +175,9 @@ const userController = {
 	readOrganization,
 	readUser,
 	accountsList,
-	validateEmails
+	validateEmails,
+	userDetails,
+	mentorDetails
 }
 
 module.exports = userController

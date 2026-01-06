@@ -101,6 +101,16 @@ module.exports = {
 			},
 		},
 		{
+			sourceRoute: '/entity-management/v1/entities/createMappingCsv',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/entity-management/v1/entities/createMappingCsv',
+				type: 'POST'
+			},
+		},
+		{
 			sourceRoute: '/entity-management/v1/entities/bulkUpdate',
 			type: 'POST',
 			inSequence: false,
