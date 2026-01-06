@@ -92,7 +92,35 @@ const requiredEnvs = {
 	SUNBIRD_AUTHORIZATION_TOKEN : {
 		message: `[${kafkaPackageName}] Required authorization token with bearer`,
 		optional: false,
-	}
+	},
+	[`SUNBIRD_USER_KAFKA_CLIENT_ID`]: {
+		message: `[SUNBIRD_USER_KAFKA_CLIENT_ID] Required Kafka Brokers Hosts`,
+		optional: false,
+	},
+	[`SUNBIRD_USER_KAFKA_BROKERS`]: {
+		message: `[SUNBIRD_USER_KAFKA_BROKERS] Required Kafka Brokers Hosts`,
+		optional: false,
+	},
+	[`SUNBIRD_USER_KAFKA_GROUP_ID`]: {
+		message: `[SUNBIRD_USER_KAFKA_GROUP_ID] Required Kafka Group ID`,
+		optional: false,
+	},
+	[`SUNBIRD_USER_USER_UPDATE_KAFKA_TOPIC`]: {
+		message: `[SUNBIRD_USER_USER_UPDATE_KAFKA_TOPIC] Required Kafka Topics`,
+		optional: false,
+	},
+	MENTORING_SERVICE_BASE_URL: {
+		message: `[MENTORING_SERVICE_BASE_URL] Required Base URL for the Mentoring Service`,
+		optional: false,
+	},
+	MENTORING_SERVICE_USER_UPDATE_ROUTE: {
+		message: `[MENTORING_SERVICE_USER_UPDATE_ROUTE] Required Route for User Update in the Mentoring Service`,
+		optional: false,
+	},
+	MENTORING_INTERNAL_ACCESS_TOKEN: {
+		message: `[MENTORING_INTERNAL_ACCESS_TOKEN] Required Internal Access Token of the Mentoring Service`,
+		optional: false,
+	},
 }
 
 

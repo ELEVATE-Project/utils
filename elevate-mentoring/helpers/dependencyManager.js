@@ -1,9 +1,8 @@
 const kafkaManager = require('./kafkaManager')
-const kafkaUserManager = require('./userKafkaManager')
 
 const dependencyManager = (dependencyMap, environmentVariables) =>{
     try{
-        kafkaUserManager(dependencyMap.get('kafka'),environmentVariables)
+        console.log("--------------- dependencyManager elevate-kafka--   ");
         kafkaManager(dependencyMap.get('kafka'),environmentVariables)
     }catch(error){
         console.log(error)

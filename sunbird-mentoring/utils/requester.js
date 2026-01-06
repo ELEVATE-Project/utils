@@ -17,6 +17,11 @@ const passThroughRequester = async (req, res) => {
 		const sourceBaseUrl = req.protocol + '://' + req.headers.host + '/'
 		const sourceUrl = new URL(req.originalUrl, sourceBaseUrl)
 		const route = routesConfig.routes.find((route) => route.sourceRoute === req.sourceRoute)
+		
+		if(route.service){
+			req['baseUrl'] = process.env[`${route.service.toUpperCase()}_SERVICE_BASE_URL`]
+		}
+		
 		const params = matchPathsAndExtractParams(route.sourceRoute, req.originalUrl)
 		const targetRoute = pathParamSetter(route.targetRoute.path, params)
 		const parsedUrl = new URL(targetRoute, req.baseUrl)
@@ -124,27 +129,28 @@ const patch = async (baseUrl, route, requestBody, headers) => {
 	}
 }
 
-const get = async (baseUrl, route, headers) => {
-	try {
-		const url = baseUrl + route
-		if(process.env.DEBUG_MODE == "true"){
-			console.log('__GET REQUEST__')
-			console.log('REQUEST URL: ', url)
-			console.log('REQUEST HEADERS: ', headers)
-		}
-		return axios
-			.get(url, { headers })
-			.then((response) => response.data)
-			.catch((error) => {
-				if (error.response) {
-					return error.response.data
-				}
-				return error
-			})
-	} catch (error) {
-		console.error(error)
-		throw error // Re-throw the error to be caught by the caller
+const get = (baseUrl, route, headers, requestBody = {}) => {
+	const url = baseUrl + route
+	if(process.env.DEBUG_MODE == "true"){
+		console.log('__GET REQUEST__')
+		console.log('REQUEST URL: ', url)
+		console.log('REQUEST HEADERS: ', headers)
 	}
+	const options = {
+		headers,
+		data: requestBody 
+	};
+
+	return axios
+		.get(url, options) // Use POST to send body data
+		.then((response) => response.data)
+		.catch((error) => {
+			console.error('Error fetching data:', error)
+			if (error.response) {
+				return error.response
+			}
+			return error
+		})
 }
 
 const requesters = {
