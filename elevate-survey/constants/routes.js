@@ -198,6 +198,28 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+			sourceRoute: '/survey/v1/solutions/fetchLinkInternal',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/solutions/fetchLinkInternal',
+				type: 'GET'
+			},
+			service:"survey"
+		},
+		{
+			sourceRoute: '/survey/v1/solutions/fetchLinkInternal/:id',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/solutions/fetchLinkInternal/:id',
+				type: 'GET'
+			},
+			service:"survey"
+		},
 		{
 			sourceRoute: '/survey/v1/solutions/update',
 			type: 'POST',
@@ -414,6 +436,17 @@ module.exports = {
 			orchestrated: false,
 			targetRoute: {
 				path: '/survey/v1/programs/addEntitiesInScope',
+				type: 'POST'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/programs/fetchProgramDetails',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/programs/fetchProgramDetails',
 				type: 'POST'
 			},
 			service:"survey"
@@ -2989,6 +3022,26 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+            sourceRoute: "/survey/v1/admin/deleteSolutionResource",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteSolutionResource",
+                type: "POST"
+            },
+            service: "survey"
+        },
+        {
+            sourceRoute: "/survey/v1/admin/deleteSolutionResource/:id",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/admin/deleteSolutionResource/:id",
+                type: "POST"
+            },
+            service: "survey"
+        },
 		{
             sourceRoute: "/survey/v1/admin/deleteResource",
             type: "POST",
@@ -3130,6 +3183,16 @@ module.exports = {
             },
             service: "survey"
         },
+        {
+            sourceRoute: "/survey/v1/userExtension/mapUsersToPrograms",
+            type: "POST",
+            inSequence: false,
+            targetRoute: {
+                path: "/survey/v1/userExtension/mapUsersToPrograms",
+                type: "POST"
+            },
+            service: "survey"
+        }
 
 	],
 }

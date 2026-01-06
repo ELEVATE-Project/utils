@@ -11708,22 +11708,6 @@
 							"targetField": "user.user_updated_at"
 						}
 					]
-				},
-				{
-					"service": "mentoring",
-					"basePackageName": "mentoring",
-					"packageName": "elevate-mentoring",
-					"targetBody": [],
-					"responseBody": [
-						{
-							"sourceField": "created_at",
-							"targetField": "profile_created_at"
-						},
-						{
-							"sourceField": "updated_at",
-							"targetField": "profile_updated_at"
-						}
-					]
 				}
 			]
 		},
@@ -14267,6 +14251,19 @@
 				{
 					"basePackageName": "self-creation-portal",
 					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/mentoring/v1/connections/checkConnection",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "mentoring",
+					"packageName": "elevate-mentoring"
 				}
 			]
 		}
