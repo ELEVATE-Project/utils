@@ -3347,6 +3347,28 @@ module.exports = {
                 type: "POST"
             },
             service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/updateAcl",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/updateAcl",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/userProjects/updateAcl/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/userProjects/updateAcl/:id",
+                type: "POST"
+            },
+            service: "project"
         }
     ]
 }
