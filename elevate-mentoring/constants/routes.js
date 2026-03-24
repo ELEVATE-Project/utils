@@ -3620,7 +3620,47 @@ module.exports = {
 				path: '/mentoring/v1/users/requestCount',
 				type: 'GET',
 			},
-		}
+		},
+		{
+			sourceRoute: '/mentoring/v1/admin/getCacheStats',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/admin/getCacheStats',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/admin/clearCache',
+			type: 'POST',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/admin/clearCache',
+				type: 'POST',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/admin/warmUpCache',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/admin/warmUpCache',
+				type: 'GET',
+			},
+		},
+		{
+			sourceRoute: '/mentoring/v1/admin/getCacheHealth',
+			type: 'GET',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/mentoring/v1/admin/getCacheHealth',
+				type: 'GET',
+			},
+		},
 
 	],
 }
