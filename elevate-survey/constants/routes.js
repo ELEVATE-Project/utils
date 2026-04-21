@@ -1474,6 +1474,28 @@ module.exports = {
 			},
 			service:"survey"
 		},
+        {
+			sourceRoute: '/survey/v1/admin/clearTenantCache/:id',
+			type: 'DELETE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/admin/clearTenantCache/:id',
+				type: 'DELETE'
+			},
+			service:"survey"
+		},
+        {
+			sourceRoute: '/survey/v1/admin/clearTenantCache',
+			type: 'DELETE',
+			inSequence: false,
+			orchestrated: false,
+			targetRoute: {
+				path: '/survey/v1/admin/clearTenantCache',
+				type: 'DELETE'
+			},
+			service:"survey"
+		},
 		{
 			sourceRoute: '/interface/v1/internal/getAllPublishedResources',
 			type: 'POST',
