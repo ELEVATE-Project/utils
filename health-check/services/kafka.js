@@ -2,10 +2,11 @@
  * name : kafka.js
  * author : Vishnu
  * created-date : 25-june-2025
- * Description : Kafka health check functionality (send + receive).
+ * Description : Kafka health check functionality (send + receive + topic cleanup).
  */
 
 const kafka = require('kafka-node')
+const { Kafka } = require('kafkajs')
 const { v4: uuidv4 } = require('uuid')
 
 // Use environment variable or default to false
@@ -35,23 +36,60 @@ async function ensureTopicExists(client, topicName) {
 			if (DEBUG_MODE) {
 				console.log(`[Kafka Health Check] Topic '${topicName}' not found. Creating... ⏳`)
 			}
-			client.createTopics([{ topic: topicName, partitions: 1, replicationFactor: 1 }], (err) => {
-				if (err) return reject(err)
-				if (DEBUG_MODE) {
-					console.log(`[Kafka Health Check] Topic '${topicName}' created ✅`)
+
+			client.createTopics(
+				[{ topic: topicName, partitions: 1, replicationFactor: 1 }],
+				(err) => {
+					if (err) return reject(err)
+
+					if (DEBUG_MODE) {
+						console.log(`[Kafka Health Check] Topic '${topicName}' created`)
+					}
+
+					resolve(true)
 				}
-				resolve(true)
-			})
+			)
 		})
 	})
 }
 
 /**
+ * Delete topic using KafkaJS
+ */
+async function deleteTopic(kafkaUrl, topicName) {
+	try {
+		const kafkaClient = new Kafka({
+			brokers: [kafkaUrl],
+		})
+
+		const admin = kafkaClient.admin()
+
+		await admin.connect()
+
+		await admin.deleteTopics({
+			topics: [topicName],
+		})
+
+		await admin.disconnect()
+
+		if (DEBUG_MODE) {
+			console.log(`[Kafka Health Check] Topic '${topicName}' deleted`)
+		}
+
+		return true
+	} catch (error) {
+		if (DEBUG_MODE) {
+			console.error(
+				`[Kafka Health Check] Failed to delete topic '${topicName}':`,
+				error.message
+			)
+		}
+		return false
+	}
+}
+
+/**
  * Kafka health check
- * @param {string} kafkaUrl Kafka bootstrap server
- * @param {string} topicName Topic to check/create
- * @param {string} groupId Consumer group (used if sendReceive=true)
- * @param {boolean} sendReceive Optional: send and receive a message
  */
 async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 	return new Promise(async (resolve) => {
@@ -64,12 +102,17 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 		let consumer
 		let resolved = false
 
-		const cleanup = (val) => {
+		const cleanup = async (val) => {
 			if (resolved) return
 			resolved = true
 			try {
 				if (consumer) consumer.close(true)
 				if (client) client.close()
+
+				// Delete topic after successful health check
+				if (val === true) {
+					await deleteTopic(kafkaUrl, uniqueTopicName)
+				}
 			} catch (e) {
 				if (DEBUG_MODE) {
 					console.error('[Kafka Health Check] Cleanup error:', e.message)
@@ -103,7 +146,14 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 
 			// Step 3: Send message
 			const messageId = `health-check-${uuidv4()}`
-			const payloads = [{ topic: uniqueTopicName, messages: messageId }]
+
+			const payloads = [
+				{
+					topic: uniqueTopicName,
+					messages: messageId,
+				},
+			]
+
 			await new Promise((res, rej) => {
 				producer.send(payloads, (err) => {
 					if (err) return rej(err)
@@ -114,12 +164,16 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 				})
 			})
 
-			// Step 4: Setup consumer and receive
-			consumer = new kafka.Consumer(client, [{ topic: uniqueTopicName, partition: 0 }], {
-				groupId: uniqueGroupId,
-				autoCommit: true,
-				fromOffset: false,
-			})
+			// Step 4: create consumer
+			consumer = new kafka.Consumer(
+				client,
+				[{ topic: uniqueTopicName, partition: 0 }],
+				{
+					groupId: uniqueGroupId,
+					autoCommit: true,
+					fromOffset: false,
+				}
+			)
 
 			let received = false
 			const receiveTimeout = setTimeout(() => {
@@ -133,6 +187,8 @@ async function check(kafkaUrl, topicName, groupId, sendReceive = false) {
 
 			consumer.on('message', (message) => {
 				if (message.value === messageId) {
+					received = true
+
 					clearTimeout(receiveTimeout)
 					if (DEBUG_MODE) {
 						console.log('[Kafka Health Check] Message received')
