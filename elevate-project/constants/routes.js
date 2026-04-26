@@ -3369,6 +3369,28 @@ module.exports = {
                 type: "POST"
             },
             service: "project"
-        }
+        },
+        {
+            sourceRoute: "/project/v1/admin/clearTenantCache",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/admin/clearTenantCache",
+                type: "POST"
+            },
+            service: "project"
+        },
+        {
+            sourceRoute: "/project/v1/admin/clearTenantCache/:id",
+            type: "POST",
+            inSequence: false,
+            orchestrated: false,
+            targetRoute: {
+                path: "/project/v1/admin/clearTenantCache/:id",
+                type: "POST"
+            },
+            service: "project"
+        },
     ]
 }
