@@ -12657,6 +12657,32 @@
 					"packageName": "elevate-mentoring"
 				}
 			]
+		},
+		{
+			"sourceRoute": "/scp/v1/cloud-services/file/getSignedUrl",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
+		},
+		{
+			"sourceRoute": "/scp/v1/cloud-services/file/getDownloadableUrl",
+			"type": "POST",
+			"priority": "MUST_HAVE",
+			"inSequence": false,
+			"orchestrated": false,
+			"targetPackages": [
+				{
+					"basePackageName": "self-creation-portal",
+					"packageName": "elevate-self-creation-portal"
+				}
+			]
 		}
 	]
 }
