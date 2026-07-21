@@ -22,7 +22,7 @@ the open internet. Connect to the VPN before opening either Jenkins or Vault.
 The dev deploy job itself lives at:
 
 ```
-http://10.0.136.199:8080/view/all/job/Dev/job/mitra/configure
+http://10.0.136.199:8080/job/Dev/job/mitra/job/mitra-backend-service-deployment/
 ```
 
 ---
